@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Aguas de Abya Yala | Cartografía Inmersiva</title>
+    <!-- Tipografía Cinzel e Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="app-container">
+        <!-- 1. PORTAL DE ENTRADA INMERSIVO (ESTILO LAND LINES) -->
+        <section class="portal-screen" id="portal-screen">
+            <header class="portal-header">
+                <span class="portal-tag">MEMORIA DE LA TIERRA &bull; TODA ABYA YALA</span>
+                <h1 class="portal-title">AGUAS DE ABYA YALA</h1>
+                <p class="portal-subtitle">
+                    Un viaje inmersivo por el sistema circulatorio vivo de la tierra, desde los cañones del Ártico y Centroamérica hasta los glaciares patagónicos.
+                </p>
+            </header>
+
+            <div class="portal-options-grid">
+                <!-- Tarjeta 1: Modo Arrastrar Fluvial -->
+                <div class="portal-card" id="btn-portal-drag">
+                    <div class="portal-card-icon">🌊</div>
+                    <h2 class="portal-card-title">ARRASTRAR</h2>
+                    <p class="portal-card-desc">
+                        Desliza el ratón para fluir por los cañones y meandros de los ríos descubriendo sus aguas y su sonido natural en pantalla completa.
+                    </p>
+                </div>
+
+                <!-- Tarjeta 2: Modo Dibujar Trazo -->
+                <div class="portal-card" id="btn-portal-draw">
+                    <div class="portal-card-icon">✏️</div>
+                    <h2 class="portal-card-title">DIBUJAR</h2>
+                    <p class="portal-card-desc">
+                        Dibuja una curva o meandro con el ratón. El satélite encontrará el río del continente que mejor coincide con tu trazo.
+                    </p>
+                </div>
+            </div>
+
+            <button class="portal-secondary-btn" id="btn-portal-free">
+                Explorar todo el continente satelital en libertad ➔
+            </button>
+        </section>
+
+        <!-- 2. LIENZOS GRÁFICOS (SATÉLITE + AGUA + TRAZOS) -->
+        <canvas id="map-canvas"></canvas>
+        <canvas id="draw-canvas"></canvas>
+
+        <!-- 3. BARRA DE NAVEGACIÓN Y HUD MINIMALISTA -->
+        <div class="hud-layer" id="hud-layer">
+            <header class="top-bar">
+                <!-- Navegación Izquierda: Regreso evidente y Pantalla Completa -->
+                <div class="top-nav-left interactive">
+                    <button class="btn-portal-back" id="btn-portal-home" title="Regresar al Portal Principal">
+                        <span>←</span> Inicio / Portal
+                    </button>
+                    <button class="btn-fullscreen" id="btn-fullscreen" title="Modo Videojuego Pantalla Completa (F11)">
+                        <span>⛶</span> Pantalla Completa
+                    </button>
+                </div>
+
+                <!-- Selector Central de Cuencas -->
+                <div class="top-nav-center interactive">
+                    <button class="river-dropdown-trigger" id="btn-river-dropdown" title="Explorar la red de cuencas de Abya Yala">
+                        <span>🌊</span>
+                        <span id="current-river-name">Río Mackenzie</span>
+                        <span>▾</span>
+                    </button>
+                </div>
+
+                <!-- Controles Derecha: Conexiones, Modos y Sonido -->
+                <div class="top-nav-right interactive">
+                    <button class="btn-toggle-connections" id="btn-toggle-connections" title="Ver el tejido de conexiones intercuencas y la divisoria continental">
+                        <span>🔗</span> Conexiones
+                    </button>
+
+                    <div class="minimal-mode-selector">
+                        <button class="mini-btn active" id="btn-mode-flow" title="Modo Flujo / Arrastrar">
+                            <span>🌊</span> Flujo
+                        </button>
+                        <button class="mini-btn" id="btn-mode-draw" title="Modo Dibujar Trazo (Land Lines)">
+                            <span>✏️</span> Dibujar
+                        </button>
+                        <button class="mini-btn" id="btn-mode-free" title="Vista Continental Satelital">
+                            <span>🌎</span> Continente
+                        </button>
+                        <button class="mini-btn" id="btn-mode-tour" title="Vuelo Cinemático Automático">
+                            <span id="tour-icon">▶</span> Vuelo
+                        </button>
+                    </div>
+
+                    <button class="icon-button" id="btn-audio" title="Sonido vivo del agua (reactivo al movimiento)">
+                        <span id="audio-icon">🔊</span>
+                    </button>
+                </div>
+            </header>
+
+            <!-- Menú Desplegable Categorizado de Cuencas -->
+            <nav class="river-menu-overlay interactive" id="river-menu">
+                <!-- Se poblará dinámicamente categorizado por regiones -->
+            </nav>
+
+            <!-- Tarjeta Flotante Contextual Efímera -->
+            <aside class="floating-node-card interactive" id="floating-card">
+                <img src="" alt="" class="node-card-image" id="floating-img">
+                <div class="node-card-body">
+                    <span class="node-card-tag" id="floating-tag">CAÑÓN GEOLÓGICO</span>
+                    <h3 class="node-card-title" id="floating-title">Garganta de Taos</h3>
+                    <p class="node-card-text" id="floating-text">
+                        Impresionante cañón de roca basáltica tallado por el río en el altiplano de Nuevo México.
+                    </p>
+                    <div class="node-card-footer">
+                        <button class="node-card-view-btn" id="btn-open-photo-modal">
+                            Ampliar Fotografía
+                        </button>
+                        <button class="node-card-close-btn" id="btn-close-floating" title="Cerrar">✕</button>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Barra Inferior Minimalista -->
+            <footer class="bottom-bar interactive">
+                <div class="minimal-scrubber-container" id="scrubber-container">
+                    <div class="minimal-scrubber-info">
+                        <span id="scrubber-origin">🏔️ Naciente</span>
+                        <span id="scrubber-percent" style="color: var(--amber-gold);">Curso: 0%</span>
+                        <span id="scrubber-dest">🌊 Desembocadura</span>
+                    </div>
+                    <div class="minimal-track-bg" id="scrubber-track">
+                        <div class="minimal-track-fill" id="scrubber-fill"></div>
+                        <div class="minimal-track-handle" id="scrubber-handle"></div>
+                    </div>
+                </div>
+
+                <div class="minimal-hint-pill" id="hint-pill">
+                    Arrastra para fluir &bull; <span>El sonido del río vive en tu movimiento</span>
+                </div>
+            </footer>
+        </div>
+
+        <!-- 4. MODAL FOTOGRÁFICO DE PANTALLA COMPLETA -->
+        <div class="photo-viewer-modal interactive" id="photo-modal">
+            <div class="photo-viewer-content">
+                <button class="photo-viewer-close" id="photo-modal-close" title="Cerrar">✕</button>
+                <img src="" alt="" class="photo-viewer-img" id="photo-modal-img">
+                <div class="photo-viewer-caption">
+                    <h3 class="photo-viewer-title" id="photo-modal-title">Fotografía del Territorio</h3>
+                    <p class="photo-viewer-desc" id="photo-modal-desc">Memoria geológica y cultural.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/satellite-engine.js"></script>
+    <script src="js/data-cuencas.js"></script>
+    <script src="js/camera.js"></script>
+    <script src="js/particles.js"></script>
+    <script src="js/landlines-draw.js"></script>
+    <script src="js/audio.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
