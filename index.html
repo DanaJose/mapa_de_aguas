@@ -3,162 +3,519 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Aguas de Abya Yala | Cartografía Inmersiva</title>
+    <title>Aguas de Abya Yala | Cartografía Inmersiva & Red de Luchas</title>
     <!-- Tipografía Cinzel e Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div id="app-container">
-        <!-- 1. PORTAL DE ENTRADA INMERSIVO (ESTILO LAND LINES) -->
+
+        <!-- ==============================================================
+             1. PORTAL DE ENTRADA: COLLAGE SATELITAL INMERSIVO (LAND LINES)
+             ============================================================== -->
         <section class="portal-screen" id="portal-screen">
-            <header class="portal-header">
-                <span class="portal-tag">MEMORIA DE LA TIERRA &bull; TODA ABYA YALA</span>
-                <h1 class="portal-title">AGUAS DE ABYA YALA</h1>
-                <p class="portal-subtitle">
-                    Un viaje inmersivo por el sistema circulatorio vivo de la tierra, desde los cañones del Ártico y Centroamérica hasta los glaciares patagónicos.
-                </p>
-            </header>
-
-            <div class="portal-options-grid">
-                <!-- Tarjeta 1: Modo Arrastrar Fluvial -->
-                <div class="portal-card" id="btn-portal-drag">
-                    <div class="portal-card-icon">🌊</div>
-                    <h2 class="portal-card-title">ARRASTRAR</h2>
-                    <p class="portal-card-desc">
-                        Desliza el ratón para fluir por los cañones y meandros de los ríos descubriendo sus aguas y su sonido natural en pantalla completa.
-                    </p>
+            <!-- Fondo de Mosaico / Collage Satelital Dinámico -->
+            <div class="portal-collage-backdrop" aria-hidden="true">
+                <div class="collage-tile tile-1" style="--tile-img: url('assets/rio_bravo_canon.jpg');">
+                    <span class="collage-caption">Cañón del Río Bravo • Altiplano</span>
                 </div>
-
-                <!-- Tarjeta 2: Modo Dibujar Trazo -->
-                <div class="portal-card" id="btn-portal-draw">
-                    <div class="portal-card-icon">✏️</div>
-                    <h2 class="portal-card-title">DIBUJAR</h2>
-                    <p class="portal-card-desc">
-                        Dibuja una curva o meandro con el ratón. El satélite encontrará el río del continente que mejor coincide con tu trazo.
-                    </p>
+                <div class="collage-tile tile-2" style="--tile-img: url('assets/mackenzie_meandros.jpg');">
+                    <span class="collage-caption">Meandros del Dehcho • Ártico</span>
                 </div>
+                <div class="collage-tile tile-3" style="--tile-img: url('assets/abya_yala_red_hidrica.png');">
+                    <span class="collage-caption">Sistema Vascular • Abya Yala</span>
+                </div>
+                <div class="collage-tile tile-4" style="--tile-img: url('assets/mackenzie_mapa.jpg');">
+                    <span class="collage-caption">Drenaje Fluvial • Red Capilar</span>
+                </div>
+                <div class="collage-tile tile-5" style="--tile-img: url('assets/red_luchas_abya_yala.png');">
+                    <span class="collage-caption">94 Defensas del Agua • Red Continental</span>
+                </div>
+                <div class="collage-tile tile-6" style="--tile-img: url('assets/america_continente.jpg');">
+                    <span class="collage-caption">Visión Planetaria • ONU-GGIM</span>
+                </div>
+                <div class="collage-overlay-gradient"></div>
             </div>
 
-            <button class="portal-secondary-btn" id="btn-portal-free">
-                Explorar todo el continente satelital en libertad ➔
-            </button>
+            <!-- Contenido Central Flotante -->
+            <div class="portal-content-box">
+                <header class="portal-header">
+                    <div class="portal-badge-row">
+                        <span class="portal-tag">MEMORIA DE LA TIERRA</span>
+                        <span class="portal-onu-badge">ESTÁNDAR UN-GGIM &bull; ONU-AGUA (ODS 6)</span>
+                    </div>
+                    <h1 class="portal-title">AGUAS DE ABYA YALA</h1>
+                    <p class="portal-subtitle">
+                        El sistema circulatorio vivo de la tierra y la red continental de 94 luchas territoriales en defensa del agua.
+                        Inspirado en el experimento <em>Land Lines</em> con cartografía satelital continua y sonido reactivo.
+                    </p>
+                </header>
+
+                <div class="portal-options-grid">
+                    <!-- Tarjeta 1: Modo Flujo Fluvial (Drag) -->
+                    <div class="portal-card" id="btn-portal-drag">
+                        <div class="portal-card-icon">🌊</div>
+                        <h2 class="portal-card-title">ARRASTRAR</h2>
+                        <span class="portal-card-mode-tag">Modo Fluvial</span>
+                        <p class="portal-card-desc">
+                            Desliza el ratón para fluir por los cañones y meandros de los ríos con sonido reactivo de corriente.
+                        </p>
+                    </div>
+
+                    <!-- Tarjeta 2: Modo Dibujar Trazo (Draw) -->
+                    <div class="portal-card" id="btn-portal-draw">
+                        <div class="portal-card-icon">✏️</div>
+                        <h2 class="portal-card-title">DIBUJAR</h2>
+                        <span class="portal-card-mode-tag">Land Lines</span>
+                        <p class="portal-card-desc">
+                            Dibuja un trazo o meandro en la pantalla. El satélite encontrará el río que coincide con tu gesto.
+                        </p>
+                    </div>
+
+                    <!-- Tarjeta 3: Red de 94 Luchas Territoriales -->
+                    <div class="portal-card card-struggles" id="btn-portal-struggles">
+                        <div class="portal-card-icon">✊</div>
+                        <h2 class="portal-card-title">94 LUCHAS</h2>
+                        <span class="portal-card-mode-tag">Memoria Comunitaria</span>
+                        <p class="portal-card-desc">
+                            Georreferenciación de 94 defensas frente a la megaminería, el litio, las represas y la contaminación.
+                        </p>
+                    </div>
+
+                    <!-- Tarjeta 4: Exploración Continental Completa -->
+                    <div class="portal-card" id="btn-portal-free">
+                        <div class="portal-card-icon">🌎</div>
+                        <h2 class="portal-card-title">CONTINENTE</h2>
+                        <span class="portal-card-mode-tag">Vuelo Libre</span>
+                        <p class="portal-card-desc">
+                            Navega libremente toda Abya Yala con dimensiones geodésicas y cuencas transfronterizas.
+                        </p>
+                    </div>
+                </div>
+
+                <footer class="portal-footer">
+                    <span>Mapeo geodésico WGS 84 / Web Mercator EPSG:3857 &bull; Persistencia de memoria territorial local</span>
+                </footer>
+            </div>
         </section>
 
-        <!-- 2. LIENZOS GRÁFICOS (SATÉLITE + AGUA + TRAZOS) -->
+        <!-- ==============================================================
+             2. LIENZOS GRÁFICOS (SATÉLITE + AGUA + TRAZOS)
+             ============================================================== -->
         <canvas id="map-canvas"></canvas>
         <canvas id="draw-canvas"></canvas>
 
-        <!-- 3. BARRA DE NAVEGACIÓN Y HUD MINIMALISTA -->
-        <div class="hud-layer" id="hud-layer">
-            <header class="top-bar">
-                <!-- Navegación Izquierda: Regreso evidente y Pantalla Completa -->
-                <div class="top-nav-left interactive">
-                    <button class="btn-portal-back" id="btn-portal-home" title="Regresar al Portal Principal">
-                        <span>←</span> Inicio / Portal
-                    </button>
-                    <button class="btn-fullscreen" id="btn-fullscreen" title="Modo Videojuego Pantalla Completa (F11)">
-                        <span>⛶</span> Pantalla Completa
-                    </button>
+        <!-- ==============================================================
+             3. BARRA SUPERIOR HUD FLOTANTE (COMPACTA Y CLARA)
+             ============================================================== -->
+        <header class="hud-top-bar interactive" id="hud-top-bar">
+            <!-- Bloque Izquierdo: Retorno a Portada y Título -->
+            <div class="nav-cluster-left">
+                <button class="nav-pill-btn btn-home" id="btn-portal-home" title="Regresar al Portal Principal">
+                    <span>←</span> <span class="btn-text">Portada</span>
+                </button>
+                <div class="project-pill">
+                    <span class="project-icon">🌊</span>
+                    <span class="project-title">Aguas de Abya Yala</span>
+                    <span class="un-mini-tag" title="Dimensiones geodésicas WGS84 y cuencas según estándares UN-GGIM / ONU-Agua">ONU-GGIM</span>
                 </div>
+            </div>
 
-                <!-- Selector Central de Cuencas -->
-                <div class="top-nav-center interactive">
-                    <button class="river-dropdown-trigger" id="btn-river-dropdown" title="Explorar la red de cuencas de Abya Yala">
-                        <span>🌊</span>
-                        <span id="current-river-name">Río Mackenzie</span>
-                        <span>▾</span>
+            <!-- Bloque Central: Selector de Cuenca / Territorio -->
+            <div class="nav-cluster-center">
+                <button class="river-selector-btn" id="btn-river-dropdown" title="Explorar ríos y cuencas de Abya Yala">
+                    <span class="river-selector-icon">📍</span>
+                    <span class="river-selector-label" id="current-river-name">Río Mackenzie (Dehcho)</span>
+                    <span class="river-selector-caret">▾</span>
+                </button>
+            </div>
+
+            <!-- Bloque Derecho: Modos, Capas y Utilidades -->
+            <div class="nav-cluster-right">
+                <!-- Selector de Modos -->
+                <div class="segmented-modes">
+                    <button class="seg-btn active" id="btn-mode-flow" title="Modo Flujo / Arrastrar (Seguir el río)">
+                        <span>🌊</span> <span class="btn-label">Flujo</span>
                     </button>
-                </div>
-
-                <!-- Controles Derecha: Conexiones, Modos y Sonido -->
-                <div class="top-nav-right interactive">
-                    <button class="btn-toggle-connections" id="btn-toggle-connections" title="Ver el tejido de conexiones intercuencas y la divisoria continental">
-                        <span>🔗</span> Conexiones
+                    <button class="seg-btn" id="btn-mode-draw" title="Modo Dibujar Trazo (Land Lines)">
+                        <span>✏️</span> <span class="btn-label">Dibujo</span>
                     </button>
-
-                    <div class="minimal-mode-selector">
-                        <button class="mini-btn active" id="btn-mode-flow" title="Modo Flujo / Arrastrar">
-                            <span>🌊</span> Flujo
-                        </button>
-                        <button class="mini-btn" id="btn-mode-draw" title="Modo Dibujar Trazo (Land Lines)">
-                            <span>✏️</span> Dibujar
-                        </button>
-                        <button class="mini-btn" id="btn-mode-free" title="Vista Continental Satelital">
-                            <span>🌎</span> Continente
-                        </button>
-                        <button class="mini-btn" id="btn-mode-tour" title="Vuelo Cinemático Automático">
-                            <span id="tour-icon">▶</span> Vuelo
-                        </button>
-                    </div>
-
-                    <button class="icon-button" id="btn-audio" title="Sonido vivo del agua (reactivo al movimiento)">
-                        <span id="audio-icon">🔊</span>
+                    <button class="seg-btn" id="btn-mode-free" title="Vuelo Continental Panorámico">
+                        <span>🌎</span> <span class="btn-label">Continente</span>
                     </button>
                 </div>
-            </header>
 
-            <!-- Menú Desplegable Categorizado de Cuencas -->
-            <nav class="river-menu-overlay interactive" id="river-menu">
-                <!-- Se poblará dinámicamente categorizado por regiones -->
-            </nav>
-
-            <!-- Tarjeta Flotante Contextual Efímera -->
-            <aside class="floating-node-card interactive" id="floating-card">
-                <img src="" alt="" class="node-card-image" id="floating-img">
-                <div class="node-card-body">
-                    <span class="node-card-tag" id="floating-tag">CAÑÓN GEOLÓGICO</span>
-                    <h3 class="node-card-title" id="floating-title">Garganta de Taos</h3>
-                    <p class="node-card-text" id="floating-text">
-                        Impresionante cañón de roca basáltica tallado por el río en el altiplano de Nuevo México.
-                    </p>
-                    <div class="node-card-footer">
-                        <button class="node-card-view-btn" id="btn-open-photo-modal">
-                            Ampliar Fotografía
-                        </button>
-                        <button class="node-card-close-btn" id="btn-close-floating" title="Cerrar">✕</button>
-                    </div>
-                </div>
-            </aside>
-
-            <!-- Barra Inferior Minimalista -->
-            <footer class="bottom-bar interactive">
-                <div class="minimal-scrubber-container" id="scrubber-container">
-                    <div class="minimal-scrubber-info">
-                        <span id="scrubber-origin">🏔️ Naciente</span>
-                        <span id="scrubber-percent" style="color: var(--amber-gold);">Curso: 0%</span>
-                        <span id="scrubber-dest">🌊 Desembocadura</span>
-                    </div>
-                    <div class="minimal-track-bg" id="scrubber-track">
-                        <div class="minimal-track-fill" id="scrubber-fill"></div>
-                        <div class="minimal-track-handle" id="scrubber-handle"></div>
-                    </div>
+                <!-- Capas temáticas -->
+                <div class="layer-tools">
+                    <button class="tool-btn" id="btn-toggle-struggles" title="Activar/Desactivar marcadores de las 94 Luchas Territoriales">
+                        <span>✊</span> <span class="btn-label">Luchas 94</span>
+                    </button>
+                    <button class="tool-btn" id="btn-toggle-connections" title="Ver bifurcaciones intercuencas (Casiquiare, Divisoria Continental)">
+                        <span>🔗</span> <span class="btn-label">Conexiones</span>
+                    </button>
                 </div>
 
-                <div class="minimal-hint-pill" id="hint-pill">
-                    Arrastra para fluir &bull; <span>El sonido del río vive en tu movimiento</span>
+                <!-- Botón para alternar Dossier Lateral -->
+                <button class="tool-btn highlight" id="btn-toggle-dossier" title="Abrir/Ocultar Ficha Territorial e Hidrológica">
+                    <span>📋</span> <span class="btn-label">Ficha</span>
+                </button>
+
+                <!-- Música Territorial & YouTube -->
+                <button class="tool-btn" id="btn-toggle-music" title="Música Territorial & YouTube (Clic para activar/pausar)">
+                    <span>🎵</span> <span class="btn-label" id="music-btn-label">Música</span>
+                </button>
+                <button class="icon-tool-btn" id="btn-config-music" title="Configurar o pegar enlace de YouTube para alimentar la música">
+                    <span>⚙️</span>
+                </button>
+
+                <!-- Modo Eco / Ahorro Energético -->
+                <button class="icon-tool-btn" id="btn-eco-mode" title="Modo Eco: Reduce consumo energético de la GPU y huella digital">
+                    <span id="eco-icon">🌱</span>
+                </button>
+
+                <!-- Sonido de Agua y Pantalla Completa -->
+                <button class="icon-tool-btn" id="btn-audio" title="Sonido reactivo del agua (Web Audio API)">
+                    <span id="audio-icon">🔊</span>
+                </button>
+                <button class="icon-tool-btn" id="btn-fullscreen" title="Pantalla Completa Videojuego (F11)">
+                    <span id="fullscreen-icon">⛶</span>
+                </button>
+            </div>
+        </header>
+
+        <!-- Menú Desplegable Categorizado de Cuencas -->
+        <nav class="river-menu-dropdown interactive" id="river-menu">
+            <!-- Poblado dinámicamente categorizado por macro-regiones -->
+        </nav>
+
+        <!-- BANNER CINEMÁTICO DE LLEGADA A LOS NODOS -->
+        <div class="node-arrival-banner interactive" id="node-arrival-banner">
+            <div class="arrival-banner-media">
+                <img src="" alt="" class="arrival-banner-img" id="arrival-banner-img">
+                <div class="arrival-banner-badge" id="arrival-banner-badge">📍 LLEGADA AL NODO</div>
+            </div>
+            <div class="arrival-banner-info">
+                <div class="arrival-meta-row">
+                    <span class="arrival-num-pill" id="arrival-num-pill"># 1</span>
+                    <span class="arrival-country-tag" id="arrival-country-tag">México</span>
                 </div>
-            </footer>
+                <h3 class="arrival-title" id="arrival-title">Nombre del Territorio</h3>
+                <p class="arrival-threat" id="arrival-threat">Amenaza ecológica y comunidades en resistencia...</p>
+                <div class="arrival-actions">
+                    <button class="arrival-action-btn primary" id="btn-arrival-open-dossier">Ver Ficha Completa ➔</button>
+                    <button class="arrival-action-btn secondary" id="btn-arrival-close">✕</button>
+                </div>
+            </div>
         </div>
 
-        <!-- 4. MODAL FOTOGRÁFICO DE PANTALLA COMPLETA -->
+        <!-- ==============================================================
+             4. DOSSIER LATERAL DESPLEGABLE: FICHA TERRITORIAL & HIDROLÓGICA
+             ============================================================== -->
+        <aside class="territory-dossier interactive" id="territory-dossier">
+            <!-- Barra de Control del Dossier -->
+            <div class="dossier-header">
+                <div class="dossier-title-box">
+                    <span class="dossier-kicker">CARTOGRAFÍA CONTINENTAL</span>
+                    <h2 class="dossier-main-title">FICHA TERRITORIAL</h2>
+                </div>
+                <button class="dossier-close-btn" id="btn-close-dossier" title="Ocultar ficha para ver el mapa">✕</button>
+            </div>
+
+            <!-- Pestañas de la Doble Perspectiva -->
+            <div class="dossier-tabs">
+                <button class="dossier-tab-btn active" id="tab-btn-hydro">
+                    <span>💧</span> Hidrología (ONU-Agua)
+                </button>
+                <button class="dossier-tab-btn" id="tab-btn-struggles">
+                    <span>✊</span> Lucha Territorial (94 Nodos)
+                </button>
+            </div>
+
+            <!-- CONTENIDO PESTAÑA 1: HIDROLOGÍA & CUENCA -->
+            <div class="dossier-tab-pane active" id="pane-hydro">
+                <div class="dossier-photo-container">
+                    <img src="assets/mackenzie_meandros.jpg" alt="Foto del Río" class="dossier-img" id="hydro-river-img">
+                    <span class="dossier-img-zoom-hint" id="btn-zoom-photo">🔍 Ampliar Fotografía</span>
+                </div>
+
+                <div class="dossier-body">
+                    <span class="dossier-region-pill" id="hydro-region-pill">Norteamérica &bull; Gran Norte Boreal</span>
+                    <h3 class="dossier-river-name" id="hydro-river-title">Río Mackenzie (Dehcho)</h3>
+                    <p class="dossier-river-subtitle" id="hydro-river-sub">El gran río ártico que esculpe meandros en la taiga</p>
+
+                    <!-- Métricas Oficiales de Cuenca (ONU-Agua / UN-GGIM) -->
+                    <div class="onu-metrics-grid">
+                        <div class="metric-card">
+                            <span class="metric-label">Longitud</span>
+                            <span class="metric-val" id="metric-length">4.241 km</span>
+                        </div>
+                        <div class="metric-card">
+                            <span class="metric-label">Área de Cuenca</span>
+                            <span class="metric-val" id="metric-area">1.805.200 km²</span>
+                        </div>
+                        <div class="metric-card">
+                            <span class="metric-label">Caudal Medio</span>
+                            <span class="metric-val" id="metric-flow">9.910 m³/s</span>
+                        </div>
+                        <div class="metric-card">
+                            <span class="metric-label">Estándar ONU</span>
+                            <span class="metric-val text-amber">ODS 6.6.1</span>
+                        </div>
+                    </div>
+
+                    <!-- Descripción Biofísica -->
+                    <div class="dossier-text-block">
+                        <h4 class="block-title">Memoria de la Cuenca</h4>
+                        <p class="dossier-paragraph" id="hydro-river-desc">
+                            Conocido por el pueblo originario Dene como 'Dehcho' (el Gran Río). Drena una inmensa red de taiga, turberas boreales, meandros serpenteantes y lagos colosales. Regula el clima global vertiendo agua dulce al Océano Glacial Ártico.
+                        </p>
+                    </div>
+
+                    <!-- Hitos Fluviales (Waypoints interactivos) -->
+                    <div class="dossier-waypoints-block">
+                        <h4 class="block-title">Hitos Fluviales & Meandros</h4>
+                        <div class="waypoints-chip-list" id="hydro-waypoints-list">
+                            <!-- Poblado dinámicamente -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CONTENIDO PESTAÑA 2: LUCHAS TERRITORIALES (RED DE 94 NODOS) -->
+            <div class="dossier-tab-pane" id="pane-struggles">
+                <div class="struggle-active-box">
+                    <div class="struggle-badge-row">
+                        <span class="struggle-num-badge" id="struggle-badge-num"># 1</span>
+                        <span class="struggle-country-pill" id="struggle-badge-country">México</span>
+                        <span class="struggle-source-tag">Red de 94 Defensas</span>
+                    </div>
+
+                    <h3 class="struggle-node-title" id="struggle-node-title">Cerro Prieto (Área Geotérmica)</h3>
+                    <span class="struggle-cuenca-tag" id="struggle-node-cuenca">Cuenca: Valle de Mexicali / Delta del Río Colorado</span>
+
+                    <!-- Alerta de Amenaza Ecológica -->
+                    <div class="struggle-threat-box">
+                        <span class="threat-label">⚠️ Amenaza Ecológica & Territorial</span>
+                        <p class="threat-text" id="struggle-node-threat">
+                            Extracción geotérmica intensiva, subsidencia de suelos y emisiones de salmueras.
+                        </p>
+                    </div>
+
+                    <!-- Pueblos y Comunidades en Resistencia -->
+                    <div class="struggle-communities-box">
+                        <span class="communities-label">✊ Comunidades en Resistencia</span>
+                        <p class="communities-text" id="struggle-node-communities">
+                            Comunidades agrícolas del Valle de Mexicali y pueblo Cucapá.
+                        </p>
+                    </div>
+
+                    <!-- Crónica del Conflicto -->
+                    <div class="dossier-text-block">
+                        <h4 class="block-title">Crónica Socioambiental</h4>
+                        <p class="dossier-paragraph" id="struggle-node-desc">
+                            Uno de los campos geotérmicos más grandes del mundo. La extracción de vapor profundo ha generado fracturas en el terreno, abatimiento del manto freático y conflictos con los agricultores por el uso del agua.
+                        </p>
+                    </div>
+
+                    <!-- Acciones del Nodo -->
+                    <div class="struggle-actions-row">
+                        <button class="btn-edit-memory" id="btn-edit-current-struggle" title="Completar datos o añadir imagen a este nodo">
+                            ✏️ Editar / Aportar Memoria
+                        </button>
+                        <button class="btn-browse-all-struggles" id="btn-open-catalog-from-dossier" title="Explorar el índice de los 94 nodos">
+                            🔍 Catálogo de 94 Nodos
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- ==============================================================
+             5. TIMELINE FLUVIAL INFERIOR (SCRUBBER LIMPIO Y NAVEGABLE)
+             ============================================================== -->
+        <footer class="bottom-timeline-bar interactive" id="bottom-timeline">
+            <div class="timeline-container">
+                <div class="timeline-header-info">
+                    <span class="timeline-endpoint origin" id="timeline-origin">🏔️ Naciente</span>
+                    <span class="timeline-progress-pill" id="timeline-progress-pct">Curso Fluvial: 0%</span>
+                    <span class="timeline-endpoint dest" id="timeline-dest">🌊 Desembocadura</span>
+                </div>
+
+                <div class="timeline-track-wrapper" id="timeline-track-wrapper">
+                    <div class="timeline-track" id="timeline-track">
+                        <div class="timeline-progress-fill" id="timeline-progress-fill"></div>
+                        <div class="timeline-handle" id="timeline-handle"></div>
+                        <!-- Waypoints markers sobre la barra -->
+                        <div class="timeline-waypoints-layer" id="timeline-waypoints-layer"></div>
+                    </div>
+                </div>
+
+                <div class="timeline-hint-pill" id="hint-pill">
+                    Arrastra el mapa para fluir &bull; <span>El sonido del río responde al movimiento</span>
+                </div>
+            </div>
+        </footer>
+
+        <!-- ==============================================================
+             6. MODAL: CATÁLOGO COMPLETO DE LAS 94 LUCHAS DEL AGUA
+             ============================================================== -->
+        <div class="struggles-index-modal interactive" id="struggles-index-modal">
+            <div class="struggles-index-card">
+                <header class="struggles-modal-header">
+                    <div>
+                        <span class="modal-kicker">CARTOGRAFÍA CONTINENTAL DE RESISTENCIA</span>
+                        <h2 class="modal-title">Red de 94 Defensas del Agua de Abya Yala</h2>
+                    </div>
+                    <button class="modal-close-btn" id="btn-close-struggles-modal" title="Cerrar">✕</button>
+                </header>
+
+                <div class="struggles-modal-toolbar">
+                    <input type="text" class="struggles-search-box" id="struggles-search-input" placeholder="🔍 Buscar por nombre, amenaza (litio, minería, arsénico) o número (1-94)...">
+                    <div class="filter-pills-row" id="struggles-filter-pills">
+                        <button class="filter-pill active" data-filter="all">Todos (94)</button>
+                        <button class="filter-pill" data-filter="México">México (1-35)</button>
+                        <button class="filter-pill" data-filter="Centroamérica">Centroamérica (36-54)</button>
+                        <button class="filter-pill" data-filter="Andes">Andes (55-79)</button>
+                        <button class="filter-pill" data-filter="Cono Sur">Cono Sur & Brasil (80-94)</button>
+                    </div>
+                </div>
+
+                <div class="struggles-grid-container" id="struggles-grid-container">
+                    <!-- Se puebla dinámicamente con las 94 tarjetas -->
+                </div>
+            </div>
+        </div>
+
+        <!-- ==============================================================
+             7. MODAL: EDITOR DE MEMORIA TERRITORIAL & DATOS COMUNITARIOS
+             ============================================================== -->
+        <div class="editor-modal interactive" id="editor-modal">
+            <div class="editor-card">
+                <header class="editor-header">
+                    <div>
+                        <span class="modal-kicker">MEMORIA COMUNITARIA Y POPULAR</span>
+                        <h2 class="modal-title" id="editor-dialog-title">Aportar Memoria al Nodo Territorial</h2>
+                    </div>
+                    <button class="modal-close-btn" id="btn-close-editor-modal" title="Cerrar">✕</button>
+                </header>
+
+                <form class="editor-form" id="editor-form" onsubmit="return false;">
+                    <input type="hidden" id="edit-node-num">
+
+                    <div class="form-row two-cols">
+                        <div class="form-group">
+                            <label class="form-label" for="edit-node-name">Nombre del Territorio / Sitio</label>
+                            <input type="text" id="edit-node-name" class="form-input" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="edit-node-cuenca">Cuenca / Río / Acuífero</label>
+                            <input type="text" id="edit-node-cuenca" class="form-input" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row two-cols">
+                        <div class="form-group">
+                            <label class="form-label" for="edit-node-country">País / Estado o Departamento</label>
+                            <input type="text" id="edit-node-country" class="form-input" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="edit-node-threat">Tipo de Amenaza / Conflicto Ecológico</label>
+                            <input type="text" id="edit-node-threat" class="form-input" placeholder="Ej: Megaminería, Fracking, Litio, Represa" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="edit-node-communities">Comunidades y Pueblos Originarios en Defensa</label>
+                        <input type="text" id="edit-node-communities" class="form-input" placeholder="Ej: Pueblo Lenca, Comunidades ribereñas, Asambleas por el agua" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="edit-node-text">Crónica y Memoria Territorial</label>
+                        <textarea id="edit-node-text" class="form-textarea" placeholder="Escribe la historia de la lucha, el estado del agua y la memoria biocultural..."></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="edit-node-image">Ruta de Fotografía o Imagen</label>
+                        <input type="text" id="edit-node-image" class="form-input" placeholder="assets/mi_imagen.jpg o enlace URL...">
+                    </div>
+
+                    <div class="editor-footer-actions">
+                        <button type="button" class="btn-export-memory" id="btn-export-json" title="Descargar base de datos con todos tus aportes">
+                            📥 Exportar JSON
+                        </button>
+                        <div class="editor-right-btns">
+                            <button type="button" class="btn-cancel-memory" id="btn-cancel-editor">Cancelar</button>
+                            <button type="submit" class="btn-save-memory" id="btn-save-memory">💾 Guardar Memoria</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- ==============================================================
+             8. MODAL: VISOR FOTOGRÁFICO DE PANTALLA COMPLETA
+             ============================================================== -->
         <div class="photo-viewer-modal interactive" id="photo-modal">
             <div class="photo-viewer-content">
                 <button class="photo-viewer-close" id="photo-modal-close" title="Cerrar">✕</button>
                 <img src="" alt="" class="photo-viewer-img" id="photo-modal-img">
                 <div class="photo-viewer-caption">
                     <h3 class="photo-viewer-title" id="photo-modal-title">Fotografía del Territorio</h3>
-                    <p class="photo-viewer-desc" id="photo-modal-desc">Memoria geológica y cultural.</p>
+                    <p class="photo-viewer-desc" id="photo-modal-desc">Memoria geológica y biocultural.</p>
                 </div>
             </div>
         </div>
+
+        <!-- ==============================================================
+             9. MODAL: CONFIGURACIÓN DE MÚSICA & YOUTUBE EXTERNO
+             ============================================================== -->
+        <div class="music-modal interactive" id="music-modal">
+            <div class="music-card">
+                <header class="music-modal-header">
+                    <div>
+                        <span class="modal-kicker">PAISAJE SONORO & MÚSICA DE ABYA YALA</span>
+                        <h2 class="modal-title">Alimentar la Música del Mapa</h2>
+                    </div>
+                    <button class="modal-close-btn" id="btn-close-music-modal" title="Cerrar">✕</button>
+                </header>
+
+                <div class="music-modal-body">
+                    <p class="music-modal-desc">
+                        Personaliza la música vinculando cualquier video de <strong>YouTube</strong> o enlace de audio (MP3). Tus aportes se guardan localmente para acompañar el recorrido por las aguas.
+                    </p>
+
+                    <div class="form-group" style="margin-bottom: 14px;">
+                        <label class="form-label" for="music-url-input">Enlace de YouTube o Audio URL</label>
+                        <input type="text" id="music-url-input" class="form-input" placeholder="https://www.youtube.com/watch?v=... o https://youtu.be/...">
+                    </div>
+
+                    <div class="music-presets-group">
+                        <span class="form-label" style="margin-bottom: 6px; display: block;">Pistas Curadas Recomendadas:</span>
+                        <div class="music-presets-list" id="music-presets-list">
+                            <!-- Se poblará dinámicamente con los presets -->
+                        </div>
+                    </div>
+
+                    <div class="editor-footer-actions" style="margin-top: 18px;">
+                        <button type="button" class="btn-cancel-memory" id="btn-cancel-music">Cancelar</button>
+                        <button type="button" class="btn-save-memory" id="btn-save-music">💾 Aplicar y Reproducir</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contenedor oculto de audio para YouTube / IFrame -->
+        <div id="youtube-audio-container" style="position: absolute; left: -9999px; top: -9999px; width: 1px; height: 1px; overflow: hidden; pointer-events: none;"></div>
+
     </div>
 
-    <!-- Scripts -->
+    <!-- Módulos de Javascript -->
     <script src="js/satellite-engine.js"></script>
     <script src="js/data-cuencas.js"></script>
+    <script src="js/data-luchas-94.js"></script>
     <script src="js/camera.js"></script>
     <script src="js/particles.js"></script>
     <script src="js/landlines-draw.js"></script>

@@ -19,10 +19,21 @@ class SatelliteTileEngine {
         this.queue = [];
     }
 
+    // Parámetros Geodésicos Oficiales UN-GGIM / WGS 84 (Resolución 69/266 de la Asamblea General de la ONU)
+    static UN_GEODESY = {
+        datum: "WGS 84",
+        epsg: "EPSG:3857 (Web Mercator Conforme)",
+        semiMajorAxisMetres: 6378137.0, // Radio ecuatorial estándar ONU
+        equatorialCircumferenceMetres: 40075016.68557849, // 2 * PI * a
+        maxLatitude: 85.05112878, // Límites conformes sin distorsión infinita
+        minLatitude: -85.05112878
+    };
+
     // Conversión de Latitud/Longitud a Coordenadas Web Mercator continuas [0, 1]
     static project(lat, lng) {
-        const sinLat = Math.sin(lat * Math.PI / 180);
-        // Clamp para evitar infinitos en los polos
+        // Clamp geodésico oficial ONU
+        const clampedLat = Math.max(SatelliteTileEngine.UN_GEODESY.minLatitude, Math.min(SatelliteTileEngine.UN_GEODESY.maxLatitude, lat));
+        const sinLat = Math.sin(clampedLat * Math.PI / 180);
         const clampedSin = Math.max(-0.9999, Math.min(0.9999, sinLat));
         const x = (lng + 180) / 360;
         const y = 0.5 - Math.log((1 + clampedSin) / (1 - clampedSin)) / (4 * Math.PI);
@@ -35,6 +46,11 @@ class SatelliteTileEngine {
         const n = Math.PI - 2 * Math.PI * y;
         const lat = (180 / Math.PI) * Math.atan(0.5 * (Math.exp(n) - Math.exp(-n)));
         return { lat, lng };
+    }
+
+    // Resolución métrica oficial de la ONU en metros por píxel para un nivel de zoom y latitud dados
+    static getMetresPerPixel(lat, zoom) {
+        return (SatelliteTileEngine.UN_GEODESY.equatorialCircumferenceMetres * Math.cos(lat * Math.PI / 180)) / (256 * Math.pow(2, zoom));
     }
 
     // Obtiene o solicita una tesela satelital

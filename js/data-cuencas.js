@@ -449,41 +449,173 @@ const CUENCAS_GEO_DATA = [
     }
 ];
 
-// Conexiones Intercuencas y Corredores Sagrados de Abya Yala
+// =============================================================
+// CONEXIONES INTERCUENCAS: SISTEMA VASCULAR DE VENAS DE ABYA YALA
+// =============================================================
 const CONEXIONES_INTERCUENCAS = [
     {
         id: "casiquiare_link",
-        nombre: "Canal del Casiquiare (Orinoco ➔ Amazonas)",
+        nombre: "Vena del Casiquiare (Orinoco ➔ Amazonas)",
         tipo: "bifurcacion_natural",
-        descripcion: "El milagro hidrológico más grande del planeta: el Orinoco se divide espontáneamente y alimenta al Río Negro hacia el Amazonas.",
+        colorVena: "#D48831",
+        grosor: 4.5,
+        descripcion: "El milagro hidrológico más grande del planeta: el Orinoco se bifurca espontáneamente y alimenta al Río Negro hacia el Amazonas.",
         puntos: [
             { lat: 3.14, lng: -65.9 },   // Orinoco
+            { lat: 2.50, lng: -66.2 },
             { lat: 2.00, lng: -66.5 },
             { lat: 0.90, lng: -67.1 }    // Río Negro
         ]
     },
     {
+        id: "maranon_ucayali_nauta",
+        nombre: "Vena Confluencia Madre (Marañón & Ucayali ➔ Amazonas)",
+        tipo: "confluencia_arterial",
+        colorVena: "#48B5C4",
+        grosor: 5.0,
+        descripcion: "Unión de los caudales andinos del Marañón y el Ucayali en Nauta (Iquitos) que da nacimiento al tronco principal del Río Amazonas.",
+        puntos: [
+            { lat: -4.8, lng: -74.2 },
+            { lat: -4.45, lng: -73.48 }, // Confluencia Nauta
+            { lat: -3.75, lng: -73.25 }  // Iquitos
+        ]
+    },
+    {
+        id: "encuentro_aguas_manaus",
+        nombre: "Sinapsis del Encuentro de las Aguas (Río Negro & Solimões)",
+        tipo: "confluencia_arterial",
+        colorVena: "#D05C1E",
+        grosor: 5.5,
+        descripcion: "Fusión colosal de las aguas oscuras y ácidas del Río Negro con las aguas arcillosas y lechosas del Solimões en Manaus.",
+        puntos: [
+            { lat: -2.8, lng: -60.5 },
+            { lat: -3.13, lng: -60.02 }, // Manaus
+            { lat: -3.2, lng: -59.0 }
+        ]
+    },
+    {
+        id: "arteria_madeira_mamore",
+        nombre: "Vena del Río Madeira & Deshielos Andinos",
+        tipo: "afluente_mayor",
+        colorVena: "#48B5C4",
+        grosor: 4.2,
+        descripcion: "La arteria que transporta el 15% de todos los sedimentos andinos hacia el Amazonas central a través del Mamoré, Beni y Guaporé.",
+        puntos: [
+            { lat: -16.5, lng: -68.0 },  // Deshielos de la Cordillera Real
+            { lat: -11.0, lng: -66.0 },  // Confluencia Beni-Mamoré
+            { lat: -8.76, lng: -63.9 },  // Porto Velho
+            { lat: -3.38, lng: -58.75 }  // Desembocadura en el Amazonas
+        ]
+    },
+    {
         id: "pantanal_guapore",
-        nombre: "Corredor Pantanal ➔ Guaporé (Plata ➔ Amazonas)",
+        nombre: "Vena Humedal Pantanal ➔ Guaporé (Plata ➔ Amazonas)",
         tipo: "corredor_humedal",
+        colorVena: "#68D2E1",
+        grosor: 3.8,
         descripcion: "Durante las grandes inundaciones, las aguas del Pantanal (Cuenca del Plata) y las cabeceras del Guaporé (Amazonas) casi se tocan en el planalto de Mato Grosso.",
         puntos: [
+            { lat: -17.5, lng: -57.2 },  // Pantanal Central
             { lat: -16.0, lng: -57.7 },
             { lat: -14.5, lng: -59.5 },
-            { lat: -12.5, lng: -63.0 }
+            { lat: -12.5, lng: -63.0 }   // Río Guaporé
+        ]
+    },
+    {
+        id: "acuifero_guarani_subterraneo",
+        nombre: "Vena Subterránea del Sistema Acuífero Guaraní",
+        tipo: "vena_acuifera",
+        colorVena: "#2A9D8F",
+        grosor: 4.0,
+        descripcion: "Gigantesco océano subterráneo de agua dulce que une las profundidades de Brasil, Paraguay, Uruguay y Argentina a lo largo de 1,2 millones de km².",
+        puntos: [
+            { lat: -20.5, lng: -51.5 },
+            { lat: -23.5, lng: -53.8 },
+            { lat: -27.0, lng: -55.5 },
+            { lat: -31.0, lng: -57.0 }
+        ]
+    },
+    {
+        id: "confluencia_parana_paraguay",
+        nombre: "Vena Confluencia Paraná ➔ Paraguay (Paso de la Patria)",
+        tipo: "confluencia_arterial",
+        colorVena: "#D48831",
+        grosor: 4.8,
+        descripcion: "Arteria fluvial donde el río Paraguay descarga las aguas del Pantanal y el Chaco en el río Paraná antes de marchar al Delta del Plata.",
+        puntos: [
+            { lat: -25.3, lng: -57.6 },  // Asunción
+            { lat: -27.3, lng: -58.6 },  // Confluencia Paso de la Patria / Corrientes
+            { lat: -31.7, lng: -60.5 }   // Paraná Medio
+        ]
+    },
+    {
+        id: "rios_voadores_atmosfericos",
+        nombre: "Ríos Voladores Atmosféricos de la Amazonía",
+        tipo: "rio_atmosferico",
+        colorVena: "rgba(130, 220, 240, 0.75)",
+        grosor: 5.0,
+        descripcion: "Colosales flujos aéreos de vapor generados por la selva que chocan contra los Andes y riegan con lluvia fértil el centro y sur del continente.",
+        puntos: [
+            { lat: 0.0, lng: -50.0 },    // Océano Atlántico Ecuatorial
+            { lat: -3.0, lng: -62.0 },   // Cuenca Central del Amazonas
+            { lat: -12.0, lng: -72.0 },  // Barrera orográfica de los Andes peruanos
+            { lat: -24.0, lng: -60.0 },  // Chaco Sudamericano
+            { lat: -34.5, lng: -58.0 }   // Cuenca del Plata y Pampas
+        ]
+    },
+    {
+        id: "capilares_cenotes_yucatan",
+        nombre: "Red Capilar de Cenotes y Ríos Kársticos Subterráneos",
+        tipo: "vena_acuifera",
+        colorVena: "#48B5C4",
+        grosor: 3.2,
+        descripcion: "Laberinto de venas hídricas subterráneas de la Península de Yucatán (Sac Actun, Ox Bel Ha) que conectan la selva maya con los arrecifes del Caribe.",
+        puntos: [
+            { lat: 21.3, lng: -89.6 },   // Mérida / Anillo de Cenotes
+            { lat: 20.6, lng: -88.5 },   // Chichén Itzá
+            { lat: 20.2, lng: -87.4 }    // Tulum / Mar Caribe
+        ]
+    },
+    {
+        id: "corredor_usumacinta_grijalva",
+        nombre: "Sinapsis Usumacinta ➔ Grijalva & Pantanos de Centla",
+        tipo: "corredor_humedal",
+        colorVena: "#48B5C4",
+        grosor: 4.0,
+        descripcion: "El mayor humedal de Mesoamérica donde las aguas de Guatemala y Chiapas confluyen en un laberinto deltaico antes de llegar al Golfo de México.",
+        puntos: [
+            { lat: 17.0, lng: -91.3 },   // Cañón del Usumacinta
+            { lat: 17.9, lng: -92.5 },   // Pantanos de Centla
+            { lat: 18.5, lng: -92.6 }    // Frontera marítima de Tabasco
+        ]
+    },
+    {
+        id: "centro_abya_yala_platano_san_juan",
+        nombre: "Corredor Fluvial del Centro de Abya Yala (Río Plátano & San Juan)",
+        tipo: "corredor_humedal",
+        colorVena: "#68D2E1",
+        grosor: 3.6,
+        descripcion: "Corredor biológico hídrico que une la Biósfera del Río Plátano, el Río Coco/Wangki y el Río San Juan descargando hacia el Mar Caribe.",
+        puntos: [
+            { lat: 15.8, lng: -84.7 },   // Delta del Río Plátano (Mosquitia)
+            { lat: 14.8, lng: -84.0 },   // Río Coco / Wangki
+            { lat: 11.0, lng: -84.2 },   // Río San Juan
+            { lat: 10.9, lng: -83.7 }    // Desembocadura en San Juan de Nicaragua
         ]
     },
     {
         id: "divisoria_continental_rocosas_andes",
-        nombre: "La Gran Espina Divisoria Continental de Abya Yala",
+        nombre: "La Gran Espina Divisoria Continental de Aguas",
         tipo: "cordillera_madre",
-        descripcion: "La columna vertebral de montañas (Rocosas, Sierra Madre, Eje Volcánico, Cordillera de los Andes) que decide si una gota de lluvia viajará al Océano Pacífico, al Atlántico o al Ártico.",
+        colorVena: "#A84A15",
+        grosor: 3.0,
+        descripcion: "La columna vertebral orográfica de montañas (Rocosas, Sierra Madre, Andes) que reparte las aguas de lluvia entre el Pacífico y el Atlántico.",
         puntos: [
             { lat: 68.0, lng: -141.0 },
             { lat: 53.0, lng: -118.0 },
             { lat: 39.0, lng: -106.0 },
             { lat: 25.0, lng: -103.0 },
-            { lat: 14.5, lng: -88.2 },  // Centroamérica (Gualcarque / Opalaca)
+            { lat: 14.5, lng: -88.2 },  // Centroamérica
             { lat: 5.0, lng: -76.0 },   // Andes colombianos
             { lat: -15.5, lng: -71.7 }, // Andes peruanos
             { lat: -33.0, lng: -70.0 }, // Andes centrales
@@ -491,6 +623,19 @@ const CONEXIONES_INTERCUENCAS = [
         ]
     }
 ];
+
+// Nodos de Sinapsis y Confluencia Mayor
+const SINAPSIS_CONFLUENCIAS = [
+    { nombre: "Encuentro de las Aguas (Río Negro & Solimões)", lat: -3.13, lng: -60.02, tipo: "sinapsis_mayor" },
+    { nombre: "Bifurcación Sagrada del Casiquiare", lat: 3.14, lng: -65.9, tipo: "bifurcacion" },
+    { nombre: "Confluencia Marañón & Ucayali (Nauta)", lat: -4.45, lng: -73.48, tipo: "origen_amazonas" },
+    { nombre: "Confluencia Paraná & Paraguay (Paso de la Patria)", lat: -27.3, lng: -58.6, tipo: "sinapsis_plata" },
+    { nombre: "Confluencia Magdalena & Cauca", lat: 9.3, lng: -74.7, tipo: "sinapsis_caribe" },
+    { nombre: "Pantanos de Centla (Usumacinta & Grijalva)", lat: 18.2, lng: -92.5, tipo: "humedal_madre" },
+    { nombre: "Estuario del Delta del Orinoco", lat: 8.6, lng: -61.0, tipo: "delta_atlantico" },
+    { nombre: "Delta del Mackenzie (Tuktoyaktuk)", lat: 69.4, lng: -134.0, tipo: "delta_artico" }
+];
+
 
 // Pre-proyectar todos los puntos a coordenadas Web Mercator [0, 1]
 CUENCAS_GEO_DATA.forEach(cuenca => {
@@ -523,6 +668,13 @@ CONEXIONES_INTERCUENCAS.forEach(con => {
         const proj = SatelliteTileEngine.project(pt.lat, pt.lng);
         return { x: proj.x, y: proj.y, lat: pt.lat, lng: pt.lng };
     });
+});
+
+// Pre-proyectar sinapsis y confluencias hídricas mayores
+SINAPSIS_CONFLUENCIAS.forEach(sin => {
+    const proj = SatelliteTileEngine.project(sin.lat, sin.lng);
+    sin.x = proj.x;
+    sin.y = proj.y;
 });
 
 // Interpolación Catmull-Rom

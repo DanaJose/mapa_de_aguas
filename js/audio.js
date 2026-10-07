@@ -1,8 +1,11 @@
 /**
  * Cartografía de las Aguas de Abya Yala
- * Paisaje Sonoro Orgánico del Río Reactivo al Movimiento (Web Audio API)
+ * Sistema de Paisaje Sonoro & Música Territorial
+ * 1. Síntesis Reactiva de Corriente de Agua (Web Audio API)
+ * 2. Reproductor de Música Territorial con Soporte de YouTube y Enlaces Externos
  */
 
+// 1. SÍNTESIS REACTIVA DE AGUA (WEB AUDIO API)
 class WaterAmbientAudio {
     constructor() {
         this.ctx = null;
@@ -16,7 +19,6 @@ class WaterAmbientAudio {
         this.rippleFilter = null;
         this.noiseSource = null;
 
-        // Escucha de interacción para desbloqueo automático en navegadores modernos
         this.setupAutoUnlock();
     }
 
@@ -43,52 +45,50 @@ class WaterAmbientAudio {
         if (!AudioContext) return;
         this.ctx = new AudioContext();
 
-        // 1. Buffer de ruido orgánico continuo (3 segundos de loop suave)
-        const bufferSize = this.ctx.sampleRate * 3;
+        // Buffer de ruido orgánico continuo
+        const bufferSize = this.ctx.sampleRate * 4;
         const noiseBuffer = this.ctx.createBuffer(1, bufferSize, this.ctx.sampleRate);
         const output = noiseBuffer.getChannelData(0);
 
-        // Generar ruido rosa/marrón suave (más cálido y natural que el ruido blanco puro)
+        // Generar ruido rosa/marrón orgánico cálido
         let b0 = 0, b1 = 0, b2 = 0;
         for (let i = 0; i < bufferSize; i++) {
             const white = Math.random() * 2 - 1;
             b0 = 0.99765 * b0 + white * 0.0990460;
             b1 = 0.96300 * b1 + white * 0.161616;
             b2 = 0.57000 * b2 + white * 0.462659;
-            output[i] = (b0 + b1 + b2 + white * 0.05) * 0.15;
+            output[i] = (b0 + b1 + b2 + white * 0.08) * 0.22;
         }
 
         this.noiseSource = this.ctx.createBufferSource();
         this.noiseSource.buffer = noiseBuffer;
         this.noiseSource.loop = true;
 
-        // 2. Filtro 1: Caudal profundo (resonancia de aguas bajas y cañones rocosos)
+        // Filtro 1: Caudal profundo (cañones y lechos de roca)
         this.deepFilter = this.ctx.createBiquadFilter();
         this.deepFilter.type = 'lowpass';
-        this.deepFilter.frequency.setValueAtTime(280, this.ctx.currentTime);
-        this.deepFilter.Q.setValueAtTime(2.2, this.ctx.currentTime);
+        this.deepFilter.frequency.setValueAtTime(320, this.ctx.currentTime);
+        this.deepFilter.Q.setValueAtTime(2.4, this.ctx.currentTime);
 
-        // 3. Filtro 2: Murmullo de meandros y corriente superficial (pasa-banda)
+        // Filtro 2: Murmullo de meandros y corriente superficial
         this.rippleFilter = this.ctx.createBiquadFilter();
         this.rippleFilter.type = 'bandpass';
-        this.rippleFilter.frequency.setValueAtTime(750, this.ctx.currentTime);
-        this.rippleFilter.Q.setValueAtTime(1.8, this.ctx.currentTime);
+        this.rippleFilter.frequency.setValueAtTime(800, this.ctx.currentTime);
+        this.rippleFilter.Q.setValueAtTime(2.0, this.ctx.currentTime);
 
-        // 4. Ganancia reactiva al flujo y movimiento
+        // Ganancia reactiva
         this.flowGain = this.ctx.createGain();
-        this.flowGain.gain.setValueAtTime(0.015, this.ctx.currentTime); // Murmullo base suave
+        this.flowGain.gain.setValueAtTime(0.08, this.ctx.currentTime);
 
-        // 5. Ganancia Maestra
+        // Ganancia Maestra nítida
         this.masterGain = this.ctx.createGain();
-        this.masterGain.gain.setValueAtTime(0.09, this.ctx.currentTime);
+        this.masterGain.gain.setValueAtTime(0.35, this.ctx.currentTime);
 
-        // Conectar grafo de audio
+        // Conectar grafo
         this.noiseSource.connect(this.deepFilter);
         this.noiseSource.connect(this.rippleFilter);
-
         this.deepFilter.connect(this.flowGain);
         this.rippleFilter.connect(this.flowGain);
-
         this.flowGain.connect(this.masterGain);
         this.masterGain.connect(this.ctx.destination);
 
@@ -96,17 +96,13 @@ class WaterAmbientAudio {
         this.isInitialized = true;
     }
 
-    // Modula el sonido del agua en función del movimiento del usuario en tiempo real
     updateMotion(speed = 0) {
         if (!this.isInitialized || this.isMuted || !this.ctx) return;
 
-        // Normalizar velocidad
-        const intensity = Math.min(1.0, speed * 0.4);
-
-        // Al moverte, el caudal y la corriente se escuchan vivos
-        const targetGain = 0.015 + intensity * 0.12;
-        const targetFreq = 220 + intensity * 480;
-        const targetRipple = 650 + intensity * 700;
+        const intensity = Math.min(1.0, speed * 0.45);
+        const targetGain = 0.08 + intensity * 0.35;
+        const targetFreq = 260 + intensity * 540;
+        const targetRipple = 700 + intensity * 800;
 
         const now = this.ctx.currentTime;
         this.flowGain.gain.setTargetAtTime(targetGain, now, 0.12);
@@ -115,17 +111,146 @@ class WaterAmbientAudio {
     }
 
     toggleMute() {
-        if (!this.isInitialized) {
-            this.init();
-        }
-        if (this.ctx && this.ctx.state === 'suspended') {
-            this.ctx.resume();
-        }
+        if (!this.isInitialized) this.init();
+        if (this.ctx && this.ctx.state === 'suspended') this.ctx.resume();
 
         this.isMuted = !this.isMuted;
         if (this.masterGain) {
             const now = this.ctx.currentTime;
-            this.masterGain.gain.setTargetAtTime(this.isMuted ? 0.0001 : 0.09, now, 0.2);
+            this.masterGain.gain.setTargetAtTime(this.isMuted ? 0.0001 : 0.35, now, 0.15);
+        }
+        return !this.isMuted;
+    }
+}
+
+// 2. REPRODUCTOR DE MÚSICA TERRITORIAL (YOUTUBE & ENLACES EXTERNOS)
+class AbyaYalaMusicManager {
+    constructor() {
+        this.storageKey = "abya_yala_custom_music_url";
+        this.isPlaying = false;
+        this.isMuted = false;
+        this.volume = 0.7;
+
+        // Pistas curadas predeterminadas (música sagrada del agua y flautas ancestrales)
+        this.presets = [
+            {
+                id: "preset_1",
+                nombre: "Flautas Andinas & Río Sagrado de las Alturas",
+                url: "https://www.youtube.com/watch?v=1ZyH_jSgM_0"
+            },
+            {
+                id: "preset_2",
+                nombre: "Cantos de la Selva & Lluvia Sagrada de la Amazonía",
+                url: "https://www.youtube.com/watch?v=4xDzrJKXOOY"
+            },
+            {
+                id: "preset_3",
+                nombre: "Aguas Cristalinas & Viento de la Sierra Madre",
+                url: "https://www.youtube.com/watch?v=rW2Y5m_5D-w"
+            }
+        ];
+
+        this.activeUrl = this.getSavedUrl() || this.presets[0].url;
+        this.audioElement = null;
+        this.iframeElement = null;
+    }
+
+    getSavedUrl() {
+        try {
+            return localStorage.getItem(this.storageKey);
+        } catch (e) {
+            return null;
+        }
+    }
+
+    saveUrl(url) {
+        this.activeUrl = url;
+        try {
+            localStorage.setItem(this.storageKey, url);
+        } catch (e) {}
+    }
+
+    // Extraer ID de YouTube
+    extractYouTubeId(url) {
+        if (!url) return null;
+        const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
+        const match = url.match(regExp);
+        return (match && match[2].length === 11) ? match[2] : null;
+    }
+
+    // Inicializar reproductor en el DOM
+    initPlayer(containerId) {
+        const container = document.getElementById(containerId);
+        if (!container) return;
+        this.container = container;
+        this.loadTrack(this.activeUrl);
+    }
+
+    loadTrack(url) {
+        this.activeUrl = url;
+        const ytId = this.extractYouTubeId(url);
+
+        if (ytId) {
+            // Reproductor IFrame de YouTube con loop automático y sin anuncios molestos
+            if (this.audioElement) {
+                this.audioElement.pause();
+                this.audioElement.src = "";
+            }
+
+            this.container.innerHTML = `
+                <iframe id="yt-player-frame" 
+                    width="200" height="200" 
+                    src="https://www.youtube.com/embed/${ytId}?enablejsapi=1&autoplay=1&loop=1&playlist=${ytId}&controls=0&mute=${this.isMuted ? 1 : 0}" 
+                    title="Música de Abya Yala" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    style="position: absolute; width: 1px; height: 1px; opacity: 0.01; pointer-events: none;">
+                </iframe>
+            `;
+            this.iframeElement = document.getElementById("yt-player-frame");
+            this.isPlaying = true;
+        } else {
+            // Audio Stream directo HTML5 (MP3/OGG)
+            if (this.container) this.container.innerHTML = "";
+            if (!this.audioElement) {
+                this.audioElement = new Audio();
+                this.audioElement.loop = true;
+            }
+            this.audioElement.src = url;
+            this.audioElement.volume = this.volume;
+            this.audioElement.muted = this.isMuted;
+            this.audioElement.play().catch(() => {});
+            this.isPlaying = true;
+        }
+    }
+
+    toggle() {
+        this.isPlaying = !this.isPlaying;
+        const ytId = this.extractYouTubeId(this.activeUrl);
+
+        if (ytId && this.iframeElement) {
+            // Enviar comando al IFrame de YouTube
+            const command = this.isPlaying ? '{"event":"command","func":"playVideo","args":""}' : '{"event":"command","func":"pauseVideo","args":""}';
+            this.iframeElement.contentWindow.postMessage(command, '*');
+        } else if (this.audioElement) {
+            if (this.isPlaying) {
+                this.audioElement.play().catch(() => {});
+            } else {
+                this.audioElement.pause();
+            }
+        }
+        return this.isPlaying;
+    }
+
+    toggleMute() {
+        this.isMuted = !this.isMuted;
+        const ytId = this.extractYouTubeId(this.activeUrl);
+
+        if (ytId && this.iframeElement) {
+            const command = this.isMuted ? '{"event":"command","func":"mute","args":""}' : '{"event":"command","func":"unMute","args":""}';
+            this.iframeElement.contentWindow.postMessage(command, '*');
+        } else if (this.audioElement) {
+            this.audioElement.muted = this.isMuted;
         }
         return !this.isMuted;
     }

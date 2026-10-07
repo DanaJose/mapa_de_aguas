@@ -69,11 +69,15 @@ class DynamicCamera {
     }
 
     focusNode(node) {
+        this.flyTo(node.x, node.y, 8.5);
+    }
+
+    flyTo(targetX, targetY, targetZoom = 7.8) {
         this.isFollowingRiver = false;
         this.autoPlayTour = false;
-        this.targetX = node.x;
-        this.targetY = node.y;
-        this.targetZoom = 8.5; // Zoom detallado de satélite
+        this.targetX = targetX;
+        this.targetY = targetY;
+        this.targetZoom = targetZoom;
         this.targetRotation = 0;
     }
 
