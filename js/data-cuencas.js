@@ -52,14 +52,20 @@ const CUENCAS_GEO_DATA = [
         longitudPrincipal: "3.190 km",
         superficie: "850.000 km²",
         descripcion: "Río glaciar sagrado para las naciones Gwich'in y Yup'ik. Nace en la Columbia Británica y cruza Alaska antes de bifurcarse en el delta del mar de Bering.",
+        imagenes: [
+            { url: "assets/yukon_cauce.jpg", titulo: "El Gran Río Yukón y los Bosques Subárticos", descripcion: "Arteria sagrada de los pueblos originarios que fluye entre taigas hacia el Mar de Bering." },
+            { url: "assets/yukon_delta_bering.jpg", titulo: "Delta del Yukón en el Mar de Bering", descripcion: "Inmensa planicie aluvial y humedal costero en Alaska." }
+        ],
         puntosGeo: [
             { lat: 59.8, lng: -134.5, nombre: "Lakes Atlin / Tagish (Naciente)" },
             { lat: 60.7, lng: -135.0, nombre: "Whitehorse" },
             { lat: 64.0, lng: -139.4, nombre: "Dawson City (Confluencia Klondike)" },
-            { lat: 65.5, lng: -144.5, nombre: "Yukon Flats" },
-            { lat: 62.5, lng: -164.5, nombre: "Delta del Yukón (Mar de Bering)" }
+            { lat: 65.5, lng: -144.5, nombre: "Yukon Flats", imagen: "assets/yukon_cauce.jpg" },
+            { lat: 62.5, lng: -164.5, nombre: "Delta del Yukón (Mar de Bering)", imagen: "assets/yukon_delta_bering.jpg" }
         ],
-        nodos: []
+        nodos: [
+            { id: "yukon_flats", nombre: "Yukon Flats & Tundra Ártica", tipo: "humedal_artico", lat: 65.5, lng: -144.5, elevacion: "120 msnm", importancia: "Vasto laberinto de meandros y turberas subárticas", texto: "Territorio de cría de millones de aves migratorias y salmones.", imagen: "assets/yukon_cauce.jpg", icono: "❄️" }
+        ]
     },
 
     // =============================================================
@@ -77,16 +83,23 @@ const CUENCAS_GEO_DATA = [
         longitudPrincipal: "6.275 km (con el Missouri)",
         superficie: "3.220.000 km²",
         descripcion: "La mayor cuenca hidrográfica de Norteamérica. Recoge las aguas de los Apalaches y las Rocosas, nutriendo tierras agrícolas históricas antes de desembocar en el Golfo de México.",
+        imagenes: [
+            { url: "assets/mississippi_naciente_itasca.jpg", titulo: "Naciente en el Lago Itasca (Minnesota)", descripcion: "Aguas prístinas donde nace el río más largo de Norteamérica entre bosques de coníferas." },
+            { url: "assets/mississippi_delta_pie_pajaro.jpg", titulo: "Delta 'Pie de Pájaro' (Golfo de México)", descripcion: "Laberinto de canales, bayous y marismas aluviales en Luisiana." }
+        ],
         puntosGeo: [
-            { lat: 47.2, lng: -95.2, nombre: "Lago Itasca (Minnesota - Naciente)" },
+            { lat: 47.2, lng: -95.2, nombre: "Lago Itasca (Minnesota - Naciente)", imagen: "assets/mississippi_naciente_itasca.jpg" },
             { lat: 44.9, lng: -93.1, nombre: "Minneapolis / St. Paul" },
             { lat: 38.8, lng: -90.1, nombre: "Confluencia Río Missouri (St. Louis)" },
             { lat: 37.0, lng: -89.1, nombre: "Confluencia Río Ohio (Cairo)" },
             { lat: 35.1, lng: -90.0, nombre: "Memphis" },
             { lat: 29.9, lng: -90.0, nombre: "Nueva Orleans" },
-            { lat: 29.1, lng: -89.2, nombre: "Delta 'Pie de Pájaro' (Golfo de México)" }
+            { lat: 29.1, lng: -89.2, nombre: "Delta 'Pie de Pájaro' (Golfo de México)", imagen: "assets/mississippi_delta_pie_pajaro.jpg" }
         ],
-        nodos: []
+        nodos: [
+            { id: "itasca_naciente", nombre: "Lago Itasca (Cuna del Mississippi)", tipo: "lago_origen", lat: 47.2, lng: -95.2, elevacion: "450 msnm", importancia: "Naciente glacial del sistema Mississippi-Missouri", texto: "Manantiales rodeados de bosques mixtos y coníferas.", imagen: "assets/mississippi_naciente_itasca.jpg", icono: "🌲" },
+            { id: "mississippi_delta", nombre: "Delta 'Pie de Pájaro'", tipo: "delta_marisma", lat: 29.1, lng: -89.2, elevacion: "0 msnm", importancia: "Mayor delta aluvial de Norteamérica", texto: "Marismas que vierten 16.800 m³/s al Golfo de México.", imagen: "assets/mississippi_delta_pie_pajaro.jpg", icono: "🌊" }
+        ]
     },
     {
         id: "rio_colorado",
@@ -100,15 +113,21 @@ const CUENCAS_GEO_DATA = [
         longitudPrincipal: "2.330 km",
         superficie: "640.000 km²",
         descripcion: "Nace en las Montañas Rocosas de Colorado y corta miles de millones de años de historia geológica en el Gran Cañón, sagrado para los pueblos Hopi, Navajo, Havasupai y Cucapá.",
+        imagenes: [
+            { url: "assets/rio_colorado_gran_canon.jpg", titulo: "El Gran Cañón del Colorado", descripcion: "Paredes colosales de estratos rojizos talladas por millones de años de erosión fluvial." },
+            { url: "assets/rio_colorado_horseshoe_bend.jpg", titulo: "Horseshoe Bend & Cañón de Glen", descripcion: "Meandro sagrado esculpido en la arenisca dorada de Arizona." }
+        ],
         puntosGeo: [
             { lat: 40.4, lng: -105.8, nombre: "Parque Nacional Rocky Mountain" },
-            { lat: 37.0, lng: -111.5, nombre: "Glen Canyon / Lago Powell" },
-            { lat: 36.1, lng: -112.1, nombre: "El Gran Cañón (Bright Angel)" },
+            { lat: 37.0, lng: -111.5, nombre: "Glen Canyon / Lago Powell", imagen: "assets/rio_colorado_horseshoe_bend.jpg" },
+            { lat: 36.1, lng: -112.1, nombre: "El Gran Cañón (Bright Angel)", imagen: "assets/rio_colorado_gran_canon.jpg" },
             { lat: 36.0, lng: -114.7, nombre: "Presa Hoover" },
             { lat: 32.7, lng: -114.6, nombre: "Yuma (Frontera México/EE.UU.)" },
             { lat: 31.8, lng: -114.9, nombre: "Delta del Río Colorado / Alto Golfo de California" }
         ],
-        nodos: []
+        nodos: [
+            { id: "gran_canon_colorado", nombre: "El Gran Cañón (Bright Angel)", tipo: "canon_geologico", lat: 36.1, lng: -112.1, elevacion: "750 msnm", importancia: "Monumento geológico y sitio sagrado indígena", texto: "Corte estratigráfico de más de 1.800 millones de años de historia terrestre.", imagen: "assets/rio_colorado_gran_canon.jpg", icono: "🏜️" }
+        ]
     },
     {
         id: "rio_bravo",
@@ -123,21 +142,22 @@ const CUENCAS_GEO_DATA = [
         superficie: "472.000 km²",
         descripcion: "Nace en las montañas de San Juan en Colorado y desciende esculpiendo profundas fallas tectónicas como la garganta de Taos. Fluye a través de Nuevo México y se convierte en la frontera entre México y Texas, sustentando oasis, pueblos originarios Pueblo y ecosistemas del desierto.",
         imagenes: [
-            { url: "assets/rio_bravo_canon.jpg", titulo: "Garganta del Río Grande / Puente de Taos", descripcion: "Impresionante cañón de basalto de más de 200 metros de profundidad." }
+            { url: "assets/rio_bravo_canon.jpg", titulo: "Garganta del Río Grande / Puente de Taos", descripcion: "Impresionante cañón de basalto de más de 200 metros de profundidad." },
+            { url: "assets/rio_bravo_santa_elena.jpg", titulo: "Cañón de Santa Elena (Big Bend)", descripcion: "Desfiladero monumental de caliza en la frontera desértica." }
         ],
         puntosGeo: [
             { lat: 37.8, lng: -107.5, nombre: "Montañas San Juan (Colorado - Naciente)" },
-            { lat: 36.476, lng: -105.733, nombre: "Garganta de Taos (Taos Gorge)" },
+            { lat: 36.476, lng: -105.733, nombre: "Garganta de Taos (Taos Gorge)", imagen: "assets/rio_bravo_canon.jpg" },
             { lat: 35.08, lng: -106.65, nombre: "Albuquerque / Valle Central" },
             { lat: 31.76, lng: -106.48, nombre: "Paso del Norte (Ciudad Juárez / El Paso)" },
             { lat: 29.56, lng: -104.41, nombre: "Ojinaga / Confluencia Río Conchos" },
-            { lat: 29.16, lng: -103.61, nombre: "Cañón de Santa Elena (Big Bend)" },
+            { lat: 29.16, lng: -103.61, nombre: "Cañón de Santa Elena (Big Bend)", imagen: "assets/rio_bravo_santa_elena.jpg" },
             { lat: 27.5, lng: -99.5, nombre: "Laredo / Nuevo Laredo" },
             { lat: 25.95, lng: -97.15, nombre: "Desembocadura en el Golfo de México" }
         ],
         nodos: [
             { id: "taos_gorge", nombre: "Garganta de Taos (Taos Gorge)", tipo: "canon_geologico", lat: 36.476, lng: -105.733, elevacion: "2.050 msnm", importancia: "Falla tectónica del Rift de Río Grande", texto: "Hendidura basáltica sagrada para Taos Pueblo.", imagen: "assets/rio_bravo_canon.jpg", icono: "🌉" },
-            { id: "santa_elena", nombre: "Cañón de Santa Elena (Big Bend)", tipo: "desfiladero_calizo", lat: 29.16, lng: -103.61, elevacion: "650 msnm", importancia: "Paredes verticales de caliza de 450 metros", texto: "El río se abre paso entre macizos rocosos imponentes.", imagen: "assets/rio_bravo_canon.jpg", icono: "🏜️" }
+            { id: "santa_elena", nombre: "Cañón de Santa Elena (Big Bend)", tipo: "desfiladero_calizo", lat: 29.16, lng: -103.61, elevacion: "650 msnm", importancia: "Paredes verticales de caliza de 450 metros", texto: "El río se abre paso entre macizos rocosos imponentes.", imagen: "assets/rio_bravo_santa_elena.jpg", icono: "🏜️" }
         ]
     },
 
@@ -156,14 +176,18 @@ const CUENCAS_GEO_DATA = [
         longitudPrincipal: "100 km (cauce central) / 250 km de cuenca",
         superficie: "525.000 hectáreas protegidas",
         descripcion: "Declarada Patrimonio de la Humanidad por la UNESCO. Protege uno de los escasos remanentes de selva tropical virgen de Centroamérica. Fluye desde las montañas de Punta Piedra a través de petroglifos ancestrales y cañones selváticos hasta las lagunas costeras de Ibans y Brus en el Caribe.",
+        imagenes: [
+            { url: "assets/rio_platano_biosfera.jpg", titulo: "Biósfera del Río Plátano & La Mosquitia", descripcion: "Santuario de selva tropical virgen, hogar de jaguares, guacamayas y pueblos originarios (UNESCO)." },
+            { url: "assets/rio_platano_meandros_selva.jpg", titulo: "Raudales y Meandros en Selva Virgen", descripcion: "Aguas cristalinas que serpentean entre densos bosques lluviosos hacia el Caribe." }
+        ],
         puntosGeo: [
             { lat: 15.15, lng: -85.1, nombre: "Montañas de Punta Piedra (Naciente Selva Virgen)" },
-            { lat: 15.45, lng: -84.9, nombre: "Valle Central de Río Plátano (Petroglifos)" },
-            { lat: 15.72, lng: -84.78, nombre: "Raudales de Baltimore / Bosque Húmedo" },
+            { lat: 15.45, lng: -84.9, nombre: "Valle Central de Río Plátano (Petroglifos)", imagen: "assets/rio_platano_biosfera.jpg" },
+            { lat: 15.72, lng: -84.78, nombre: "Raudales de Baltimore / Bosque Húmedo", imagen: "assets/rio_platano_meandros_selva.jpg" },
             { lat: 15.88, lng: -84.68, nombre: "Laguna de Ibans & Brus (Mar Caribe)" }
         ],
         nodos: [
-            { id: "platano_biosfera", nombre: "Reserva del Hombre y la Biósfera de Río Plátano", tipo: "patrimonio_selva", lat: 15.45, lng: -84.9, elevacion: "350 msnm", importancia: "Pulmón biológico de Centroamérica (UNESCO)", texto: "Hogar milenario de los pueblos Pech, Tawahka, Garífuna y Miskito, rodeado de jaguares, guacamayas y tapires.", icono: "🦜" }
+            { id: "platano_biosfera", nombre: "Reserva del Hombre y la Biósfera de Río Plátano", tipo: "patrimonio_selva", lat: 15.45, lng: -84.9, elevacion: "350 msnm", importancia: "Pulmón biológico de Centroamérica (UNESCO)", texto: "Hogar milenario de los pueblos Pech, Tawahka, Garífuna y Miskito, rodeado de jaguares, guacamayas y tapires.", imagen: "assets/rio_platano_biosfera.jpg", icono: "🦜" }
         ]
     },
     {
@@ -178,14 +202,18 @@ const CUENCAS_GEO_DATA = [
         longitudPrincipal: "120 km (hasta tributar al Río Otoro / Ulúa)",
         superficie: "Cuenca del Río Ulúa",
         descripcion: "Para la cosmovisión del pueblo indígena Lenca, los ríos son seres vivos habitados por espíritus femeninos protectores. El Gualcarque fue defendido con la vida por la lideresa Berta Cáceres contra proyectos extractivistas, convirtiéndose en símbolo global de la dignidad territorial.",
+        imagenes: [
+            { url: "assets/rio_gualcarque_sagrado.jpg", titulo: "Río Gualcarque (Espíritu Sagrado Lenca)", descripcion: "Río vivo defendido por Berta Cáceres y las comunidades indígenas de Río Blanco." },
+            { url: "assets/rio_gualcarque_canon.jpg", titulo: "Cañón y Pozas Cristalinas del Gualcarque", descripcion: "Aguas vivas de montaña que nutren el ecosistema de Intibucá." }
+        ],
         puntosGeo: [
             { lat: 14.35, lng: -88.15, nombre: "Sierra de Opalaca / Montañas de Intibucá" },
-            { lat: 14.50, lng: -88.22, nombre: "Río Blanco (Territorio Ancestral Lenca)" },
-            { lat: 14.65, lng: -88.28, nombre: "Cañón del Gualcarque (Aguas cristalinas)" },
+            { lat: 14.50, lng: -88.22, nombre: "Río Blanco (Territorio Ancestral Lenca)", imagen: "assets/rio_gualcarque_sagrado.jpg" },
+            { lat: 14.65, lng: -88.28, nombre: "Cañón del Gualcarque (Aguas cristalinas)", imagen: "assets/rio_gualcarque_canon.jpg" },
             { lat: 14.85, lng: -88.20, nombre: "Confluencia con Río Otoro / Sistema Ulúa" }
         ],
         nodos: [
-            { id: "gualcarque_sagrado", nombre: "Río Blanco & Gualcarque Sagrado", tipo: "rio_sagrado_ancestral", lat: 14.50, lng: -88.22, elevacion: "1.100 msnm", importancia: "Espíritu de las aguas del pueblo Lenca", texto: "'Nosotros aprendemos del río: el río da de comer, da medicina, nos da vida' — Berta Cáceres.", icono: "🌱" }
+            { id: "gualcarque_sagrado", nombre: "Río Blanco & Gualcarque Sagrado", tipo: "rio_sagrado_ancestral", lat: 14.50, lng: -88.22, elevacion: "1.100 msnm", importancia: "Espíritu de las aguas del pueblo Lenca", texto: "'Nosotros aprendemos del río: el río da de comer, da medicina, nos da vida' — Berta Cáceres.", imagen: "assets/rio_gualcarque_sagrado.jpg", icono: "🌱" }
         ]
     },
     {
@@ -200,14 +228,18 @@ const CUENCAS_GEO_DATA = [
         longitudPrincipal: "35 km",
         superficie: "Parque Nacional Pico Bonito / Nombre de Dios",
         descripcion: "Uno de los ríos de aguas bravas y pureza mineral más espectaculares de América Latina. Nace en la cordillera Nombre de Dios, bordeando la pirámide boscosa de Pico Bonito antes de vaciarse en el Mar Caribe cerca de La Ceiba.",
+        imagenes: [
+            { url: "assets/rio_cangrejal_pico_bonito.jpg", titulo: "Pico Bonito & Torrente del Cangrejal", descripcion: "Torrente turquesa entre colosales monolitos de granito en la falda de Pico Bonito." },
+            { url: "assets/rio_cangrejal_rapidos.jpg", titulo: "Rápidos Esmeraldas del Cangrejal", descripcion: "Corredor biológico entre la selva nubosa y el arrecife coralino del Caribe." }
+        ],
         puntosGeo: [
-            { lat: 15.65, lng: -86.78, nombre: "Naciente en Pico Bonito (Cordillera Nombre de Dios)" },
-            { lat: 15.72, lng: -86.75, nombre: "Cañón de Las Mangas (Rocas de granito gigante)" },
+            { lat: 15.65, lng: -86.78, nombre: "Naciente en Pico Bonito (Cordillera Nombre de Dios)", imagen: "assets/rio_cangrejal_pico_bonito.jpg" },
+            { lat: 15.72, lng: -86.75, nombre: "Cañón de Las Mangas (Rocas de granito gigante)", imagen: "assets/rio_cangrejal_rapidos.jpg" },
             { lat: 15.76, lng: -86.76, nombre: "El Naranjo / Rápidos Turquesas" },
             { lat: 15.79, lng: -86.78, nombre: "Desembocadura en La Ceiba (Mar Caribe)" }
         ],
         nodos: [
-            { id: "pico_bonito_cangrejal", nombre: "Cañón de Granito del Cangrejal", tipo: "torrente_esmeralda", lat: 15.72, lng: -86.75, elevacion: "180 msnm", importancia: "Corredor biológico entre la montaña y el arrecife coralino", texto: "Aguas cristalinas que fluyen entre monolitos de roca granítica del tamaño de casas.", icono: "⛰️" }
+            { id: "pico_bonito_cangrejal", nombre: "Cañón de Granito del Cangrejal", tipo: "torrente_esmeralda", lat: 15.72, lng: -86.75, elevacion: "180 msnm", importancia: "Corredor biológico entre la montaña y el arrecife coralino", texto: "Aguas cristalinas que fluyen entre monolitos de roca granítica del tamaño de casas.", imagen: "assets/rio_cangrejal_pico_bonito.jpg", icono: "⛰️" }
         ]
     },
     {
@@ -222,13 +254,19 @@ const CUENCAS_GEO_DATA = [
         longitudPrincipal: "750 km",
         superficie: "41.870 km²",
         descripcion: "El Río Coco (Wangki en idioma miskito) es el más largo de Centroamérica. Nace en los cañones de Somoto y marca la frontera viva entre Honduras y Nicaragua, corazón del territorio ancestral Miskitu.",
+        imagenes: [
+            { url: "assets/rio_coco_canon_somoto.jpg", titulo: "Cañón de Somoto (Madriz)", descripcion: "Monumento geológico donde nace el Río Coco entre farallones rocosos verticales." },
+            { url: "assets/rio_coco_wangki_miskitu.jpg", titulo: "Río Wangki en Territorio Miskitu", descripcion: "Arteria fluvial milenaria navegada por pueblos originarios en la frontera de Honduras y Nicaragua." }
+        ],
         puntosGeo: [
-            { lat: 13.48, lng: -86.60, nombre: "Cañón de Somoto (Madriz - Naciente)" },
+            { lat: 13.48, lng: -86.60, nombre: "Cañón de Somoto (Madriz - Naciente)", imagen: "assets/rio_coco_canon_somoto.jpg" },
             { lat: 13.90, lng: -85.90, nombre: "Wiwillí de Jinotega" },
-            { lat: 14.40, lng: -84.80, nombre: "Waspam (Territorio Miskitu)" },
+            { lat: 14.40, lng: -84.80, nombre: "Waspam (Territorio Miskitu)", imagen: "assets/rio_coco_wangki_miskitu.jpg" },
             { lat: 15.00, lng: -83.15, nombre: "Cabo Gracias a Dios (Mar Caribe)" }
         ],
-        nodos: []
+        nodos: [
+            { id: "canon_somoto_wangki", nombre: "Monumento Nacional Cañón de Somoto", tipo: "canon_geologico", lat: 13.48, lng: -86.60, elevacion: "680 msnm", importancia: "Garganta de roca volcánica de más de 120 metros de altura", texto: "Cuna geológica del Wangki protegida como área protegida.", imagen: "assets/rio_coco_canon_somoto.jpg", icono: "🏞️" }
+        ]
     },
     {
         id: "mesoamerica",
@@ -243,18 +281,19 @@ const CUENCAS_GEO_DATA = [
         superficie: "106.000 km²",
         descripcion: "El Usumacinta ('lugar de monos') es el río más caudaloso de Mesoamérica. Nace en las sierras guatemaltecas del Chixoy y serpentea a través de la densa Selva Lacandona, abrazando templos mayas milenarios antes de abrirse en los Pantanos de Centla.",
         imagenes: [
-            { url: "assets/abya_yala_red_hidrica.png", titulo: "Red de Fuentes Hídricas de Mesoamérica", descripcion: "Rutas fluviales y manantiales ancestrales entre Guatemala, Chiapas y Tabasco." }
+            { url: "assets/usumacinta_yaxchilan.jpg", titulo: "Meandro Sagrado de Yaxchilán", descripcion: "Acrópolis maya levantada en la curva sagrada del Usumacinta en la Selva Lacandona." },
+            { url: "assets/pantanos_de_centla.jpg", titulo: "Reserva de la Biósfera Pantanos de Centla", descripcion: "El humedal deltaico más extenso de Mesoamérica en la confluencia Usumacinta-Grijalva." }
         ],
         puntosGeo: [
             { lat: 15.3, lng: -91.1, nombre: "Altos de Guatemala (Río Chixoy)" },
             { lat: 16.3, lng: -90.9, nombre: "Río Lacantún / Selva Lacandona" },
-            { lat: 16.897, lng: -90.965, nombre: "Curva Sagrada de Yaxchilán" },
+            { lat: 16.897, lng: -90.965, nombre: "Curva Sagrada de Yaxchilán", imagen: "assets/usumacinta_yaxchilan.jpg" },
             { lat: 17.47, lng: -91.49, nombre: "Cañón del Usumacinta (Boca del Cerro)" },
             { lat: 18.3, lng: -92.7, nombre: "Tres Brazos (Confluencia con Grijalva)" },
-            { lat: 18.5, lng: -92.65, nombre: "Reserva Pantanos de Centla (Golfo de México)" }
+            { lat: 18.5, lng: -92.65, nombre: "Reserva Pantanos de Centla (Golfo de México)", imagen: "assets/pantanos_de_centla.jpg" }
         ],
         nodos: [
-            { id: "yaxchilan_maya", nombre: "Yaxchilán (La Ciudad en el Meandro)", tipo: "arqueologia_fluvial", lat: 16.897, lng: -90.965, elevacion: "110 msnm", importancia: "Acrópolis maya levantada en la curva del río", texto: "El río fue muralla y vía sagrada de los mayas.", imagen: "assets/abya_yala_red_hidrica.png", icono: "🏛️" }
+            { id: "yaxchilan_maya", nombre: "Yaxchilán (La Ciudad en el Meandro)", tipo: "arqueologia_fluvial", lat: 16.897, lng: -90.965, elevacion: "110 msnm", importancia: "Acrópolis maya levantada en la curva del río", texto: "El río fue muralla y vía sagrada de los mayas.", imagen: "assets/usumacinta_yaxchilan.jpg", icono: "🏛️" }
         ]
     },
 
@@ -273,16 +312,20 @@ const CUENCAS_GEO_DATA = [
         longitudPrincipal: "1.528 km",
         superficie: "257.438 km²",
         descripcion: "Fluye entre las cordilleras Central y Oriental de los Andes. Nace en la 'Estrella Fluvial' del Macizo Colombiano y atraviesa valles y cañones hasta la depresión aluvial de Mompox y las Bocas de Ceniza en el Caribe.",
+        imagenes: [
+            { url: "assets/magdalena_estrecho_san_agustin.jpg", titulo: "El Estrecho del Magdalena (San Agustín)", descripcion: "El coloso fluvial de Colombia encañonado a solo 2.2 metros de anchura en roca volcánica milenaria." },
+            { url: "assets/magdalena_macizo_colombiano.jpg", titulo: "Estrella Fluvial del Macizo Colombiano", descripcion: "Páramo de las Papas, cuna sagrada donde nacen el Magdalena, Cauca, Patía y Caquetá." }
+        ],
         puntosGeo: [
-            { lat: 1.91, lng: -76.58, nombre: "Páramo de las Papas (Macizo Colombiano)" },
-            { lat: 1.88, lng: -76.28, nombre: "Estrecho del Magdalena (San Agustín)" },
+            { lat: 1.91, lng: -76.58, nombre: "Páramo de las Papas (Macizo Colombiano)", imagen: "assets/magdalena_macizo_colombiano.jpg" },
+            { lat: 1.88, lng: -76.28, nombre: "Estrecho del Magdalena (San Agustín)", imagen: "assets/magdalena_estrecho_san_agustin.jpg" },
             { lat: 5.2, lng: -74.74, nombre: "Honda / Puerto Salgar" },
             { lat: 7.06, lng: -73.85, nombre: "Barrancabermeja" },
             { lat: 9.24, lng: -74.42, nombre: "Depresión Momposina / Ciénagas" },
-            { lat: 11.1, lng: -74.85, nombre: "Bocas de Ceniza (Barranquilla / Mar Caribe)" }
+            { lat: 11.1, lng: -74.85, nombre: "Bocas de Ceniza (Barranquilla / Mar Caribe)", imagen: "assets/magdalena_bocas_ceniza.jpg" }
         ],
         nodos: [
-            { id: "macizo_colombiano_cuna", nombre: "Estrella Fluvial del Macizo Colombiano", tipo: "fabrica_agua", lat: 1.91, lng: -76.58, elevacion: "3.685 msnm", importancia: "Cuna de cuatro grandes ríos andinos", texto: "Territorio sagrado de los pueblos Yanacona y Misak.", icono: "🏔️" }
+            { id: "macizo_colombiano_cuna", nombre: "Estrella Fluvial del Macizo Colombiano", tipo: "fabrica_agua", lat: 1.91, lng: -76.58, elevacion: "3.685 msnm", importancia: "Cuna de cuatro grandes ríos andinos", texto: "Territorio sagrado de los pueblos Yanacona y Misak.", imagen: "assets/magdalena_macizo_colombiano.jpg", icono: "🏔️" }
         ]
     },
     {
@@ -297,18 +340,22 @@ const CUENCAS_GEO_DATA = [
         longitudPrincipal: "2.140 km",
         superficie: "989.000 km²",
         descripcion: "Tercer río del mundo en caudal. Brota en la mística Sierra Parima y presenta una singularidad geográfica mundial: el brazo Casiquiare, que une dos cuencas oceánicas vertiendo aguas al Río Negro (Amazonas).",
+        imagenes: [
+            { url: "assets/orinoco_salto_angel.jpg", titulo: "Salto Ángel (Kerepakupai Merú)", descripcion: "La caída de agua ininterrumpida más alta del planeta (979 m) en el Auyantepuy (Canaima)." },
+            { url: "assets/orinoco_casiquiare_bifurcacion.jpg", titulo: "Canal Natural del Casiquiare", descripcion: "El insólito puente de agua dulce que une físicamente las cuencas del Orinoco y el Amazonas." }
+        ],
         puntosGeo: [
             { lat: 2.3, lng: -63.3, nombre: "Sierra Parima (Naciente)" },
-            { lat: 3.14, lng: -65.9, nombre: "Bifurcación del Casiquiare" },
+            { lat: 3.14, lng: -65.9, nombre: "Bifurcación del Casiquiare", imagen: "assets/orinoco_casiquiare_bifurcacion.jpg" },
             { lat: 5.66, lng: -67.62, nombre: "Raudales de Atures (Puerto Ayacucho)" },
             { lat: 6.2, lng: -67.4, nombre: "Confluencia Río Meta" },
             { lat: 7.6, lng: -66.5, nombre: "Confluencia Río Apure" },
             { lat: 8.36, lng: -62.65, nombre: "Confluencia Río Caroní (Ciudad Guayana)" },
-            { lat: 8.6, lng: -60.5, nombre: "Delta Amacuro (Océano Atlántico)" }
+            { lat: 8.6, lng: -60.5, nombre: "Delta Amacuro (Océano Atlántico)", imagen: "assets/orinoco_delta_amacuro.jpg" }
         ],
         nodos: [
-            { id: "salto_angel_auyantepuy", nombre: "Salto Ángel (Kerepakupai Merú)", tipo: "cascada_record", lat: 5.967, lng: -62.535, elevacion: "979 m de caída libre", importancia: "La catarata ininterrumpida más alta del planeta", texto: "Nace en la cumbre del tepuy Auyantepuy en Canaima.", imagen: "assets/abya_yala_red_hidrica.png", icono: "✨" },
-            { id: "casiquiare_canal", nombre: "Canal Natural del Casiquiare", tipo: "bifurcacion_fluvial", lat: 3.14, lng: -65.9, elevacion: "120 msnm", importancia: "Puente fluvial natural entre dos cuencas oceánicas", texto: "Fenómeno hidrográfico que une físicamente el Orinoco con el Río Negro y el Amazonas.", icono: "🔀" }
+            { id: "salto_angel_auyantepuy", nombre: "Salto Ángel (Kerepakupai Merú)", tipo: "cascada_record", lat: 5.967, lng: -62.535, elevacion: "979 m de caída libre", importancia: "La catarata ininterrumpida más alta del planeta", texto: "Nace en la cumbre del tepuy Auyantepuy en Canaima.", imagen: "assets/orinoco_salto_angel.jpg", icono: "✨" },
+            { id: "casiquiare_canal", nombre: "Canal Natural del Casiquiare", tipo: "bifurcacion_fluvial", lat: 3.14, lng: -65.9, elevacion: "120 msnm", importancia: "Puente fluvial natural entre dos cuencas oceánicas", texto: "Fenómeno hidrográfico que une físicamente el Orinoco con el Río Negro y el Amazonas.", imagen: "assets/orinoco_casiquiare_bifurcacion.jpg", icono: "🔀" }
         ]
     },
 
@@ -328,22 +375,23 @@ const CUENCAS_GEO_DATA = [
         superficie: "7.050.000 km²",
         descripcion: "Nace en los glaciares andinos del Nevado Mismi a más de 5.500 msnm y recorre la selva tropical vertiendo al Atlántico una quinta parte de toda el agua dulce superficial de los océanos. Sus 'ríos voladores' riegan la agricultura de todo el Cono Sur.",
         imagenes: [
-            { url: "assets/america_continente.jpg", titulo: "La Gran Amazonía en Abya Yala", descripcion: "El corazón biogeográfico de América del Sur." }
+            { url: "assets/amazonas_encuentro_aguas_manaus.jpg", titulo: "Encuentro de las Aguas (Manaus)", descripcion: "Fusión colosal donde el Río Negro y el Solimões fluyen lado a lado sin mezclarse por kilómetros." },
+            { url: "assets/amazonas_nevado_mismi.jpg", titulo: "Nevado Mismi (Cuna Glaciar del Amazonas)", descripcion: "Deshielos andinos a 5.597 msnm en Arequipa, Perú, el origen más remoto documentado." }
         ],
         puntosGeo: [
-            { lat: -15.52, lng: -71.68, nombre: "Nevado Mismi (Arequipa - Naciente Glaciar)" },
+            { lat: -15.52, lng: -71.68, nombre: "Nevado Mismi (Arequipa - Naciente Glaciar)", imagen: "assets/amazonas_nevado_mismi.jpg" },
             { lat: -9.0, lng: -74.0, nombre: "Río Ucayali" },
             { lat: -3.75, lng: -73.25, nombre: "Iquitos (Confluencia Marañón - Ucayali)" },
             { lat: -4.21, lng: -69.94, nombre: "Río Solimões (Triple Frontera Tabatinga/Leticia)" },
-            { lat: -3.13, lng: -60.02, nombre: "Encuentro de las Aguas (Manaus / Río Negro)" },
+            { lat: -3.13, lng: -60.02, nombre: "Encuentro de las Aguas (Manaus / Río Negro)", imagen: "assets/amazonas_encuentro_aguas_manaus.jpg" },
             { lat: -3.37, lng: -58.75, nombre: "Confluencia Río Madeira" },
             { lat: -2.44, lng: -54.71, nombre: "Santarém (Confluencia Río Tapajós)" },
             { lat: -1.9, lng: -55.5, nombre: "Estrecho de Óbidos" },
-            { lat: -1.45, lng: -48.5, nombre: "Delta de Marajó / Océano Atlántico (Belém)" }
+            { lat: -1.45, lng: -48.5, nombre: "Delta de Marajó / Océano Atlántico (Belém)", imagen: "assets/amazonas_delta_marajo.jpg" }
         ],
         nodos: [
-            { id: "mismi_nevado", nombre: "Nevado Mismi (Cuna del Amazonas)", tipo: "glaciar_origen", lat: -15.52, lng: -71.68, elevacion: "5.597 msnm", importancia: "El origen glaciar documentado del Amazonas", texto: "Hendidura de deshielo en los Andes peruanos.", imagen: "assets/america_continente.jpg", icono: "🏔️" },
-            { id: "manaus_encuentro", nombre: "Encuentro de las Aguas (Manaus)", tipo: "fenomeno_hidrico", lat: -3.13, lng: -60.02, elevacion: "21 msnm", caudal: "120.000 m³/s", importancia: "Confluencia del Río Negro y el Solimões", texto: "Aguas negras y ocres corren sin mezclarse durante 6 km.", imagen: "assets/america_continente.jpg", icono: "🌊" }
+            { id: "mismi_nevado", nombre: "Nevado Mismi (Cuna del Amazonas)", tipo: "glaciar_origen", lat: -15.52, lng: -71.68, elevacion: "5.597 msnm", importancia: "El origen glaciar documentado del Amazonas", texto: "Hendidura de deshielo en los Andes peruanos.", imagen: "assets/amazonas_nevado_mismi.jpg", icono: "🏔️" },
+            { id: "manaus_encuentro", nombre: "Encuentro de las Aguas (Manaus)", tipo: "fenomeno_hidrico", lat: -3.13, lng: -60.02, elevacion: "21 msnm", caudal: "120.000 m³/s", importancia: "Confluencia del Río Negro y el Solimões", texto: "Aguas negras y ocres corren sin mezclarse durante 6 km.", imagen: "assets/amazonas_encuentro_aguas_manaus.jpg", icono: "🌊" }
         ]
     },
     {
@@ -358,10 +406,13 @@ const CUENCAS_GEO_DATA = [
         longitudPrincipal: "2.450 km",
         superficie: "800.000 km²",
         descripcion: "No es técnicamente un afluente del Amazonas, sino una cuenca vecina colosal que desemboca en la misma bahía de Marajó cerca de Belém.",
+        imagenes: [
+            { url: "assets/tocantins_araguaia_cerrado.jpg", titulo: "Río Tocantins y el Bioma Cerrado", descripcion: "Gran río central brasileño que drena las mesetas del Cerrado hacia la desembocadura de Marajó." }
+        ],
         puntosGeo: [
             { lat: -14.5, lng: -49.0, nombre: "Planalto de Goiás (Naciente)" },
             { lat: -10.0, lng: -48.3, nombre: "Palmas (Tocantins Medio)" },
-            { lat: -5.3, lng: -48.5, nombre: "Confluencia con Río Araguaia (Marabá)" },
+            { lat: -5.3, lng: -48.5, nombre: "Confluencia con Río Araguaia (Marabá)", imagen: "assets/tocantins_araguaia_cerrado.jpg" },
             { lat: -1.7, lng: -49.2, nombre: "Bahía de Marajó / Belém (Atlántico)" }
         ],
         nodos: []
@@ -378,12 +429,16 @@ const CUENCAS_GEO_DATA = [
         longitudPrincipal: "2.914 km",
         superficie: "641.000 km²",
         descripcion: "Cruza el semiárido sertão nordestino y se abre paso en los cañones monumentales de Paulo Afonso antes de desembocar en el Atlántico.",
+        imagenes: [
+            { url: "assets/san_francisco_serra_canastra.jpg", titulo: "Naciente en la Serra da Canastra (Minas Gerais)", descripcion: "Nacimiento en las mesetas altas del Cerrado del legendario 'Velho Chico'." },
+            { url: "assets/san_francisco_canon_paulo_afonso.jpg", titulo: "Cañón Monumental de Paulo Afonso", descripcion: "Impresionante garganta rocosa y saltos de agua en el semiárido nordestino." }
+        ],
         puntosGeo: [
-            { lat: -20.0, lng: -46.5, nombre: "Serra da Canastra (Minas Gerais)" },
+            { lat: -20.0, lng: -46.5, nombre: "Serra da Canastra (Minas Gerais)", imagen: "assets/san_francisco_serra_canastra.jpg" },
             { lat: -17.2, lng: -44.8, nombre: "Pirapora" },
             { lat: -13.2, lng: -43.4, nombre: "Bom Jesus da Lapa" },
             { lat: -9.4, lng: -40.5, nombre: "Petrolina / Juazeiro" },
-            { lat: -9.4, lng: -38.2, nombre: "Cañón de Paulo Afonso" },
+            { lat: -9.4, lng: -38.2, nombre: "Cañón de Paulo Afonso", imagen: "assets/san_francisco_canon_paulo_afonso.jpg" },
             { lat: -10.5, lng: -36.4, nombre: "Desembocadura en el Océano Atlántico" }
         ],
         nodos: []
@@ -405,21 +460,22 @@ const CUENCAS_GEO_DATA = [
         superficie: "3.170.000 km²",
         descripcion: "Conecta el Gran Pantanal en Mato Grosso con el estuario del Río de la Plata. Alberga la represa hidroeléctrica de Itaipú, las colosales Cataratas del Iguazú y el delta vivo del Paraná.",
         imagenes: [
-            { url: "assets/abya_yala_red_hidrica.png", titulo: "Humedales y Fuentes del Cono Sur", descripcion: "Registros en el Gran Pantanal, Chaco y cuencas del Pilcomayo." }
+            { url: "assets/cataratas_del_iguazu.jpg", titulo: "Cataratas del Iguazú (Garganta del Diablo)", descripcion: "Maravilla Natural del Mundo: 275 saltos de agua con caída de más de 80 metros en herradura." },
+            { url: "assets/gran_pantanal_humedal.jpg", titulo: "El Gran Pantanal (Río Paraguay)", descripcion: "El mayor humedal de agua dulce del planeta, refugio vital de jaguares y aves acuáticas." }
         ],
         puntosGeo: [
-            { lat: -17.8, lng: -57.4, nombre: "El Gran Pantanal (Río Paraguay)" },
+            { lat: -17.8, lng: -57.4, nombre: "El Gran Pantanal (Río Paraguay)", imagen: "assets/gran_pantanal_humedal.jpg" },
             { lat: -21.0, lng: -57.8, nombre: "Paraguay Medio" },
             { lat: -25.4, lng: -54.58, nombre: "Alto Paraná (Itaipú)" },
-            { lat: -25.69, lng: -54.44, nombre: "Cataratas del Iguazú (Confluencia)" },
+            { lat: -25.69, lng: -54.44, nombre: "Cataratas del Iguazú (Confluencia)", imagen: "assets/cataratas_del_iguazu.jpg" },
             { lat: -27.46, lng: -58.83, nombre: "Confluencia Paraná - Paraguay (Corrientes)" },
             { lat: -32.95, lng: -60.65, nombre: "Paraná Medio (Rosario / Santa Fe)" },
-            { lat: -34.2, lng: -58.5, nombre: "Delta del Paraná (Tigre)" },
-            { lat: -34.6, lng: -58.38, nombre: "Estuario del Río de la Plata (Buenos Aires - Montevideo)" }
+            { lat: -34.2, lng: -58.5, nombre: "Delta del Paraná (Tigre)", imagen: "assets/delta_del_parana_tigre.jpg" },
+            { lat: -34.6, lng: -58.38, nombre: "Estuario del Río de la Plata (Buenos Aires - Montevideo)", imagen: "assets/estuario_rio_de_la_plata.jpg" }
         ],
         nodos: [
-            { id: "iguazu_cataratas", nombre: "Cataratas del Iguazú (Garganta del Diablo)", tipo: "catarata_monumental", lat: -25.69, lng: -54.44, elevacion: "195 msnm", caudal: "1.750 m³/s", importancia: "Maravilla Natural del Mundo", texto: "275 saltos de agua con caída de más de 80 metros en herradura.", imagen: "assets/abya_yala_red_hidrica.png", icono: "💦" },
-            { id: "pantanal_humedal", nombre: "El Gran Pantanal (Río Paraguay)", tipo: "humedal_mayor", lat: -17.8, lng: -57.4, elevacion: "120 msnm", importancia: "El mayor humedal de agua dulce del mundo", texto: "Planicie inundable que actúa como una esponja gigantesca.", imagen: "assets/abya_yala_red_hidrica.png", icono: "🌿" }
+            { id: "iguazu_cataratas", nombre: "Cataratas del Iguazú (Garganta del Diablo)", tipo: "catarata_monumental", lat: -25.69, lng: -54.44, elevacion: "195 msnm", caudal: "1.750 m³/s", importancia: "Maravilla Natural del Mundo", texto: "275 saltos de agua con caída de más de 80 metros en herradura.", imagen: "assets/cataratas_del_iguazu.jpg", icono: "💦" },
+            { id: "pantanal_humedal", nombre: "El Gran Pantanal (Río Paraguay)", tipo: "humedal_mayor", lat: -17.8, lng: -57.4, elevacion: "120 msnm", importancia: "El mayor humedal de agua dulce del mundo", texto: "Planicie inundable que actúa como una esponja gigantesca.", imagen: "assets/gran_pantanal_humedal.jpg", icono: "🌿" }
         ]
     },
     {
@@ -435,16 +491,17 @@ const CUENCAS_GEO_DATA = [
         superficie: "400.000 km²",
         descripcion: "Alimentados por el Campo de Hielo Patagónico Sur (la mayor masa de hielo continental fuera de los polos). Ríos de aguas turquesas lechosas como el Santa Cruz y el Baker riegan la estepa y los fiordos australes.",
         imagenes: [
-            { url: "assets/abya_yala_red_hidrica.png", titulo: "Campos de Hielo y Fuentes Australes", descripcion: "Los ríos glaciares de la Patagonia." }
+            { url: "assets/patagonia_glaciar_perito_moreno.jpg", titulo: "Glaciar Perito Moreno & Campo de Hielo Sur", descripcion: "Tercera masa de hielo continental del planeta que alimenta los ríos y lagos glaciares patagónicos." },
+            { url: "assets/patagonia_rio_santa_cruz.jpg", titulo: "Río Santa Cruz cruzando la Estepa Austral", descripcion: "Torrente de aguas turquesas glaciares fluyendo hacia el Océano Atlántico Sur." }
         ],
         puntosGeo: [
-            { lat: -50.47, lng: -73.04, nombre: "Glaciar Perito Moreno (Lago Argentino)" },
+            { lat: -50.47, lng: -73.04, nombre: "Glaciar Perito Moreno (Lago Argentino)", imagen: "assets/patagonia_glaciar_perito_moreno.jpg" },
             { lat: -50.33, lng: -72.26, nombre: "Naciente Río Santa Cruz (El Calafate)" },
-            { lat: -50.15, lng: -70.5, nombre: "Río Santa Cruz Medio (Estepa)" },
+            { lat: -50.15, lng: -70.5, nombre: "Río Santa Cruz Medio (Estepa)", imagen: "assets/patagonia_rio_santa_cruz.jpg" },
             { lat: -50.02, lng: -68.52, nombre: "Puerto Santa Cruz (Océano Atlántico Sur)" }
         ],
         nodos: [
-            { id: "perito_moreno_glaciar", nombre: "Campo de Hielo Sur (Perito Moreno)", tipo: "glaciar_fresca", lat: -50.47, lng: -73.04, elevacion: "180 msnm", importancia: "Tercera masa de hielo continental del planeta", texto: "Hielo milenario que alimenta los ríos patagónicos.", imagen: "assets/abya_yala_red_hidrica.png", icono: "❄️" }
+            { id: "perito_moreno_glaciar", nombre: "Campo de Hielo Sur (Perito Moreno)", tipo: "glaciar_fresca", lat: -50.47, lng: -73.04, elevacion: "180 msnm", importancia: "Tercera masa de hielo continental del planeta", texto: "Hielo milenario que alimenta los ríos patagónicos.", imagen: "assets/patagonia_glaciar_perito_moreno.jpg", icono: "❄️" }
         ]
     }
 ];

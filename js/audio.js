@@ -173,7 +173,7 @@ class AbyaYalaMusicManager {
     // Extraer ID de YouTube
     extractYouTubeId(url) {
         if (!url) return null;
-        const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
+        const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=|shorts\/)([^#&?]*).*/;
         const match = url.match(regExp);
         return (match && match[2].length === 11) ? match[2] : null;
     }
@@ -183,7 +183,8 @@ class AbyaYalaMusicManager {
         const container = document.getElementById(containerId);
         if (!container) return;
         this.container = container;
-        this.loadTrack(this.activeUrl);
+        // No auto-reproducir antes de que el usuario interactúe
+        this.isPlaying = false;
     }
 
     loadTrack(url) {
@@ -191,16 +192,16 @@ class AbyaYalaMusicManager {
         const ytId = this.extractYouTubeId(url);
 
         if (ytId) {
-            // Reproductor IFrame de YouTube con loop automático y sin anuncios molestos
             if (this.audioElement) {
                 this.audioElement.pause();
                 this.audioElement.src = "";
             }
 
+            this.savedIframeSrc = `https://www.youtube.com/embed/${ytId}?enablejsapi=1&autoplay=1&loop=1&playlist=${ytId}&controls=0&mute=${this.isMuted ? 1 : 0}`;
             this.container.innerHTML = `
                 <iframe id="yt-player-frame" 
                     width="200" height="200" 
-                    src="https://www.youtube.com/embed/${ytId}?enablejsapi=1&autoplay=1&loop=1&playlist=${ytId}&controls=0&mute=${this.isMuted ? 1 : 0}" 
+                    src="${this.savedIframeSrc}" 
                     title="Música de Abya Yala" 
                     frameborder="0" 
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
@@ -210,8 +211,8 @@ class AbyaYalaMusicManager {
             this.iframeElement = document.getElementById("yt-player-frame");
             this.isPlaying = true;
         } else {
-            // Audio Stream directo HTML5 (MP3/OGG)
             if (this.container) this.container.innerHTML = "";
+            this.iframeElement = null;
             if (!this.audioElement) {
                 this.audioElement = new Audio();
                 this.audioElement.loop = true;
@@ -225,19 +226,20 @@ class AbyaYalaMusicManager {
     }
 
     toggle() {
-        this.isPlaying = !this.isPlaying;
-        const ytId = this.extractYouTubeId(this.activeUrl);
-
-        if (ytId && this.iframeElement) {
-            // Enviar comando al IFrame de YouTube
-            const command = this.isPlaying ? '{"event":"command","func":"playVideo","args":""}' : '{"event":"command","func":"pauseVideo","args":""}';
-            this.iframeElement.contentWindow.postMessage(command, '*');
-        } else if (this.audioElement) {
-            if (this.isPlaying) {
-                this.audioElement.play().catch(() => {});
-            } else {
+        if (this.isPlaying) {
+            // Pausar: apagar iframe por completo para detener audio de inmediato sin depender de postMessage
+            this.isPlaying = false;
+            if (this.container) {
+                this.container.innerHTML = "";
+            }
+            this.iframeElement = null;
+            if (this.audioElement) {
                 this.audioElement.pause();
             }
+        } else {
+            // Reanudar: reinstanciar iframe con autoplay garantizado tras el clic
+            this.isPlaying = true;
+            this.loadTrack(this.activeUrl);
         }
         return this.isPlaying;
     }

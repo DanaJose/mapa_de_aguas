@@ -162,6 +162,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let currentCatalogFilter = "all";
     let isEcoMode = false;
     let arrivalBannerTimer = null;
+    let lastVisitedWaypointIdx = -1;
 
     // Estado del ratón y trazo
     let isMouseDown = false;
@@ -216,10 +217,10 @@ document.addEventListener("DOMContentLoaded", () => {
         portalScreen.classList.add("dissolved");
         setMode(mode);
 
-        // Iniciar audio reactivo y música
+        // Iniciar audio reactivo y música territorial
         audioSystem.init();
         if (!musicManager.isPlaying) {
-            musicManager.toggle();
+            musicManager.loadTrack(musicManager.activeUrl);
             updateMusicButtonUI();
         }
 
@@ -256,6 +257,9 @@ document.addEventListener("DOMContentLoaded", () => {
         clearTimeout(arrivalBannerTimer);
 
         const imgUrl = getNodePhotoUrl(node);
+        arrivalBannerImg.onerror = () => {
+            arrivalBannerImg.src = "assets/abya_yala_red_hidrica.png";
+        };
         arrivalBannerImg.src = imgUrl;
         arrivalNumPill.textContent = `# ${node.num || '📍'}`;
         arrivalCountryTag.textContent = node.pais || activeCuenca.categoria;
@@ -317,10 +321,12 @@ document.addEventListener("DOMContentLoaded", () => {
     function updateMusicButtonUI() {
         if (musicManager.isPlaying && !musicManager.isMuted) {
             btnToggleMusic.classList.add("active");
-            musicBtnLabel.textContent = "Música (On)";
+            musicBtnLabel.textContent = "Pausar Música";
+            btnToggleMusic.title = "Clic para pausar la música territorial";
         } else {
             btnToggleMusic.classList.remove("active");
-            musicBtnLabel.textContent = "Música (Pausa)";
+            musicBtnLabel.textContent = "Reproducir Música";
+            btnToggleMusic.title = "Clic para activar la música territorial";
         }
     }
 
@@ -480,6 +486,7 @@ document.addEventListener("DOMContentLoaded", () => {
         activeCuencaIndex = idx;
         activeCuenca = CUENCAS_GEO_DATA[idx];
         currentRiverName.textContent = activeCuenca.nombre;
+        lastVisitedWaypointIdx = -1;
 
         const items = riverMenu.querySelectorAll(".river-menu-item");
         items.forEach(it => it.classList.remove("active"));
@@ -539,7 +546,9 @@ document.addEventListener("DOMContentLoaded", () => {
         showConnections = !showConnections;
         btnToggleConnections.classList.toggle("active", showConnections);
         if (showConnections) {
-            hintPill.innerHTML = `🔗 <span>Sistema Vascular:</span> Venas de agua, sinapsis de confluencia y acuíferos`;
+            hintPill.innerHTML = `🔗 <span>Sistema Vascular Vivo:</span> 12 arterias continentales, sinapsis de confluencia y acuíferos activos.`;
+        } else {
+            hintPill.innerHTML = `Venas intercuencas y sinapsis desactivadas`;
         }
     });
     btnToggleConnections.classList.add("active");
@@ -665,7 +674,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 showArrivalBanner({
                     nombre: pt.nombre,
                     pais: cuenca.categoria,
-                    imagen: (cuenca.imagenes && cuenca.imagenes[0]) ? cuenca.imagenes[0].url : "assets/abya_yala_red_hidrica.png",
+                    imagen: pt.imagen || ((cuenca.imagenes && cuenca.imagenes[0]) ? cuenca.imagenes[0].url : "assets/abya_yala_red_hidrica.png"),
                     importancia: `Hito fluvial (${Math.round(pct)}% del curso)`
                 });
             });
@@ -1026,18 +1035,35 @@ document.addEventListener("DOMContentLoaded", () => {
             timelineProgressFill.style.width = `${t * 100}%`;
             timelineHandle.style.left = `${t * 100}%`;
             timelineProgressPct.textContent = `Curso Fluvial: ${Math.round(t * 100)}%`;
+
+            // Detección automática al navegar el río para desplegar foto del hito
+            if (activeCuenca.puntosGeo && activeCuenca.puntosGeo.length > 1) {
+                const totalHitos = activeCuenca.puntosGeo.length;
+                activeCuenca.puntosGeo.forEach((pt, idx) => {
+                    const hitoT = idx / (totalHitos - 1);
+                    if (Math.abs(t - hitoT) < 0.035 && lastVisitedWaypointIdx !== idx) {
+                        lastVisitedWaypointIdx = idx;
+                        showArrivalBanner({
+                            nombre: pt.nombre,
+                            pais: activeCuenca.categoria,
+                            imagen: pt.imagen || (activeCuenca.imagenes && activeCuenca.imagenes[0] ? activeCuenca.imagenes[0].url : "assets/abya_yala_red_hidrica.png"),
+                            importancia: `Hito fluvial (${Math.round(hitoT * 100)}% del cauce)`
+                        });
+                    }
+                });
+            }
         }
 
         // 1. Teselas Satelitales (Esri World Imagery + UN-GGIM standard bounds)
         satelliteEngine.render(ctx, camera, window.innerWidth, window.innerHeight);
 
-        // 2. Sistema Vascular de Venas de Agua (Conexiones Orgánicas)
+        // 2. Sistema Vascular de Ríos (Arterias Fluviales Vivas Pulsantes)
+        drawVascularRivers(ctx);
+
+        // 3. Sistema Vascular de Venas de Agua & Conexiones Orgánicas (Pulsantes sobre el mapa)
         if (showConnections) {
             drawVascularVeins(ctx);
         }
-
-        // 3. Sistema Vascular de Ríos
-        drawVascularRivers(ctx);
 
         // 4. Partículas minerales de corriente
         if (!isEcoMode || camera.currentSpeed > 0.005) {
@@ -1054,12 +1080,17 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function drawVascularRivers(c) {
-        const zoomOutFactor = Math.max(1.0, (5.2 - camera.zoom) * 1.35);
+        const zoomOutFactor = Math.max(1.0, (5.2 - camera.zoom) * 1.45);
+        const now = Date.now();
+        const timePulse = now * 0.0028;
 
-        CUENCAS_GEO_DATA.forEach(cuenca => {
+        CUENCAS_GEO_DATA.forEach((cuenca, cIdx) => {
             const isActive = (cuenca.id === activeCuenca.id);
             const river = cuenca.puntosMercator;
             if (!river || river.length < 2) return;
+
+            // Pulso vascular rítmico para todas las arterias fluviales
+            const pulse = 1.0 + Math.sin(timePulse + cIdx * 0.65) * 0.25;
 
             c.save();
             c.beginPath();
@@ -1073,22 +1104,41 @@ document.addEventListener("DOMContentLoaded", () => {
                 else c.lineTo(screenPt.x, screenPt.y);
             }
 
-            // Halo vascular exterior
-            c.strokeStyle = isActive ? "rgba(212, 136, 49, 0.55)" : "rgba(72, 181, 196, 0.45)";
-            c.lineWidth = (isActive ? 7.5 : 4.0) * zoomOutFactor;
+            // Capa 1: Halo exterior vascular bioluminiscente con resplandor
+            c.strokeStyle = isActive ? "rgba(212, 136, 49, 0.75)" : "rgba(72, 181, 196, 0.60)";
+            c.shadowColor = isActive ? "#D48831" : "#48B5C4";
+            c.shadowBlur = (isActive ? 14 : 8) * pulse;
+            c.lineWidth = (isActive ? 8.5 : 4.5) * pulse * zoomOutFactor;
             c.lineCap = "round";
             c.lineJoin = "round";
             c.stroke();
 
-            // Vaso de agua mineral
+            // Capa 2: Vaso de agua mineral viva
             c.strokeStyle = cuenca.colorAgua || "#48B5C4";
-            c.lineWidth = (isActive ? 3.0 : 1.8) * zoomOutFactor;
+            c.lineWidth = (isActive ? 3.8 : 2.2) * zoomOutFactor;
+            c.shadowBlur = 0;
             c.stroke();
 
-            // Corriente viva central
-            c.strokeStyle = "rgba(255, 255, 255, 0.85)";
-            c.lineWidth = (isActive ? 1.2 : 0.8) * zoomOutFactor;
+            // Capa 3: Corriente arterial central blanca
+            c.strokeStyle = "rgba(255, 255, 255, 0.95)";
+            c.lineWidth = (isActive ? 1.6 : 0.9) * zoomOutFactor;
             c.stroke();
+
+            // Capa 4: Fotones luminosos fluyendo en tiempo real a lo largo de cada río
+            const pulseCount = isActive ? 3 : 2;
+            for (let p = 0; p < pulseCount; p++) {
+                const travelT = ((now * 0.00032 + cIdx * 0.18 + p * (1 / pulseCount)) % 1.0);
+                const pt = getSplinePoint(river, travelT);
+                const sp = camera.worldToScreen(pt.x, pt.y);
+                if (sp.x >= -30 && sp.x <= camera.width + 30 && sp.y >= -30 && sp.y <= camera.height + 30) {
+                    c.beginPath();
+                    c.arc(sp.x, sp.y, Math.max(2.5, 4.0 * pulse * Math.min(1.4, zoomOutFactor)), 0, Math.PI * 2);
+                    c.fillStyle = "#FFFFFF";
+                    c.shadowColor = cuenca.colorAgua || "#48B5C4";
+                    c.shadowBlur = 8;
+                    c.fill();
+                }
+            }
 
             // Marcador del flujo del viajero
             if (isActive && camera.isFollowingRiver) {
@@ -1096,14 +1146,14 @@ document.addEventListener("DOMContentLoaded", () => {
                 const curScreen = camera.worldToScreen(curPos.x, curPos.y);
 
                 c.beginPath();
-                c.arc(curScreen.x, curScreen.y, 4.5 * Math.min(1.5, zoomOutFactor), 0, Math.PI * 2);
+                c.arc(curScreen.x, curScreen.y, 5.0 * Math.min(1.5, zoomOutFactor), 0, Math.PI * 2);
                 c.fillStyle = "#FFFFFF";
                 c.fill();
 
                 c.beginPath();
-                c.arc(curScreen.x, curScreen.y, 11 * Math.min(1.5, zoomOutFactor), 0, Math.PI * 2);
-                c.strokeStyle = "rgba(212, 136, 49, 0.85)";
-                c.lineWidth = 1.8;
+                c.arc(curScreen.x, curScreen.y, 12 * Math.min(1.5, zoomOutFactor), 0, Math.PI * 2);
+                c.strokeStyle = "rgba(212, 136, 49, 0.9)";
+                c.lineWidth = 2.0;
                 c.stroke();
             }
 
@@ -1115,95 +1165,132 @@ document.addEventListener("DOMContentLoaded", () => {
     function drawVascularVeins(c) {
         c.save();
         const now = Date.now();
-        const timePulse = now * 0.0025;
+        const timePulse = now * 0.003;
+        const zoomOutFactor = Math.max(1.2, (5.2 - camera.zoom) * 1.55);
 
         // 1. Trazado de venas de agua
         CONEXIONES_INTERCUENCAS.forEach((con, idx) => {
             const pts = con.puntosMercator;
             if (!pts || pts.length < 2) return;
 
-            c.beginPath();
-            const first = camera.worldToScreen(pts[0].x, pts[0].y);
-            c.moveTo(first.x, first.y);
-
-            const steps = pts.length * 8;
-            for (let i = 1; i <= steps; i++) {
-                const t = i / steps;
-                const pt = getSplinePoint(pts, t);
-                const sp = camera.worldToScreen(pt.x, pt.y);
-                c.lineTo(sp.x, sp.y);
-            }
-
             // Pulso biológico orgánico (simula latido vascular)
-            const pulse = 1.0 + Math.sin(timePulse + idx * 0.8) * 0.35;
-            const baseWidth = (con.grosor || 4.0) * pulse;
+            const pulse = 1.0 + Math.sin(timePulse + idx * 0.75) * 0.35;
+            const baseWidth = (con.grosor || 4.5) * pulse * zoomOutFactor;
 
-            // Halo exterior de la vena
-            c.strokeStyle = con.colorVena || "rgba(72, 181, 196, 0.45)";
-            c.lineWidth = baseWidth * 2.2;
+            // Función interna para trazar el camino spline
+            const tracePath = () => {
+                c.beginPath();
+                const first = camera.worldToScreen(pts[0].x, pts[0].y);
+                c.moveTo(first.x, first.y);
+                const steps = pts.length * 8;
+                for (let i = 1; i <= steps; i++) {
+                    const t = i / steps;
+                    const pt = getSplinePoint(pts, t);
+                    const sp = camera.worldToScreen(pt.x, pt.y);
+                    c.lineTo(sp.x, sp.y);
+                }
+            };
+
+            // Capa 1: Halo exterior biológico difuso
+            tracePath();
+            c.strokeStyle = con.colorVena || "rgba(212, 136, 49, 0.65)";
+            c.lineWidth = baseWidth * 2.8;
             c.lineCap = "round";
             c.lineJoin = "round";
-            c.globalAlpha = 0.35;
+            c.shadowColor = con.colorVena || "#D48831";
+            c.shadowBlur = 14 * pulse;
+            c.globalAlpha = 0.45;
             c.stroke();
 
-            // Conducto arterial vivo
-            c.lineWidth = baseWidth;
-            c.globalAlpha = 0.85;
-            c.stroke();
-
-            // Núcleo luminoso del vaso
-            c.strokeStyle = "#FFFFFF";
-            c.lineWidth = Math.max(1.0, baseWidth * 0.35);
+            // Capa 2: Conducto arterial vivo
+            tracePath();
+            c.strokeStyle = con.colorVena || "#48B5C4";
+            c.lineWidth = baseWidth * 1.3;
+            c.shadowBlur = 6;
             c.globalAlpha = 0.9;
             c.stroke();
 
-            // Pulso viajero que avanza por la vena
-            const travelT = ((now * 0.0004 + idx * 0.2) % 1.0);
-            const pulsePt = getSplinePoint(pts, travelT);
-            const pulseScreen = camera.worldToScreen(pulsePt.x, pulsePt.y);
-
-            c.beginPath();
-            c.arc(pulseScreen.x, pulseScreen.y, 4.0 * pulse, 0, Math.PI * 2);
-            c.fillStyle = "#FFFFFF";
-            c.fill();
-            c.beginPath();
-            c.arc(pulseScreen.x, pulseScreen.y, 9.0 * pulse, 0, Math.PI * 2);
-            c.strokeStyle = con.colorVena || "rgba(212, 136, 49, 0.8)";
-            c.lineWidth = 1.5;
+            // Capa 3: Núcleo luminoso blanco de la corriente
+            tracePath();
+            c.strokeStyle = "#FFFFFF";
+            c.lineWidth = Math.max(1.5, baseWidth * 0.4);
+            c.shadowBlur = 0;
+            c.globalAlpha = 0.95;
             c.stroke();
+
+            // Capa 4: Pulsos viajeros múltiples fluyendo a lo largo de la vena
+            c.globalAlpha = 1.0;
+            const numPulses = 2;
+            for (let p = 0; p < numPulses; p++) {
+                const travelT = ((now * 0.00035 + idx * 0.25 + p * (1 / numPulses)) % 1.0);
+                const pulsePt = getSplinePoint(pts, travelT);
+                const pulseScreen = camera.worldToScreen(pulsePt.x, pulsePt.y);
+
+                c.beginPath();
+                c.arc(pulseScreen.x, pulseScreen.y, Math.max(3, 4.5 * pulse * (zoomOutFactor * 0.7)), 0, Math.PI * 2);
+                c.fillStyle = "#FFFFFF";
+                c.shadowColor = "#FFFFFF";
+                c.shadowBlur = 8;
+                c.fill();
+
+                c.beginPath();
+                c.arc(pulseScreen.x, pulseScreen.y, Math.max(6, 9.5 * pulse * (zoomOutFactor * 0.7)), 0, Math.PI * 2);
+                c.strokeStyle = con.colorVena || "rgba(212, 136, 49, 0.9)";
+                c.lineWidth = 2.0;
+                c.stroke();
+            }
         });
 
         // 2. Sinapsis y Puntos de Confluencia Mayor
         SINAPSIS_CONFLUENCIAS.forEach((sin, idx) => {
             const sp = camera.worldToScreen(sin.x, sin.y);
-            if (sp.x < -30 || sp.x > camera.width + 30 || sp.y < -30 || sp.y > camera.height + 30) return;
+            if (sp.x < -40 || sp.x > camera.width + 40 || sp.y < -40 || sp.y > camera.height + 40) return;
 
-            const wave = ((now * 0.015 + idx * 4) % 22);
+            const wave = ((now * 0.016 + idx * 5) % 26);
+            const wave2 = (((now * 0.016 + idx * 5) + 13) % 26);
 
-            // Anillo de expansión tipo latido de sinapsis
+            // Anillos de expansión concéntricos (onda sonar / latido vascular)
+            [wave, wave2].forEach(w => {
+                c.beginPath();
+                c.arc(sp.x, sp.y, Math.max(3, w * (zoomOutFactor * 0.8)), 0, Math.PI * 2);
+                c.strokeStyle = `rgba(212, 136, 49, ${Math.max(0, 0.95 - w / 26)})`;
+                c.lineWidth = 1.8;
+                c.stroke();
+            });
+
+            // Núcleo de la confluencia (orb brillante)
             c.beginPath();
-            c.arc(sp.x, sp.y, wave, 0, Math.PI * 2);
-            c.strokeStyle = `rgba(212, 136, 49, ${Math.max(0, 1.0 - wave / 22)})`;
-            c.lineWidth = 1.5;
-            c.stroke();
-
-            // Núcleo de la confluencia
-            c.beginPath();
-            c.arc(sp.x, sp.y, 5.0, 0, Math.PI * 2);
+            c.arc(sp.x, sp.y, Math.max(4.5, 6.5 * (zoomOutFactor * 0.6)), 0, Math.PI * 2);
             c.fillStyle = "#D48831";
+            c.shadowColor = "#F0A045";
+            c.shadowBlur = 10;
             c.fill();
-            c.strokeStyle = "#FFFFFF";
-            c.lineWidth = 1.5;
-            c.stroke();
 
-            // Etiqueta en zoom cercano
-            if (camera.zoom > 5.2) {
-                c.font = "700 9.5px Inter, sans-serif";
-                c.fillStyle = "#F7F4F0";
+            c.beginPath();
+            c.arc(sp.x, sp.y, Math.max(2, 3.0 * (zoomOutFactor * 0.6)), 0, Math.PI * 2);
+            c.fillStyle = "#FFFFFF";
+            c.shadowBlur = 0;
+            c.fill();
+
+            // Etiqueta legible de confluencia
+            if (camera.zoom > 4.2) {
+                const labelText = `⚡ ${sin.nombre}`;
+                c.font = "800 10.5px Inter, sans-serif";
+                const textWidth = c.measureText(labelText).width;
+
+                // Fondo de píldora para legibilidad
+                c.fillStyle = "rgba(7, 18, 23, 0.85)";
+                c.beginPath();
+                c.roundRect(sp.x + 10, sp.y - 8, textWidth + 10, 16, 4);
+                c.fill();
+                c.strokeStyle = "rgba(212, 136, 49, 0.6)";
+                c.lineWidth = 1.0;
+                c.stroke();
+
+                c.fillStyle = "#FAF4EB";
                 c.textAlign = "left";
-                c.shadowColor = "rgba(0, 0, 0, 0.95)";
-                c.shadowBlur = 4;
-                c.fillText(`⚡ ${sin.nombre}`, sp.x + 9, sp.y + 3);
+                c.textBaseline = "middle";
+                c.fillText(labelText, sp.x + 15, sp.y);
             }
         });
 
