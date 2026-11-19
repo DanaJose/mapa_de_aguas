@@ -108,13 +108,14 @@ body, html {
     justify-content: center;
     overflow: hidden;
     background-color: #03080B;
-    transition: opacity 0.8s var(--transition-smooth), transform 0.8s var(--transition-smooth);
+    transition: opacity 0.8s var(--transition-smooth), transform 0.8s var(--transition-smooth), visibility 0.8s;
 }
 
 .portal-screen.dissolved {
     opacity: 0;
     transform: scale(1.04);
     pointer-events: none;
+    visibility: hidden;
 }
 
 /* Fondo Mosaico de Imágenes (Editorial Asymmetric Grid) */

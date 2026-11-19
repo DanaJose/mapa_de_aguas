@@ -29,11 +29,11 @@ const CUENCAS_GEO_DATA = [
             { lat: 56.1, lng: -120.0, nombre: "Río Peace (Montañas Rocosas)" },
             { lat: 59.2, lng: -111.5, nombre: "Río Slave / Delta de Athabasca" },
             { lat: 61.5, lng: -115.5, nombre: "Gran Lago del Esclavo (Great Slave Lake)" },
-            { lat: 61.85, lng: -121.35, nombre: "Fort Simpson (Confluencia Río Liard)" },
+            { lat: 61.85, lng: -121.35, nombre: "Fort Simpson (Confluencia Río Liard)", imagen: "assets/mackenzie_mapa.jpg" },
             { lat: 64.9, lng: -125.6, nombre: "Confluencia Gran Lago del Oso" },
             { lat: 65.28, lng: -126.83, nombre: "Norman Wells (Mackenzie Medio)" },
             { lat: 67.45, lng: -133.74, nombre: "Tsiigehtchic" },
-            { lat: 69.4, lng: -134.0, nombre: "Delta del Mackenzie / Mar de Beaufort (Ártico)" }
+            { lat: 69.4, lng: -134.0, nombre: "Delta del Mackenzie / Mar de Beaufort (Ártico)", imagen: "assets/mackenzie_meandros.jpg" }
         ],
         nodos: [
             { id: "dehcho_slave_lake", nombre: "Gran Lago del Esclavo (Tłı̨chǫ)", tipo: "lago_origen", lat: 61.5, lng: -115.5, elevacion: "156 msnm", importancia: "El lago más profundo de Norteamérica (614 m)", texto: "Hogar milenario de los pueblos Dene.", imagen: "assets/mackenzie_meandros.jpg", icono: "❄️" },
@@ -53,18 +53,18 @@ const CUENCAS_GEO_DATA = [
         superficie: "850.000 km²",
         descripcion: "Río glaciar sagrado para las naciones Gwich'in y Yup'ik. Nace en la Columbia Británica y cruza Alaska antes de bifurcarse en el delta del mar de Bering.",
         imagenes: [
-            { url: "assets/yukon_cauce.jpg", titulo: "El Gran Río Yukón y los Bosques Subárticos", descripcion: "Arteria sagrada de los pueblos originarios que fluye entre taigas hacia el Mar de Bering." },
-            { url: "assets/yukon_delta_bering.jpg", titulo: "Delta del Yukón en el Mar de Bering", descripcion: "Inmensa planicie aluvial y humedal costero en Alaska." }
+            { url: "assets/yukon_cause.jpg", titulo: "El Gran Río Yukón y los Bosques Subárticos", descripcion: "Arteria sagrada de los pueblos originarios que fluye entre taigas hacia el Mar de Bering." },
+            { url: "assets/ukon_delta_bering.jpg", titulo: "Delta del Yukón en el Mar de Bering", descripcion: "Inmensa planicie aluvial y humedal costero en Alaska." }
         ],
         puntosGeo: [
             { lat: 59.8, lng: -134.5, nombre: "Lakes Atlin / Tagish (Naciente)" },
             { lat: 60.7, lng: -135.0, nombre: "Whitehorse" },
             { lat: 64.0, lng: -139.4, nombre: "Dawson City (Confluencia Klondike)" },
-            { lat: 65.5, lng: -144.5, nombre: "Yukon Flats", imagen: "assets/yukon_cauce.jpg" },
-            { lat: 62.5, lng: -164.5, nombre: "Delta del Yukón (Mar de Bering)", imagen: "assets/yukon_delta_bering.jpg" }
+            { lat: 65.5, lng: -144.5, nombre: "Yukon Flats", imagen: "assets/yukon_cause.jpg" },
+            { lat: 62.5, lng: -164.5, nombre: "Delta del Yukón (Mar de Bering)", imagen: "assets/ukon_delta_bering.jpg" }
         ],
         nodos: [
-            { id: "yukon_flats", nombre: "Yukon Flats & Tundra Ártica", tipo: "humedal_artico", lat: 65.5, lng: -144.5, elevacion: "120 msnm", importancia: "Vasto laberinto de meandros y turberas subárticas", texto: "Territorio de cría de millones de aves migratorias y salmones.", imagen: "assets/yukon_cauce.jpg", icono: "❄️" }
+            { id: "yukon_flats", nombre: "Yukon Flats & Tundra Ártica", tipo: "humedal_artico", lat: 65.5, lng: -144.5, elevacion: "120 msnm", importancia: "Vasto laberinto de meandros y turberas subárticas", texto: "Territorio de cría de millones de aves migratorias y salmones.", imagen: "assets/yukon_cause.jpg", icono: "❄️" }
         ]
     },
 
@@ -143,7 +143,7 @@ const CUENCAS_GEO_DATA = [
         descripcion: "Nace en las montañas de San Juan en Colorado y desciende esculpiendo profundas fallas tectónicas como la garganta de Taos. Fluye a través de Nuevo México y se convierte en la frontera entre México y Texas, sustentando oasis, pueblos originarios Pueblo y ecosistemas del desierto.",
         imagenes: [
             { url: "assets/rio_bravo_canon.jpg", titulo: "Garganta del Río Grande / Puente de Taos", descripcion: "Impresionante cañón de basalto de más de 200 metros de profundidad." },
-            { url: "assets/rio_bravo_santa_elena.jpg", titulo: "Cañón de Santa Elena (Big Bend)", descripcion: "Desfiladero monumental de caliza en la frontera desértica." }
+            { url: "assets/io_bravo_santa_elena.jpg", titulo: "Cañón de Santa Elena (Big Bend)", descripcion: "Desfiladero monumental de caliza en la frontera desértica." }
         ],
         puntosGeo: [
             { lat: 37.8, lng: -107.5, nombre: "Montañas San Juan (Colorado - Naciente)" },
@@ -151,13 +151,13 @@ const CUENCAS_GEO_DATA = [
             { lat: 35.08, lng: -106.65, nombre: "Albuquerque / Valle Central" },
             { lat: 31.76, lng: -106.48, nombre: "Paso del Norte (Ciudad Juárez / El Paso)" },
             { lat: 29.56, lng: -104.41, nombre: "Ojinaga / Confluencia Río Conchos" },
-            { lat: 29.16, lng: -103.61, nombre: "Cañón de Santa Elena (Big Bend)", imagen: "assets/rio_bravo_santa_elena.jpg" },
+            { lat: 29.16, lng: -103.61, nombre: "Cañón de Santa Elena (Big Bend)", imagen: "assets/io_bravo_santa_elena.jpg" },
             { lat: 27.5, lng: -99.5, nombre: "Laredo / Nuevo Laredo" },
             { lat: 25.95, lng: -97.15, nombre: "Desembocadura en el Golfo de México" }
         ],
         nodos: [
             { id: "taos_gorge", nombre: "Garganta de Taos (Taos Gorge)", tipo: "canon_geologico", lat: 36.476, lng: -105.733, elevacion: "2.050 msnm", importancia: "Falla tectónica del Rift de Río Grande", texto: "Hendidura basáltica sagrada para Taos Pueblo.", imagen: "assets/rio_bravo_canon.jpg", icono: "🌉" },
-            { id: "santa_elena", nombre: "Cañón de Santa Elena (Big Bend)", tipo: "desfiladero_calizo", lat: 29.16, lng: -103.61, elevacion: "650 msnm", importancia: "Paredes verticales de caliza de 450 metros", texto: "El río se abre paso entre macizos rocosos imponentes.", imagen: "assets/rio_bravo_santa_elena.jpg", icono: "🏜️" }
+            { id: "santa_elena", nombre: "Cañón de Santa Elena (Big Bend)", tipo: "desfiladero_calizo", lat: 29.16, lng: -103.61, elevacion: "650 msnm", importancia: "Paredes verticales de caliza de 450 metros", texto: "El río se abre paso entre macizos rocosos imponentes.", imagen: "assets/io_bravo_santa_elena.jpg", icono: "🏜️" }
         ]
     },
 
@@ -407,12 +407,12 @@ const CUENCAS_GEO_DATA = [
         superficie: "800.000 km²",
         descripcion: "No es técnicamente un afluente del Amazonas, sino una cuenca vecina colosal que desemboca en la misma bahía de Marajó cerca de Belém.",
         imagenes: [
-            { url: "assets/tocantins_araguaia_cerrado.jpg", titulo: "Río Tocantins y el Bioma Cerrado", descripcion: "Gran río central brasileño que drena las mesetas del Cerrado hacia la desembocadura de Marajó." }
+            { url: "assets/ocantins_araguaia_cerrado.jpg", titulo: "Río Tocantins y el Bioma Cerrado", descripcion: "Gran río central brasileño que drena las mesetas del Cerrado hacia la desembocadura de Marajó." }
         ],
         puntosGeo: [
             { lat: -14.5, lng: -49.0, nombre: "Planalto de Goiás (Naciente)" },
             { lat: -10.0, lng: -48.3, nombre: "Palmas (Tocantins Medio)" },
-            { lat: -5.3, lng: -48.5, nombre: "Confluencia con Río Araguaia (Marabá)", imagen: "assets/tocantins_araguaia_cerrado.jpg" },
+            { lat: -5.3, lng: -48.5, nombre: "Confluencia con Río Araguaia (Marabá)", imagen: "assets/ocantins_araguaia_cerrado.jpg" },
             { lat: -1.7, lng: -49.2, nombre: "Bahía de Marajó / Belém (Atlántico)" }
         ],
         nodos: []
@@ -460,21 +460,21 @@ const CUENCAS_GEO_DATA = [
         superficie: "3.170.000 km²",
         descripcion: "Conecta el Gran Pantanal en Mato Grosso con el estuario del Río de la Plata. Alberga la represa hidroeléctrica de Itaipú, las colosales Cataratas del Iguazú y el delta vivo del Paraná.",
         imagenes: [
-            { url: "assets/cataratas_del_iguazu.jpg", titulo: "Cataratas del Iguazú (Garganta del Diablo)", descripcion: "Maravilla Natural del Mundo: 275 saltos de agua con caída de más de 80 metros en herradura." },
+            { url: "assets/ataratas_del_iguazu.jpg", titulo: "Cataratas del Iguazú (Garganta del Diablo)", descripcion: "Maravilla Natural del Mundo: 275 saltos de agua con caída de más de 80 metros en herradura." },
             { url: "assets/gran_pantanal_humedal.jpg", titulo: "El Gran Pantanal (Río Paraguay)", descripcion: "El mayor humedal de agua dulce del planeta, refugio vital de jaguares y aves acuáticas." }
         ],
         puntosGeo: [
             { lat: -17.8, lng: -57.4, nombre: "El Gran Pantanal (Río Paraguay)", imagen: "assets/gran_pantanal_humedal.jpg" },
             { lat: -21.0, lng: -57.8, nombre: "Paraguay Medio" },
             { lat: -25.4, lng: -54.58, nombre: "Alto Paraná (Itaipú)" },
-            { lat: -25.69, lng: -54.44, nombre: "Cataratas del Iguazú (Confluencia)", imagen: "assets/cataratas_del_iguazu.jpg" },
+            { lat: -25.69, lng: -54.44, nombre: "Cataratas del Iguazú (Confluencia)", imagen: "assets/ataratas_del_iguazu.jpg" },
             { lat: -27.46, lng: -58.83, nombre: "Confluencia Paraná - Paraguay (Corrientes)" },
             { lat: -32.95, lng: -60.65, nombre: "Paraná Medio (Rosario / Santa Fe)" },
             { lat: -34.2, lng: -58.5, nombre: "Delta del Paraná (Tigre)", imagen: "assets/delta_del_parana_tigre.jpg" },
-            { lat: -34.6, lng: -58.38, nombre: "Estuario del Río de la Plata (Buenos Aires - Montevideo)", imagen: "assets/estuario_rio_de_la_plata.jpg" }
+            { lat: -34.6, lng: -58.38, nombre: "Estuario del Río de la Plata (Buenos Aires - Montevideo)", imagen: "assets/stuario_rio_de_la_plata.jpg" }
         ],
         nodos: [
-            { id: "iguazu_cataratas", nombre: "Cataratas del Iguazú (Garganta del Diablo)", tipo: "catarata_monumental", lat: -25.69, lng: -54.44, elevacion: "195 msnm", caudal: "1.750 m³/s", importancia: "Maravilla Natural del Mundo", texto: "275 saltos de agua con caída de más de 80 metros en herradura.", imagen: "assets/cataratas_del_iguazu.jpg", icono: "💦" },
+            { id: "iguazu_cataratas", nombre: "Cataratas del Iguazú (Garganta del Diablo)", tipo: "catarata_monumental", lat: -25.69, lng: -54.44, elevacion: "195 msnm", caudal: "1.750 m³/s", importancia: "Maravilla Natural del Mundo", texto: "275 saltos de agua con caída de más de 80 metros en herradura.", imagen: "assets/ataratas_del_iguazu.jpg", icono: "💦" },
             { id: "pantanal_humedal", nombre: "El Gran Pantanal (Río Paraguay)", tipo: "humedal_mayor", lat: -17.8, lng: -57.4, elevacion: "120 msnm", importancia: "El mayor humedal de agua dulce del mundo", texto: "Planicie inundable que actúa como una esponja gigantesca.", imagen: "assets/gran_pantanal_humedal.jpg", icono: "🌿" }
         ]
     },
@@ -515,8 +515,10 @@ const CUENCAS_GEO_DATA = [
 const TRIBUTARIOS_CONTINENTALES = [
     // 1. Canal Natural del Casiquiare (El puente fluvial vivo que une Orinoco y Amazonas)
     {
-        id: "trib_casiquiare",
-        nombre: "Bifurcación Natural del Casiquiare",
+        
+        subtitulo: "Bifurcación natural transcontinental entre el Orinoco y el Amazonas",
+        descripcion: "El único canal natural transcontinental del planeta. Conecta la cuenca del Orinoco con el Río Negro (Amazonas), permitiendo el flujo continuo de aguas y especies entre dos gigantes fluviales.",
+        imagen: "assets/orinoco_casiquiare_bifurcacion.jpg",
         cuencaMadre: "orinoco",
         cuencaDestino: "amazonas",
         tipo: "bifurcacion_transcuenca",
@@ -529,8 +531,10 @@ const TRIBUTARIOS_CONTINENTALES = [
     },
     // 2. Río Marañón (Cuna Andina del Amazonas)
     {
-        id: "trib_maranon",
-        nombre: "Río Marañón (Arteria Andina)",
+        
+        subtitulo: "Arteria madre andina nacida en los glaciares de Huayhuash",
+        descripcion: "Desciende impetuoso desde la cordillera andina oriental peruana, tallando cañones profundos antes de unirse al Ucayali en Nauta para formar el cauce principal del Amazonas.",
+        imagen: "assets/amazonas_nevado_mismi.jpg",
         cuencaMadre: "amazonas",
         tipo: "afluente_origen",
         puntosGeo: [
@@ -542,8 +546,10 @@ const TRIBUTARIOS_CONTINENTALES = [
     },
     // 3. Río Ucayali (Cuna del Amazonas)
     {
-        id: "trib_ucayali",
-        nombre: "Río Ucayali (Arteria del Sur Andino)",
+        
+        subtitulo: "El cauce serpenteante del sur andino nacido en el Nevado Mismi",
+        descripcion: "Formado por la unión del Tambo y el Urubamba, recorre miles de meandros a través de la selva baja peruana y la Reserva Nacional Pacaya Samiria.",
+        imagen: "assets/amazonas_nevado_mismi.jpg",
         cuencaMadre: "amazonas",
         tipo: "afluente_origen",
         puntosGeo: [
@@ -555,8 +561,10 @@ const TRIBUTARIOS_CONTINENTALES = [
     },
     // 4. Río Negro (El Coloso de Aguas Negras)
     {
-        id: "trib_rio_negro",
-        nombre: "Río Negro / Guainía",
+        
+        subtitulo: "El río de aguas negras más caudaloso del mundo",
+        descripcion: "Nace como Guainía en Colombia y drena selvas de arenas blancas ricas en ácidos húmicos. Alberga los archipiélagos fluviales de Mariuá y Anavilhanas antes de encontrarse con el Solimões en Manaus.",
+        imagen: "assets/amazonas_encuentro_aguas_manaus.jpg",
         cuencaMadre: "amazonas",
         tipo: "afluente_mayor",
         puntosGeo: [
@@ -568,8 +576,10 @@ const TRIBUTARIOS_CONTINENTALES = [
     },
     // 5. Río Madeira (Mayor Afluente de Sedimentos)
     {
-        id: "trib_madeira",
-        nombre: "Río Madeira & Mamoré",
+        
+        subtitulo: "El colosal gigante de sedimentos andinos de Bolivia y Brasil",
+        descripcion: "Aporta más del 50% de los sedimentos que fertilizan la llanura amazónica. Formado por la confluencia del Mamoré y el Beni en la frontera boliviana-brasileña.",
+        imagen: "assets/amazonas_delta_marajo.jpg",
         cuencaMadre: "amazonas",
         tipo: "afluente_mayor",
         puntosGeo: [
@@ -581,8 +591,10 @@ const TRIBUTARIOS_CONTINENTALES = [
     },
     // 6. Río Missouri ➔ Mississippi
     {
-        id: "trib_missouri",
-        nombre: "Río Missouri (Gran Rama de las Rocosas)",
+        
+        subtitulo: "La gran rama occidental de las Montañas Rocosas",
+        descripcion: "El río más largo de América del Norte (3.767 km). Nace en Montana y cruza las Grandes Llanuras hasta verter sus aguas cargadas de arcilla en el Mississippi al norte de St. Louis.",
+        imagen: "assets/mississippi_naciente_itasca.jpg",
         cuencaMadre: "mississippi",
         tipo: "afluente_mayor",
         puntosGeo: [
@@ -594,8 +606,10 @@ const TRIBUTARIOS_CONTINENTALES = [
     },
     // 7. Río Ohio ➔ Mississippi
     {
-        id: "trib_ohio",
-        nombre: "Río Ohio (Vertiente de los Apalaches)",
+        
+        subtitulo: "El mayor afluente oriental desde los Montes Apalaches",
+        descripcion: "Aporta el mayor volumen de agua dulce al sistema Mississippi. Nace en Pittsburgh por la unión del Allegheny y el Monongahela, fluyendo hacia el suroeste hasta Cairo.",
+        imagen: "assets/mississippi_delta_pie_pajaro.jpg",
         cuencaMadre: "mississippi",
         tipo: "afluente_mayor",
         puntosGeo: [
@@ -606,8 +620,10 @@ const TRIBUTARIOS_CONTINENTALES = [
     },
     // 8. Río Paraguay ➔ Paraná (Conexión Pantanal)
     {
-        id: "trib_paraguay",
-        nombre: "Río Paraguay (Arteria del Pantanal)",
+        
+        subtitulo: "La arteria fluvial que purifica y alimenta el Gran Pantanal",
+        descripcion: "Eje vertebrador de la Cuenca del Plata que atraviesa el humedal tropical más grande del mundo. Desciende suavemente hacia el sur hasta unirse al Paraná en Paso de la Patria.",
+        imagen: "assets/gran_pantanal_humedal.jpg",
         cuencaMadre: "plata",
         tipo: "afluente_mayor",
         puntosGeo: [
@@ -619,8 +635,10 @@ const TRIBUTARIOS_CONTINENTALES = [
     },
     // 9. Río Iguazú ➔ Paraná
     {
-        id: "trib_iguazu",
-        nombre: "Río Iguazú",
+        
+        subtitulo: "Arteria de la selva paranaense y cuna de las Cataratas",
+        descripcion: "Nace en la Serra do Mar cerca de Curitiba, serpentea por la meseta basáltica y se precipita en 275 cascadas antes de unirse al Paraná en el Hito de las Tres Fronteras.",
+        imagen: "assets/ataratas_del_iguazu.jpg",
         cuencaMadre: "plata",
         tipo: "afluente_cataratas",
         puntosGeo: [
@@ -631,8 +649,10 @@ const TRIBUTARIOS_CONTINENTALES = [
     },
     // 10. Río Grijalva ➔ Pantanos de Centla (Usumacinta)
     {
-        id: "trib_grijalva",
-        nombre: "Río Grijalva & Cañón del Sumidero",
+        
+        subtitulo: "El cañón milenario del Sumidero y la selva chiapaneca",
+        descripcion: "Desciende desde las cumbres de Guatemala, cruza las imponentes paredes de 1.000 metros del Cañón del Sumidero y confluye con el Usumacinta en los Pantanos de Centla.",
+        imagen: "assets/pantanos_de_centla.jpg",
         cuencaMadre: "mesoamerica",
         tipo: "afluente_mayor",
         puntosGeo: [
@@ -644,8 +664,10 @@ const TRIBUTARIOS_CONTINENTALES = [
     },
     // 11. Río Liard ➔ Mackenzie
     {
-        id: "trib_liard",
-        nombre: "Río Liard (Taiga Boreal)",
+        
+        subtitulo: "Torrente subártico de aguas glaciares de la taiga boreal",
+        descripcion: "Drena las montañas de Yukón y Columbia Británica. Aporta aguas frías y sedimentos minerales al curso medio del gran río Mackenzie (Dehcho) en Fort Simpson.",
+        imagen: "assets/mackenzie_mapa.jpg",
         cuencaMadre: "mackenzie",
         tipo: "afluente_boreal",
         puntosGeo: [
@@ -664,6 +686,8 @@ const CONFLUENCIAS_HIDROLOGICAS_REALES = [
         cuenca: "Orinoco & Amazonas",
         lat: 3.14, lng: -65.90,
         subtitulo: "El único canal natural transcontinental del planeta",
+        descripcion: "Fenómeno biogeográfico sin parangón en el planeta donde el río Orinoco divide su caudal en una bifurcación natural permanente hacia la Amazonía.",
+        imagen: "assets/orinoco_casiquiare_bifurcacion.jpg",
         icono: "🔀"
     },
     {
@@ -672,6 +696,8 @@ const CONFLUENCIAS_HIDROLOGICAS_REALES = [
         cuenca: "Río Negro & Solimões",
         lat: -3.13, lng: -60.02,
         subtitulo: "Confluencia donde aguas negras y ocres corren juntas sin mezclarse",
+        descripcion: "Fenómeno hidrodinámico donde las aguas oscuras del Río Negro (28 °C, 2 km/h) y las aguas claras y densas del Solimões (22 °C, 5 km/h) corren paralelas sin fundirse por más de 6 km.",
+        imagen: "assets/amazonas_encuentro_aguas_manaus.jpg",
         icono: "🌊"
     },
     {
@@ -680,6 +706,8 @@ const CONFLUENCIAS_HIDROLOGICAS_REALES = [
         cuenca: "Río Marañón & Río Ucayali",
         lat: -4.51, lng: -73.58,
         subtitulo: "Encuentro de las dos arterias andinas que forman el Gran Amazonas",
+        descripcion: "Cuna fundacional del Gran Río Amazonas donde las aguas bravas del Marañón se funden con los meandros del Ucayali en Loreto, Perú.",
+        imagen: "assets/amazonas_nevado_mismi.jpg",
         icono: "✨"
     },
     {
@@ -688,6 +716,8 @@ const CONFLUENCIAS_HIDROLOGICAS_REALES = [
         cuenca: "Cuenca del Plata",
         lat: -27.35, lng: -58.62,
         subtitulo: "Unión de las aguas del Pantanal y las mesetas del sur",
+        descripcion: "Vértice fluvial donde las aguas claras y purificadas del Pantanal (Río Paraguay) se integran al caudaloso Paraná en Paso de la Patria.",
+        imagen: "assets/gran_pantanal_humedal.jpg",
         icono: "🌊"
     },
     {
@@ -696,6 +726,8 @@ const CONFLUENCIAS_HIDROLOGICAS_REALES = [
         cuenca: "Usumacinta & Grijalva",
         lat: 18.42, lng: -92.65,
         subtitulo: "El mayor delta y humedal de Mesoamérica hacia el Golfo",
+        descripcion: "La mayor desembocadura deltaica y humedal de Mesoamérica donde confluyen el Usumacinta y el Grijalva antes de entrar al Golfo de México.",
+        imagen: "assets/pantanos_de_centla.jpg",
         icono: "🌿"
     },
     {
@@ -704,6 +736,8 @@ const CONFLUENCIAS_HIDROLOGICAS_REALES = [
         cuenca: "Llanuras de Norteamérica",
         lat: 38.81, lng: -90.11,
         subtitulo: "Unión del río de las Rocosas con la arteria del Norte",
+        descripcion: "Punto de encuentro donde el lodoso río Missouri vierte sus sedimentos de las Rocosas en la ancha corriente del Mississippi superior.",
+        imagen: "assets/mississippi_naciente_itasca.jpg",
         icono: "💧"
     },
     {
@@ -712,6 +746,8 @@ const CONFLUENCIAS_HIDROLOGICAS_REALES = [
         cuenca: "Mississippi / Apalaches",
         lat: 36.99, lng: -89.14,
         subtitulo: "Aporte colosal de caudal desde la cordillera este",
+        descripcion: "Confluencia colosal en Illinois donde el río Ohio duplica el caudal del Mississippi, impulsando la navegación hacia el Golfo de México.",
+        imagen: "assets/mississippi_delta_pie_pajaro.jpg",
         icono: "💧"
     },
     {
@@ -720,6 +756,8 @@ const CONFLUENCIAS_HIDROLOGICAS_REALES = [
         cuenca: "Cuenca del Plata",
         lat: -25.59, lng: -54.59,
         subtitulo: "Cataratas del Iguazú tributando al Paraná en la frontera tripartita",
+        descripcion: "Unión del río Iguazú en el río Paraná en el punto tripartito entre Puerto Iguazú (Argentina), Foz do Iguaçu (Brasil) y Ciudad del Este (Paraguay).",
+        imagen: "assets/ataratas_del_iguazu.jpg",
         icono: "💦"
     },
     {
@@ -728,6 +766,8 @@ const CONFLUENCIAS_HIDROLOGICAS_REALES = [
         cuenca: "Gran Norte / Ártico",
         lat: 61.85, lng: -121.35,
         subtitulo: "Unión de aguas glaciares en el Gran Río Boreal",
+        descripcion: "Unión histórica del río Liard con el Mackenzie, enclave milenario de los pueblos Dene de las Naciones Originarias.",
+        imagen: "assets/mackenzie_mapa.jpg",
         icono: "❄️"
     }
 ];

@@ -183,6 +183,10 @@ document.addEventListener("DOMContentLoaded", () => {
     let cameraStart = { x: 0, y: 0 };
     let userDrawnStroke = [];
 
+    // Mosaico Dinámico de Portada
+    let portalCollageTimer = null;
+    let portalImagePool = [];
+
     // ==========================================
     // 3. INICIALIZACIÓN Y TAMAÑO DE LIENZO
     // ==========================================
@@ -237,8 +241,6 @@ document.addEventListener("DOMContentLoaded", () => {
     // ==========================================
     // 3.1. MOSAICO DINÁMICO DE PORTADA (OPTIMIZADO EN TIEMPO REAL)
     // ==========================================
-    let portalCollageTimer = null;
-    let portalImagePool = [];
 
     function buildPortalImagePool() {
         portalImagePool = [];
@@ -425,8 +427,43 @@ document.addEventListener("DOMContentLoaded", () => {
     function preloadNodeImages() {
         const keyImages = [
             "assets/rio_bravo_canon.jpg",
+            "assets/io_bravo_santa_elena.jpg",
             "assets/mackenzie_meandros.jpg",
             "assets/mackenzie_mapa.jpg",
+            "assets/yukon_cause.jpg",
+            "assets/ukon_delta_bering.jpg",
+            "assets/mississippi_naciente_itasca.jpg",
+            "assets/mississippi_delta_pie_pajaro.jpg",
+            "assets/rio_colorado_gran_canon.jpg",
+            "assets/rio_colorado_horseshoe_bend.jpg",
+            "assets/rio_platano_biosfera.jpg",
+            "assets/rio_platano_meandros_selva.jpg",
+            "assets/rio_gualcarque_sagrado.jpg",
+            "assets/rio_gualcarque_canon.jpg",
+            "assets/rio_cangrejal_pico_bonito.jpg",
+            "assets/rio_cangrejal_rapidos.jpg",
+            "assets/rio_coco_canon_somoto.jpg",
+            "assets/rio_coco_wangki_miskitu.jpg",
+            "assets/usumacinta_yaxchilan.jpg",
+            "assets/pantanos_de_centla.jpg",
+            "assets/magdalena_macizo_colombiano.jpg",
+            "assets/magdalena_estrecho_san_agustin.jpg",
+            "assets/magdalena_bocas_ceniza.jpg",
+            "assets/orinoco_salto_angel.jpg",
+            "assets/orinoco_casiquiare_bifurcacion.jpg",
+            "assets/orinoco_delta_amacuro.jpg",
+            "assets/amazonas_nevado_mismi.jpg",
+            "assets/amazonas_encuentro_aguas_manaus.jpg",
+            "assets/amazonas_delta_marajo.jpg",
+            "assets/ocantins_araguaia_cerrado.jpg",
+            "assets/san_francisco_serra_canastra.jpg",
+            "assets/san_francisco_canon_paulo_afonso.jpg",
+            "assets/ataratas_del_iguazu.jpg",
+            "assets/gran_pantanal_humedal.jpg",
+            "assets/delta_del_parana_tigre.jpg",
+            "assets/stuario_rio_de_la_plata.jpg",
+            "assets/patagonia_glaciar_perito_moreno.jpg",
+            "assets/patagonia_rio_santa_cruz.jpg",
             "assets/abya_yala_red_hidrica.png",
             "assets/red_luchas_abya_yala.png",
             "assets/america_continente.jpg"
@@ -1329,6 +1366,32 @@ document.addEventListener("DOMContentLoaded", () => {
 
         if (closest) {
             jumpToStruggleNode(closest);
+            return;
+        }
+
+        // Si no se hizo clic en una lucha, verificar confluencias hidrológicas mayores
+        if (typeof CONFLUENCIAS_HIDROLOGICAS_REALES !== "undefined") {
+            let closestConf = null;
+            let minConfDist = 28;
+            CONFLUENCIAS_HIDROLOGICAS_REALES.forEach(conf => {
+                const sp = camera.worldToScreen(conf.x, conf.y);
+                const dist = Math.hypot(sp.x - screenX, sp.y - screenY);
+                if (dist < minConfDist) {
+                    closestConf = conf;
+                    minConfDist = dist;
+                }
+            });
+
+            if (closestConf) {
+                camera.flyTo(closestConf.x, closestConf.y, 7.8);
+                showArrivalBanner({
+                    nombre: closestConf.nombre,
+                    pais: closestConf.cuenca,
+                    imagen: closestConf.imagen || "assets/abya_yala_red_hidrica.png",
+                    importancia: closestConf.subtitulo || "Confluencia Hidrológica Continental",
+                    texto: closestConf.descripcion || "Punto de convergencia fluvial natural de Abya Yala."
+                });
+            }
         }
     }
 
@@ -1630,7 +1693,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 // Fotografía en miniatura si está disponible
                 const photoUrl = getNodePhotoUrl(node);
-                const cachedImg = nodeImageCache.get(photoUrl);
+                let cachedImg = nodeImageCache.get(photoUrl);
+                if (!cachedImg && photoUrl) {
+                    cachedImg = new Image();
+                    cachedImg.src = photoUrl;
+                    nodeImageCache.set(photoUrl, cachedImg);
+                }
 
                 if (cachedImg && cachedImg.complete && cachedImg.naturalWidth > 0) {
                     c.save();

@@ -18,7 +18,7 @@ const LUCHAS_94_DATA_RAW = [
         amenaza: "Extracción geotérmica intensiva, subsidencia de suelos y emisiones de salmueras",
         comunidades: "Comunidades agrícolas del Valle de Mexicali y pueblo Cucapá",
         texto: "Uno de los campos geotérmicos más grandes del mundo. La extracción de vapor profundo ha generado fracturas en el terreno, abatimiento del manto freático y conflictos con los agricultores por el uso del agua.",
-        imagen: "assets/red_luchas_abya_yala.png"
+        imagen: "assets/rio_colorado_horseshoe_bend.jpg"
     },
     {
         num: 2,
@@ -30,7 +30,7 @@ const LUCHAS_94_DATA_RAW = [
         amenaza: "Presión sobre oasis hídricos y amenazas de minería de oro y cobre a cielo abierto",
         comunidades: "Poblaciones de los oasis y defensores de la Reserva del Vizcaíno",
         texto: "Oasis milenario de agua dulce en medio del desierto peninsular. Comunidades locales han resistido proyectos mineros tóxicos que amenazan contaminar el acuífero que sustenta los palmares.",
-        imagen: "assets/red_luchas_abya_yala.png"
+        imagen: "assets/rio_colorado_horseshoe_bend.jpg"
     },
     {
         num: 3,
@@ -42,7 +42,7 @@ const LUCHAS_94_DATA_RAW = [
         amenaza: "Minería de fosforita submarina y terrestre / Desalación industrial",
         comunidades: "Comunidades costeras de San Juan de la Costa y Punta Coyote",
         texto: "Histórica defensa pesquera y comunitaria frente a proyectos de dragado y minería de fosfato en aguas del Golfo de California que pondrían en riesgo los ecosistemas marinos y costeros.",
-        imagen: "assets/red_luchas_abya_yala.png"
+        imagen: "assets/rio_colorado_horseshoe_bend.jpg"
     },
     {
         num: 4,
@@ -54,7 +54,7 @@ const LUCHAS_94_DATA_RAW = [
         amenaza: "Megaproyectos de minería de oro a cielo abierto (Los Cardones / Paredones Amarillos)",
         comunidades: "Frente Ciudadano en Defensa del Agua de Baja California Sur",
         texto: "La Sierra de la Laguna es la única reserva de agua dulce para La Paz y Los Cabos. La ciudadanía ha frenado exitosamente intentos de minería con cianuro que contaminarían el agua subterránea.",
-        imagen: "assets/red_luchas_abya_yala.png"
+        imagen: "assets/rio_colorado_horseshoe_bend.jpg"
     },
     {
         num: 5,
@@ -66,7 +66,7 @@ const LUCHAS_94_DATA_RAW = [
         amenaza: "Megaminería de oro (La Herradura) y sobreexplotación de acuíferos desérticos",
         comunidades: "Ejidatarios de El Bajío y pueblos del desierto sonorense",
         texto: "Zona de intensa lucha ejidal contra consorcios mineros por el despojo de tierras y la contaminación de pozos de agua en una de las regiones más secas del continente.",
-        imagen: "assets/red_luchas_abya_yala.png"
+        imagen: "assets/rio_colorado_gran_canon.jpg"
     },
     {
         num: 6,
@@ -78,7 +78,7 @@ const LUCHAS_94_DATA_RAW = [
         amenaza: "Crisis hídrica urbana y el derrame masivo de tóxicos en el Río Sonora de 2014",
         comunidades: "Comités de Cuenca del Río Sonora y habitantes de Hermosillo",
         texto: "El peor desastre ambiental de la minería en México: 40 millones de litros de sulfato de cobre vertidos por Grupo México dejaron a miles de familias con metales pesados en la sangre y el agua.",
-        imagen: "assets/red_luchas_abya_yala.png"
+        imagen: "assets/rio_colorado_gran_canon.jpg"
     },
     {
         num: 7,
@@ -90,7 +90,7 @@ const LUCHAS_94_DATA_RAW = [
         amenaza: "Desvío ilegal de agua mediante el Acueducto Independencia",
         comunidades: "Nación Indígena Yaqui (Pueblos de Vícam, Pótam, Tórim, Bácum, etc.)",
         texto: "La Tribu Yaqui ha defendido su río sagrado desde tiempos coloniales. Su lucha contra el desvío de aguas hacia la industria y la capital ha sido emblema de resistencia territorial y derechos originarios.",
-        imagen: "assets/red_luchas_abya_yala.png"
+        imagen: "assets/rio_colorado_gran_canon.jpg"
     },
     {
         num: 8,
@@ -102,7 +102,7 @@ const LUCHAS_94_DATA_RAW = [
         amenaza: "Monopolio agroindustrial del agua y salinización de mantos freáticos",
         comunidades: "Pueblo Indígena Yoreme-Mayo",
         texto: "Comunidades Yoreme que defienden sus derechos al agua del río Mayo frente a la concentración hídrica de los grandes terratenientes agrícolas y el desabasto doméstico.",
-        imagen: "assets/red_luchas_abya_yala.png"
+        imagen: "assets/rio_colorado_gran_canon.jpg"
     },
     {
         num: 9,
@@ -114,7 +114,7 @@ const LUCHAS_94_DATA_RAW = [
         amenaza: "Desecación total del delta por represamiento y absorción aguas arriba en EE.UU.",
         comunidades: "Pueblo Indígena Cucapá y pescadores ribereños",
         texto: "El otrora vergel del delta del Colorado fue convertido en un desierto de salitre. Los Cucapá ('gente del río') luchan por su derecho a la pesca ancestral y a que el río vuelva a tocar el mar.",
-        imagen: "assets/red_luchas_abya_yala.png"
+        imagen: "assets/rio_colorado_gran_canon.jpg"
     },
     {
         num: 10,
@@ -126,7 +126,7 @@ const LUCHAS_94_DATA_RAW = [
         amenaza: "Siglos de minería de plomo, zinc y plata con acumulación de presas de jales tóxicos",
         comunidades: "Habitantes ribereños y comunidades de la Sierra Tarahumara",
         texto: "Uno de los asentamientos mineros más antiguos de América. Las presas de jales colindantes con los arroyos han filtrado metales pesados en las fuentes de agua de las familias.",
-        imagen: "assets/red_luchas_abya_yala.png"
+        imagen: "assets/rio_bravo_canon.jpg"
     },
     {
         num: 11,
@@ -138,7 +138,7 @@ const LUCHAS_94_DATA_RAW = [
         amenaza: "Conflicto por el Tratado de Aguas de 1944 y extracción desmedida para nogaleras",
         comunidades: "Agricultores locales y pueblos ribereños del Conchos (La Boquilla)",
         texto: "Escenario de la 'Guerra del Agua de Chihuahua' en 2020: agricultores y defensores tomaron la presa La Boquilla para evitar el vaciado del agua en plena sequía extrema.",
-        imagen: "assets/red_luchas_abya_yala.png"
+        imagen: "assets/rio_bravo_canon.jpg"
     },
     {
         num: 12,
@@ -150,7 +150,7 @@ const LUCHAS_94_DATA_RAW = [
         amenaza: "Acaparamiento industrial (refresqueras, cerveceras y acero) en crisis de sequía",
         comunidades: "Habitantes de colonias populares de Monterrey",
         texto: "La crisis de sed de Monterrey evidenció la desigualdad hídrica: mientras la población pasaba meses sin agua potable, las corporaciones industriales tenían concesiones de pozos profundos garantizadas.",
-        imagen: "assets/red_luchas_abya_yala.png"
+        imagen: "assets/rio_bravo_canon.jpg"
     },
     {
         num: 13,
@@ -162,7 +162,7 @@ const LUCHAS_94_DATA_RAW = [
         amenaza: "Agotamiento de acuíferos por Newmont Peñasquito y Fresnillo plc",
         comunidades: "Comunidades de Mazapil, ejidatarios y campesinos zacatecanos",
         texto: "La mayor mina de oro de México consume diariamente millones de litros de agua dulce en un semidesierto donde los pozos campesinos se secan y los manantiales desaparecen.",
-        imagen: "assets/red_luchas_abya_yala.png"
+        imagen: "assets/io_bravo_santa_elena.jpg"
     },
     {
         num: 14,
@@ -174,7 +174,7 @@ const LUCHAS_94_DATA_RAW = [
         amenaza: "Arsenicismo endémico por sobreexplotación lechera (Grupo Lala) y agroindustrial",
         comunidades: "Población de la Comarca Lagunera y Encuentro Ciudadano Lagunero",
         texto: "El bombeo a más de 500 metros para forrajes de ganado lechero provocó que el agua fósil salga cargada de arsénico venenoso, provocando cáncer y amputaciones en la población rural.",
-        imagen: "assets/red_luchas_abya_yala.png"
+        imagen: "assets/io_bravo_santa_elena.jpg"
     },
     {
         num: 15,
@@ -186,7 +186,7 @@ const LUCHAS_94_DATA_RAW = [
         amenaza: "Contaminación con flúor y metales pesados en el agua potable",
         comunidades: "Habitantes del Valle de Durango",
         texto: "Sobreexplotación del acuífero que ha incrementado la presencia de flúor en el agua de consumo, afectando la salud dental y ósea de la infancia en las comunidades periféricas.",
-        imagen: "assets/red_luchas_abya_yala.png"
+        imagen: "assets/io_bravo_santa_elena.jpg"
     },
     {
         num: 16,
@@ -198,7 +198,7 @@ const LUCHAS_94_DATA_RAW = [
         amenaza: "Extracción minera y defensa de fuentes manantiales",
         comunidades: "Comunidades agrícolas del sur de Zacatecas",
         texto: "Defensa local del agua de riego frente al avance de concesiones extractivas en los límites entre Zacatecas y Jalisco.",
-        imagen: "assets/red_luchas_abya_yala.png"
+        imagen: "assets/io_bravo_santa_elena.jpg"
     },
     {
         num: 17,
@@ -210,7 +210,7 @@ const LUCHAS_94_DATA_RAW = [
         amenaza: "Destrucción del cerro histórico por Minera San Xavier y contaminación química",
         comunidades: "Frente Amplio Opositor a Minera San Xavier",
         texto: "Lucha emblemática en México: la empresa canadiense dinamitó un cerro histórico para extraer oro con cianuro sobre el acuífero que abastece a la capital potosina.",
-        imagen: "assets/red_luchas_abya_yala.png"
+        imagen: "assets/io_bravo_santa_elena.jpg"
     },
     {
         num: 18,
@@ -222,7 +222,7 @@ const LUCHAS_94_DATA_RAW = [
         amenaza: "Presión turística y proyectos de trasvase hacia zonas industriales",
         comunidades: "Ejidatarios de El Jabalí y pueblos de la Zona Media",
         texto: "El manantial termal de la Media Luna es un ecosistema cárstico único. Las comunidades defienden el caudal frente a proyectos de trasvase hacia la zona fabril.",
-        imagen: "assets/red_luchas_abya_yala.png"
+        imagen: "assets/io_bravo_santa_elena.jpg"
     },
     {
         num: 19,
@@ -234,7 +234,7 @@ const LUCHAS_94_DATA_RAW = [
         amenaza: "Basurero tóxico de confinamiento y aguas subterráneas con arsénico natural y minero",
         comunidades: "Pobladores otomíes y campesinos de Zimapán",
         texto: "Fuerte movilización social que expulsó a la empresa española Befesa que pretendía instalar un confinamiento de residuos peligrosos sobre las cuencas que alimentan manantiales.",
-        imagen: "assets/red_luchas_abya_yala.png"
+        imagen: "assets/io_bravo_santa_elena.jpg"
     },
     {
         num: 20,
@@ -246,7 +246,7 @@ const LUCHAS_94_DATA_RAW = [
         amenaza: "Privatización del servicio de agua por Veolia y sobreexplotación automotriz",
         comunidades: "Movimientos ciudadanos por la remunicipalización del agua",
         texto: "Durante 30 años la trasnacional Veolia lucró con tarifas impagables y cortes de servicio mientras el acuífero se hundía por el crecimiento industrial y automotriz.",
-        imagen: "assets/red_luchas_abya_yala.png"
+        imagen: "assets/io_bravo_santa_elena.jpg"
     },
     {
         num: 21,
@@ -258,7 +258,7 @@ const LUCHAS_94_DATA_RAW = [
         amenaza: "Proyectos de geotermia profunda y fracturamiento hidráulico",
         comunidades: "Pueblos nahuas y totonacos de la Sierra Norte de Puebla",
         texto: "Pueblos originarios organizados en comités de defensa del territorio contra los 'proyectos de muerte' (minería a cielo abierto, hidroeléctricas y geotermia).",
-        imagen: "assets/red_luchas_abya_yala.png"
+        imagen: "assets/pantanos_de_centla.jpg"
     },
     {
         num: 22,
@@ -270,7 +270,7 @@ const LUCHAS_94_DATA_RAW = [
         amenaza: "Sismos inducidos, ruido ensordecedor y desecación de manantiales locales",
         comunidades: "Comunidades campesinas de Chignautla y Teziutlán",
         texto: "La planta geotérmica de la CFE ha sido denunciada por comunidades circundantes por provocar disminución de aguas manantiales y afectación a cultivos por emisiones ácidas.",
-        imagen: "assets/red_luchas_abya_yala.png"
+        imagen: "assets/pantanos_de_centla.jpg"
     },
     {
         num: 23,
@@ -282,7 +282,7 @@ const LUCHAS_94_DATA_RAW = [
         amenaza: "Deforestación de bosques de oyamel y alteración del ciclo hidrológico",
         comunidades: "Comunidades de Ciudad Hidalgo y Maravatío",
         texto: "Santuario forestal y de aguas termales donde la explotación de vapor a alta presión ha tenido impacto en los arroyos de cabecera que alimentan al agonizante Lago de Cuitzeo.",
-        imagen: "assets/red_luchas_abya_yala.png"
+        imagen: "assets/pantanos_de_centla.jpg"
     },
     {
         num: 24,
@@ -294,7 +294,7 @@ const LUCHAS_94_DATA_RAW = [
         amenaza: "Inundación forzada de poblados históricos por la presa El Zapotillo",
         comunidades: "Comité Salvemos Temacapulín, Acasico y Palmarejo",
         texto: "Una de las victorias más inspiradoras de América Latina: 15 años de resistencia campesina y comunitaria lograron detener la elevación de la cortina de la presa y salvar a sus pueblos de ser inundados.",
-        imagen: "assets/red_luchas_abya_yala.png"
+        imagen: "assets/rio_cangrejal_pico_bonito.jpg"
     },
     {
         num: 25,
@@ -306,7 +306,7 @@ const LUCHAS_94_DATA_RAW = [
         amenaza: "Contaminación química por la refinería Ing. Antonio M. Amor y fertilizantes",
         comunidades: "Pobladores ribereños del Río Lerma",
         texto: "El río Lerma llega a este tramo cargado de residuos industriales de hidrocarburos, agroquímicos y azufre, convirtiendo el cauce en una cloaca a cielo abierto que enferma a las comunidades.",
-        imagen: "assets/red_luchas_abya_yala.png"
+        imagen: "assets/rio_cangrejal_pico_bonito.jpg"
     },
     {
         num: 26,
@@ -318,7 +318,7 @@ const LUCHAS_94_DATA_RAW = [
         amenaza: "Desecación del segundo lago más grande de México y tolvaneras tóxicas",
         comunidades: "Pescadores purépechas y comunidades ribereñas",
         texto: "El lago de Cuitzeo enfrenta una desecación catastrófica por el desvío de sus ríos alimentadores y deforestación, generando tormentas de polvo salitroso y pérdida de pesca.",
-        imagen: "assets/red_luchas_abya_yala.png"
+        imagen: "assets/rio_cangrejal_pico_bonito.jpg"
     },
     {
         num: 27,
@@ -330,7 +330,7 @@ const LUCHAS_94_DATA_RAW = [
         amenaza: "Presencia crítica de arsénico y fluoruro en pozos de agua potable",
         comunidades: "Coalición de Comunidades de la Cuenca de la Independencia (CODECIN)",
         texto: "Más de 2.500 pozos que abastecen a la agroexportación de hortalizas han abatido el acuífero, provocando que el agua de más de 400 comunidades tenga niveles letales de arsénico.",
-        imagen: "assets/red_luchas_abya_yala.png"
+        imagen: "assets/rio_cangrejal_pico_bonito.jpg"
     },
     {
         num: 28,
@@ -342,7 +342,7 @@ const LUCHAS_94_DATA_RAW = [
         amenaza: "Pasivos ambientales mineros de metales pesados en las grutas y ríos",
         comunidades: "Pobladores de Taxco el Viejo y Cañón de Chontalcoatlán",
         texto: "Las presas de jales de siglos de minería de plata sin remediar lixivian plomo y cadmio a los ríos subterráneos que alimentan el Parque Nacional Grutas de Cacahuamilpa.",
-        imagen: "assets/red_luchas_abya_yala.png"
+        imagen: "assets/rio_gualcarque_sagrado.jpg"
     },
     {
         num: 29,
@@ -354,7 +354,7 @@ const LUCHAS_94_DATA_RAW = [
         amenaza: "Contaminación con plomo, arsénico y manganeso en el agua de pozos y ollas",
         comunidades: "Pueblo indígena Nahua de Tlamacazapa",
         texto: "Comunidad nahua célebre por su artesanía de palma donde el agua presenta concentraciones de metales pesados causantes de retrasos en el neurodesarrollo infantil.",
-        imagen: "assets/red_luchas_abya_yala.png"
+        imagen: "assets/rio_gualcarque_sagrado.jpg"
     },
     {
         num: 30,
@@ -366,7 +366,7 @@ const LUCHAS_94_DATA_RAW = [
         amenaza: "Mina de plata y oro San José (Fortuna Silver Mines)",
         comunidades: "Frente de Pueblos Unidos del Valle de Ocotlán (Zapotecos)",
         texto: "Comunidades zapotecas organizadas en defensa de sus pozos de siembra frente a los derrames de jales tóxicos de la empresa canadiense y la represión a sus defensores comunitarios.",
-        imagen: "assets/red_luchas_abya_yala.png"
+        imagen: "assets/rio_gualcarque_sagrado.jpg"
     },
     {
         num: 31,
@@ -378,7 +378,7 @@ const LUCHAS_94_DATA_RAW = [
         amenaza: "Contaminación petrolera por derrames de crudo y quema de gas amargo",
         comunidades: "Comunidades chontales y campesinas de Reforma y Huimanguillo",
         texto: "El complejo procesador de gas y pozos petroleros ha provocado lluvia ácida, mortandad de peces en los ríos y salinización de humedales en la planicie tabasqueña.",
-        imagen: "assets/red_luchas_abya_yala.png"
+        imagen: "assets/pantanos_de_centla.jpg"
     },
     {
         num: 32,
@@ -390,7 +390,7 @@ const LUCHAS_94_DATA_RAW = [
         amenaza: "Ductos petroleros submarinos y costeros con fugas crónicas",
         comunidades: "Pescadores costeros de Frontera y Paraíso",
         texto: "Zonas de humedales costeros y manglares impactados por la infraestructura de extracción de hidrocarburos de PEMEX.",
-        imagen: "assets/red_luchas_abya_yala.png"
+        imagen: "assets/pantanos_de_centla.jpg"
     },
     {
         num: 33,
@@ -402,7 +402,7 @@ const LUCHAS_94_DATA_RAW = [
         amenaza: "Instalaciones petroleras en tierras agrícolas inundables",
         comunidades: "Campesinos ejidales de Cárdenas y Comalcalco",
         texto: "Derrames continuos de hidrocarburos en zonas agrícolas que inutilizan el agua de riego y pozos artesianos de las familias campesinas.",
-        imagen: "assets/red_luchas_abya_yala.png"
+        imagen: "assets/pantanos_de_centla.jpg"
     },
     {
         num: 34,
@@ -414,7 +414,7 @@ const LUCHAS_94_DATA_RAW = [
         amenaza: "Plataformas marinas de extracción y derrames en altamar",
         comunidades: "Cooperativas pesqueras del Golfo de México",
         texto: "Complejo marino de plataformas petroleras en la Sonda de Campeche que ha desplazado a las flotas de pesca tradicional y generado derrames de crudo en aguas someras.",
-        imagen: "assets/red_luchas_abya_yala.png"
+        imagen: "assets/pantanos_de_centla.jpg"
     },
     {
         num: 35,
@@ -426,7 +426,7 @@ const LUCHAS_94_DATA_RAW = [
         amenaza: "Grandes explosiones en plataformas y fuga constante de hidrocarburos",
         comunidades: "Pueblos pesqueros de Ciudad del Carmen",
         texto: "Centro neurálgico de producción petrolera marina donde los incendios y emanaciones de crudo impactan directamente los corredores marinos y lagunas costeras protegidas.",
-        imagen: "assets/red_luchas_abya_yala.png"
+        imagen: "assets/pantanos_de_centla.jpg"
     },
 
     // =============================================================
@@ -442,7 +442,7 @@ const LUCHAS_94_DATA_RAW = [
         amenaza: "Areneras ilegales que destruyen los cerros y desvían el río hacia cloacas industriales",
         comunidades: "Pueblo Indígena Maya Poqomam de Santa Cruz Chinautla",
         texto: "El pueblo Poqomam mantiene una resistencia histórica y pacífica en defensa del río y su barro alfarero sagrado frente a las areneras que destruyen su comunidad.",
-        imagen: "assets/red_luchas_abya_yala.png"
+        imagen: "assets/rio_platano_meandros_selva.jpg"
     },
     {
         num: 37,
@@ -454,7 +454,7 @@ const LUCHAS_94_DATA_RAW = [
         amenaza: "Proliferación de cianobacterias por descarga de aguas residuales turísticas y agrícolas",
         comunidades: "Comunidades ribereñas y pescadores del lago",
         texto: "Hermoso lago de cráter volcánico sagrado que enfrenta episodios severos de contaminación por aguas residuales de mansiones y complejos turísticos en sus orillas.",
-        imagen: "assets/red_luchas_abya_yala.png"
+        imagen: "assets/rio_gualcarque_canon.jpg"
     },
     {
         num: 38,
@@ -466,7 +466,7 @@ const LUCHAS_94_DATA_RAW = [
         amenaza: "Sobreexplotación del acuífero para la capital y presencia natural de boro y arsénico",
         comunidades: "Comunidades de pescadores artesanales y pueblos lencas/pipiles históricos",
         texto: "Lago cratérico donde convergen desafíos de presión hídrica urbana extrema con fuentes termales hidrotermales subterráneas.",
-        imagen: "assets/red_luchas_abya_yala.png"
+        imagen: "assets/rio_gualcarque_canon.jpg"
     },
     {
         num: 39,
@@ -478,7 +478,7 @@ const LUCHAS_94_DATA_RAW = [
         amenaza: "Sedimentación, deforestación y pérdida del espejo de agua dulce",
         comunidades: "Poblaciones pesqueras y campesinas del oriente salvadoreño",
         texto: "El mayor cuerpo de agua dulce del oriente de El Salvador (sitio Ramsar). Las comunidades luchan por reforestar sus cuencas altas para evitar que se colmate por completo.",
-        imagen: "assets/red_luchas_abya_yala.png"
+        imagen: "assets/rio_gualcarque_canon.jpg"
     },
     {
         num: 40,
@@ -490,7 +490,7 @@ const LUCHAS_94_DATA_RAW = [
         amenaza: "Contaminación con metales pesados por la mina San Martín (Goldcorp)",
         comunidades: "Comité Ambientalista del Valle de Siria",
         texto: "Lucha histórica y dolorosa en Centroamérica: la mina a cielo abierto secó 19 fuentes de agua y dejó a cientos de pobladores con plomo, arsénico y mercurio en la sangre, alopecia y malformaciones.",
-        imagen: "assets/red_luchas_abya_yala.png"
+        imagen: "assets/rio_gualcarque_sagrado.jpg"
     },
     {
         num: 41,
@@ -502,7 +502,7 @@ const LUCHAS_94_DATA_RAW = [
         amenaza: "Proyectos de extracción minera en cabeceras de cuenca",
         comunidades: "Comunidades campesinas e indígenas del norte nicaragüense",
         texto: "Cerro considerado una esponja hídrica vital para decenas de comunidades que dependen de sus manantiales para beber y cultivar.",
-        imagen: "assets/red_luchas_abya_yala.png"
+        imagen: "assets/rio_coco_canon_somoto.jpg"
     },
     {
         num: 42,
@@ -514,7 +514,7 @@ const LUCHAS_94_DATA_RAW = [
         amenaza: "Minería metálica y secamiento de pozos artesianos",
         comunidades: "Movimiento Comunitario de Santa Rosa del Peñón",
         texto: "Resistencia popular contra el avance de concesiones mineras que amenazan el suministro hídrico en el corredor seco nicaragüense.",
-        imagen: "assets/red_luchas_abya_yala.png"
+        imagen: "assets/rio_coco_canon_somoto.jpg"
     },
     {
         num: 43,
@@ -526,7 +526,7 @@ const LUCHAS_94_DATA_RAW = [
         amenaza: "Mina Mina La India (Condor Gold)",
         comunidades: "Movimiento Comunal Santa Cruz de la India",
         texto: "Mujeres y familias en resistencia contra el desalojo forzado de su pueblo y la contaminación con cianuro de las escasas fuentes de agua subterránea.",
-        imagen: "assets/red_luchas_abya_yala.png"
+        imagen: "assets/rio_coco_canon_somoto.jpg"
     },
     {
         num: 44,
@@ -538,7 +538,7 @@ const LUCHAS_94_DATA_RAW = [
         amenaza: "Expansión minera en la cuenca del lago de agua dulce más grande de Centroamérica",
         comunidades: "Campesinos y ganaderos de Chontales",
         texto: "Alerta ambiental por la cercanía de actividades mineras con los ríos que alimentan el Gran Lago de Nicaragua (Cocibolca).",
-        imagen: "assets/red_luchas_abya_yala.png"
+        imagen: "assets/rio_coco_wangki_miskitu.jpg"
     },
     {
         num: 45,
@@ -550,7 +550,7 @@ const LUCHAS_94_DATA_RAW = [
         amenaza: "Riesgos del proyecto del Gran Canal Interoceánico y monocultivos",
         comunidades: "Consejo Nacional en Defensa de Nuestra Tierra, Lago y Soberanía",
         texto: "El movimiento campesino anticanal protagonizó más de 100 marchas masivas para proteger el Lago Cocibolca y los humedales del Río San Juan de ser dinamitados.",
-        imagen: "assets/red_luchas_abya_yala.png"
+        imagen: "assets/rio_coco_wangki_miskitu.jpg"
     },
     {
         num: 46,
@@ -562,7 +562,7 @@ const LUCHAS_94_DATA_RAW = [
         amenaza: "Afectación de fuentes hídricas por actividades extractivas y ganaderas",
         comunidades: "Comunidades rurales de Juigalpa",
         texto: "Defensa del río Mayales como única fuente de abastecimiento para Juigalpa y zonas rurales circunvecinas.",
-        imagen: "assets/red_luchas_abya_yala.png"
+        imagen: "assets/rio_coco_wangki_miskitu.jpg"
     },
     {
         num: 47,
@@ -574,7 +574,7 @@ const LUCHAS_94_DATA_RAW = [
         amenaza: "Contaminación histórica del Lago de Managua y explotación geotérmica",
         comunidades: "Pobladores ribereños de Tipitapa",
         texto: "Río histórico que conecta los dos grandes lagos de Nicaragua, con fuentes termales y retos graves de saneamiento ambiental.",
-        imagen: "assets/red_luchas_abya_yala.png"
+        imagen: "assets/rio_coco_wangki_miskitu.jpg"
     },
     {
         num: 48,
@@ -586,7 +586,7 @@ const LUCHAS_94_DATA_RAW = [
         amenaza: "Proyectos de geotermia dentro de parques nacionales protegidos",
         comunidades: "Defensores ambientales y comunidades de Liberia",
         texto: "Debate nacional en Costa Rica sobre la apertura de áreas protegidas y parques nacionales a proyectos energéticos geotérmicos que podrían alterar acuíferos prístinos.",
-        imagen: "assets/red_luchas_abya_yala.png"
+        imagen: "assets/rio_cangrejal_rapidos.jpg"
     },
     {
         num: 49,
@@ -598,7 +598,7 @@ const LUCHAS_94_DATA_RAW = [
         amenaza: "Monitoreo de descargas termales y minerales en cuencas de riego",
         comunidades: "Productores de la llanura de Guanacaste",
         texto: "El principal campo geotérmico de Costa Rica. Requiere constante vigilancia comunitaria para que las aguas de reinyección profunda no filtren boro ni arsénico a los acuíferos.",
-        imagen: "assets/red_luchas_abya_yala.png"
+        imagen: "assets/rio_cangrejal_rapidos.jpg"
     },
     {
         num: 50,
@@ -610,7 +610,7 @@ const LUCHAS_94_DATA_RAW = [
         amenaza: "Presión hidroeléctrica de pasada y defensa de ríos vivos",
         comunidades: "Comunidades de San Carlos y San Ramón",
         texto: "Comunidades que han defendido que sus ríos no sean entubados completamente para plantas hidroeléctricas privadas de filo de agua.",
-        imagen: "assets/red_luchas_abya_yala.png"
+        imagen: "assets/rio_cangrejal_rapidos.jpg"
     },
     {
         num: 51,
@@ -622,7 +622,7 @@ const LUCHAS_94_DATA_RAW = [
         amenaza: "Manejo de recursos hídricos insulares y salinización de mantos freáticos",
         comunidades: "Pobladores de Nueva Gerona y Santa Fe",
         texto: "Rica en manantiales minerales termales como Santa Fe, requiere una protección rigurosa para evitar que la intrusión marina arruine los acuíferos subterráneos de la isla.",
-        imagen: "assets/red_luchas_abya_yala.png"
+        imagen: "assets/pantanos_de_centla.jpg"
     },
     {
         num: 52,
@@ -634,7 +634,7 @@ const LUCHAS_94_DATA_RAW = [
         amenaza: "Descargas industriales, térmicas y fitosanitarias en la bahía",
         comunidades: "Pescadores de Cienfuegos y comunidades ribereñas",
         texto: "Una de las bahías de bolsa más hermosas del Caribe, donde el río Damují deposita sedimentos que demandan planes de descontaminación integral.",
-        imagen: "assets/red_luchas_abya_yala.png"
+        imagen: "assets/pantanos_de_centla.jpg"
     },
     {
         num: 53,
@@ -646,7 +646,7 @@ const LUCHAS_94_DATA_RAW = [
         amenaza: "Erosión severa por minería a cielo abierto de lateritas rojas y acidez en aguas",
         comunidades: "Trabajadores y pobladores de Moa",
         texto: "Extensas minas de laterita de níquel a cielo abierto que tiñen los ríos y la costa de un rojo intenso debido al arrastre de lodos y metales.",
-        imagen: "assets/red_luchas_abya_yala.png"
+        imagen: "assets/pantanos_de_centla.jpg"
     },
     {
         num: 54,
@@ -658,7 +658,7 @@ const LUCHAS_94_DATA_RAW = [
         amenaza: "Pasivos ambientales de minería polimetálica histórica de plomo y zinc",
         comunidades: "Comunidades rurales de Minas de Matahambre",
         texto: "Pasivos mineros históricos que demandan remediación ambiental para evitar que el drenaje ácido de mina alcance los cursos de agua subterráneos del carso pinareño.",
-        imagen: "assets/red_luchas_abya_yala.png"
+        imagen: "assets/pantanos_de_centla.jpg"
     },
 
     // =============================================================
@@ -674,7 +674,7 @@ const LUCHAS_94_DATA_RAW = [
         amenaza: "Hipersedimentación y contaminación por el dragado del Canal del Dique",
         comunidades: "Comunidades afrodescendientes y pescadores de Barú y Pasacaballos",
         texto: "El desvío descontrolado de sedimentos del Magdalena a través del Canal del Dique ha asfixiado los arrecifes de coral y los pastos marinos en las islas del Rosario.",
-        imagen: "assets/red_luchas_abya_yala.png"
+        imagen: "assets/magdalena_bocas_ceniza.jpg"
     },
     {
         num: 56,
@@ -686,7 +686,7 @@ const LUCHAS_94_DATA_RAW = [
         amenaza: "Contaminación con mercurio por minería de oro y asedio paramilitar",
         comunidades: "Federación Agrominera del Sur de Bolívar (Fedeagromisbol)",
         texto: "Comunidades campesinas y mineras artesanales que exigen exclusión de megaminería multinacional y erradicación del mercurio para proteger las ciénagas.",
-        imagen: "assets/red_luchas_abya_yala.png"
+        imagen: "assets/magdalena_bocas_ceniza.jpg"
     },
     {
         num: 57,
@@ -698,7 +698,7 @@ const LUCHAS_94_DATA_RAW = [
         amenaza: "Megapresa Hidroituango y desastre de desecación del río",
         comunidades: "Movimiento Ríos Vivos Antioquia",
         texto: "Resistencia ejemplar contra el megaproyecto hidroeléctrico que destruyó el cañón sagrado del Cauca, inundó fosas comunes del conflicto armado y provocó la desecación temporal del río en 2019.",
-        imagen: "assets/red_luchas_abya_yala.png"
+        imagen: "assets/magdalena_estrecho_san_agustin.jpg"
     },
     {
         num: 58,
@@ -710,7 +710,7 @@ const LUCHAS_94_DATA_RAW = [
         amenaza: "Presión extractiva y protección de bosques de niebla de cabecera",
         comunidades: "Campesinos del noroccidente de Cundinamarca",
         texto: "Defensa de las fuentes hídricas de alta montaña que alimentan el valle del Magdalena.",
-        imagen: "assets/red_luchas_abya_yala.png"
+        imagen: "assets/magdalena_estrecho_san_agustin.jpg"
     },
     {
         num: 59,
@@ -722,7 +722,7 @@ const LUCHAS_94_DATA_RAW = [
         amenaza: "Deforestación de páramos y contaminación de cuencas abastecedoras",
         comunidades: "Pobladores de Manizales y municipios cafeteros",
         texto: "Protección ciudadana del páramo que abastece de agua a la ciudad de Manizales frente a la expansión agrícola intensiva y la minería.",
-        imagen: "assets/red_luchas_abya_yala.png"
+        imagen: "assets/magdalena_estrecho_san_agustin.jpg"
     },
     {
         num: 60,
@@ -734,7 +734,7 @@ const LUCHAS_94_DATA_RAW = [
         amenaza: "Intento de megaminería a cielo abierto por multinacionales y reubicación del pueblo",
         comunidades: "Asociación de Mineros Tradicionales de Marmato y pueblo indígena Cartama",
         texto: "'El pesebre de oro de Colombia'. El pueblo y los mineros tradicionales se organizaron para frenar a la empresa canadiense que pretendía arrasar el cerro histórico y destruir sus manantiales.",
-        imagen: "assets/red_luchas_abya_yala.png"
+        imagen: "assets/magdalena_estrecho_san_agustin.jpg"
     },
     {
         num: 61,
@@ -746,7 +746,7 @@ const LUCHAS_94_DATA_RAW = [
         amenaza: "Sobreexplotación hídrica por monocultivo de caña de azúcar y lodos tóxicos de represas",
         comunidades: "Pueblos afrocolombianos, indígenas Nasa y comunidades campesinas",
         texto: "La agroindustria cañera concentra millones de metros cúbicos de agua mientras los poblados vecinos carecen de agua potable; en el Pacífico, el río Anchicayá sufrió un histórico vertimiento de lodos por EPSA.",
-        imagen: "assets/red_luchas_abya_yala.png"
+        imagen: "assets/magdalena_macizo_colombiano.jpg"
     },
     {
         num: 62,
@@ -758,7 +758,7 @@ const LUCHAS_94_DATA_RAW = [
         amenaza: "Dragado indiscriminado de oro con retroexcavadoras y vertimiento de cianuro",
         comunidades: "Consejos Comunitarios del Pueblo Afro de Barbacoas y Pueblo Awá",
         texto: "Territorio de asombrosa pluviosidad donde la minería con dragas y mercurio ha destruido el lecho del río Telembí, vital para la pesca y supervivencia de las familias afrodescendientes e indígenas.",
-        imagen: "assets/red_luchas_abya_yala.png"
+        imagen: "assets/magdalena_macizo_colombiano.jpg"
     },
     {
         num: 63,
@@ -770,7 +770,7 @@ const LUCHAS_94_DATA_RAW = [
         amenaza: "Contaminación por vertimientos ácidos de mina",
         comunidades: "Comunidades rurales de la región cafetera",
         texto: "Zonas mineras históricas donde las comunidades exigen una reconversión hacia la agroecología y el cierre de pasivos ambientales contaminantes.",
-        imagen: "assets/red_luchas_abya_yala.png"
+        imagen: "assets/magdalena_macizo_colombiano.jpg"
     },
     {
         num: 64,
@@ -782,7 +782,7 @@ const LUCHAS_94_DATA_RAW = [
         amenaza: "Oleoducto OCP sobre zonas de páramo y derrames crónicos de petróleo",
         comunidades: "Comunidades Kichwa de Papallacta y Quijos",
         texto: "La laguna de Papallacta y sus ríos abastecen más del 60% del agua potable de Quito. Los repetidos derrames del Oleoducto de Crudos Pesados han contaminado gravemente estas fuentes puras.",
-        imagen: "assets/red_luchas_abya_yala.png"
+        imagen: "assets/amazonas_encuentro_aguas_manaus.jpg"
     },
     {
         num: 65,
@@ -794,7 +794,7 @@ const LUCHAS_94_DATA_RAW = [
         amenaza: "Recepción de todas las aguas servidas de la capital ecuatoriana",
         comunidades: "Comunidades agrícolas de los valles del norte de Pichincha",
         texto: "El río Guayllabamba recibe millones de metros cúbicos de aguas residuales sin tratar de Quito, afectando los cultivos frutales y la salud de las poblaciones aguas abajo.",
-        imagen: "assets/red_luchas_abya_yala.png"
+        imagen: "assets/amazonas_encuentro_aguas_manaus.jpg"
     },
     {
         num: 66,
@@ -806,7 +806,7 @@ const LUCHAS_94_DATA_RAW = [
         amenaza: "Urbanización descontrolada sobre quebradas y vertimientos industriales",
         comunidades: "Colectivos en defensa de las quebradas de Quito",
         texto: "Iniciativas ciudadanas para revivir y desentubar las quebradas históricas de Quito frente a la especulación inmobiliaria y los colectores de basura.",
-        imagen: "assets/red_luchas_abya_yala.png"
+        imagen: "assets/amazonas_encuentro_aguas_manaus.jpg"
     },
     {
         num: 67,
@@ -818,7 +818,7 @@ const LUCHAS_94_DATA_RAW = [
         amenaza: "Concesiones mineras en páramos volcánicos y proyectos geotérmicos en territorios indígenas",
         comunidades: "Pueblos Kichwa Kayambi, Otavalo, Panzaleo y Salasaka",
         texto: "La cordillera volcánica es venerada como 'Mama Cotopaxi' y 'Taita Imbabura'. Los pueblos andinos defienden que los páramos y termas no sean entregados a transnacionales mineras.",
-        imagen: "assets/red_luchas_abya_yala.png"
+        imagen: "assets/amazonas_nevado_mismi.jpg"
     },
     {
         num: 68,
@@ -830,7 +830,7 @@ const LUCHAS_94_DATA_RAW = [
         amenaza: "El lugar más contaminado de América: 99% de los niños con plomo en sangre",
         comunidades: "Movimiento de Salud de La Oroya (MOSAO)",
         texto: "La fundición de Doe Run y las minas de Morococha convirtieron a La Oroya en una de las 10 ciudades más contaminadas del planeta, vertiendo arsénico, plomo y dióxido de azufre al río Mantaro.",
-        imagen: "assets/red_luchas_abya_yala.png"
+        imagen: "assets/amazonas_nevado_mismi.jpg"
     },
     {
         num: 69,
@@ -842,7 +842,7 @@ const LUCHAS_94_DATA_RAW = [
         amenaza: "Pasivos mineros en San Mateo, relaves y aguas residuales para 10 millones de personas",
         comunidades: "Comunidades altoandinas de Huarochirí y población de Lima",
         texto: "El río que da de beber al segundo desierto más poblado del mundo después de El Cairo. Sus nacientes están sitiadas por relaveras mineras inestables en zona sísmica de alto riesgo.",
-        imagen: "assets/red_luchas_abya_yala.png"
+        imagen: "assets/amazonas_nevado_mismi.jpg"
     },
     {
         num: 70,
@@ -854,7 +854,7 @@ const LUCHAS_94_DATA_RAW = [
         amenaza: "Pobreza hídrica en comunidades quechuas frente a desvíos mineros",
         comunidades: "Comunidades campesinas quechuas de Huaytará",
         texto: "Huancavelica es uno de los departamentos con más fuentes de agua y al mismo tiempo con mayor pobreza. Las comunidades cuidan sus lagunas altoandinas del avance minero.",
-        imagen: "assets/red_luchas_abya_yala.png"
+        imagen: "assets/amazonas_nevado_mismi.jpg"
     },
     {
         num: 71,
@@ -866,7 +866,7 @@ const LUCHAS_94_DATA_RAW = [
         amenaza: "Contaminación con metales pesados por minería en Juliaca y Coata",
         comunidades: "Pueblos Originarios Quechua y Aymara de la Cuenca del Coata",
         texto: "El lago navegable más alto del mundo, cuna sagrada de los fundadores del imperio inca. Las aguas del río Coata bajan con arsénico y mercurio, llevando a huelgas y movilizaciones aymaras.",
-        imagen: "assets/red_luchas_abya_yala.png"
+        imagen: "assets/amazonas_nevado_mismi.jpg"
     },
     {
         num: 72,
@@ -878,7 +878,7 @@ const LUCHAS_94_DATA_RAW = [
         amenaza: "Efluentes de la megaminería de cobre de Southern Copper (Toquepala)",
         comunidades: "Agricultores de Locumba y población de Ilo",
         texto: "Histórica disputa por el agua en el desierto costero: durante décadas los relaves mineros de Toquepala fueron arrojados al mar y contaminaron las aguas agrícolas del valle.",
-        imagen: "assets/red_luchas_abya_yala.png"
+        imagen: "assets/rio_colorado_horseshoe_bend.jpg"
     },
     {
         num: 73,
@@ -890,7 +890,7 @@ const LUCHAS_94_DATA_RAW = [
         amenaza: "Salinización crítica del acuífero e intrusión marina por sobreexplotación",
         comunidades: "Agricultores de olivos de La Yarada-Los Palos",
         texto: "La zona olivarera más grande de Perú bombea agua del acuífero más allá de su capacidad de recarga, lo que ha provocado que el mar penetre en los pozos de riego.",
-        imagen: "assets/red_luchas_abya_yala.png"
+        imagen: "assets/rio_colorado_horseshoe_bend.jpg"
     },
 
     // =============================================================
@@ -906,7 +906,7 @@ const LUCHAS_94_DATA_RAW = [
         amenaza: "Presencia extrema de boro y arsénico natural más contaminación de agroquímicos",
         comunidades: "Pueblo tribal afrodescendiente chileno y comunidades aymaras",
         texto: "Oasis agrícolas en el desierto hiperárido de Atacama. El río Lluta nace en el volcán Tacora y transporta niveles récord de boro que solo el maíz ancestral lluteño tolera.",
-        imagen: "assets/red_luchas_abya_yala.png"
+        imagen: "assets/rio_colorado_horseshoe_bend.jpg"
     },
     {
         num: 75,
@@ -918,7 +918,7 @@ const LUCHAS_94_DATA_RAW = [
         amenaza: "Escasez hídrica aguda y proyectos mineros en la precordillera",
         comunidades: "Comunidades de la Cultura Chinchorro milenaria",
         texto: "Cuna de las momias más antiguas de la humanidad (Cultura Chinchorro, 7.000 años de antigüedad). Sus habitantes prehistóricos ya presentaban arsenicismo por beber de este río.",
-        imagen: "assets/red_luchas_abya_yala.png"
+        imagen: "assets/rio_colorado_horseshoe_bend.jpg"
     },
     {
         num: 76,
@@ -930,7 +930,7 @@ const LUCHAS_94_DATA_RAW = [
         amenaza: "Saqueo hídrico por la megaminería de cobre (Chuquicamata) y extracción de litio",
         comunidades: "Pueblos Lickanantay (Atacameños) y Quechua de Ollagüe y Chiu Chiu",
         texto: "El único río que cruza el desierto más seco de la Tierra fue secado en sus afluentes como el río San Salvador para enfriar las fundiciones de cobre de Codelco.",
-        imagen: "assets/red_luchas_abya_yala.png"
+        imagen: "assets/rio_colorado_horseshoe_bend.jpg"
     },
     {
         num: 77,
@@ -942,7 +942,7 @@ const LUCHAS_94_DATA_RAW = [
         amenaza: "El desastre geotérmico de 2009 por perforación de Geotérmica del Norte",
         comunidades: "Pueblo Atacameño de Caspana y Toconce",
         texto: "En 2009 una perforación exploratoria descontrolada reventó una fumarola artificial de 60 metros que dañó el campo de géiseres sagrado más alto del planeta (4.300 msnm).",
-        imagen: "assets/red_luchas_abya_yala.png"
+        imagen: "assets/rio_colorado_horseshoe_bend.jpg"
     },
     {
         num: 78,
@@ -954,7 +954,7 @@ const LUCHAS_94_DATA_RAW = [
         amenaza: "Megaproyecto minero Pascua Lama en glaciares de cabecera y sequía extrema",
         comunidades: "Comunidades Diaguitas del Valle del Huasco y regantes del Elqui",
         texto: "Histórica victoria socioambiental: la resistencia diaguita y campesina logró la clausura definitiva del proyecto transfronterizo de Barrick Gold por destruir los glaciares milenarios.",
-        imagen: "assets/red_luchas_abya_yala.png"
+        imagen: "assets/patagonia_glaciar_perito_moreno.jpg"
     },
     {
         num: 79,
@@ -966,7 +966,7 @@ const LUCHAS_94_DATA_RAW = [
         amenaza: "Proyecto Hidroeléctrico Alto Maipo y privatización del agua bajo el Código de Aguas",
         comunidades: "Coordinadora Ciudadana No a Alto Maipo",
         texto: "El río Maipo provee el 80% del agua potable a los 7 millones de habitantes de Santiago. El proyecto entubó los ríos de cordillera dentro de 70 km de túneles en roca viva.",
-        imagen: "assets/red_luchas_abya_yala.png"
+        imagen: "assets/patagonia_glaciar_perito_moreno.jpg"
     },
     {
         num: 80,
@@ -978,7 +978,7 @@ const LUCHAS_94_DATA_RAW = [
         amenaza: "Retroceso glaciar del Chacaltaya / Huayna Potosí y privatización (Aguas del Illimani)",
         comunidades: "Federación de Juntas Vecinales (FEJUVE) de El Alto",
         texto: "En 2005 la movilización alteña expulsó a la trasnacional francesa Suez. Hoy la ciudad enfrenta el desafío del cambio climático con la desaparición de los glaciares andinos que alimentan sus represas.",
-        imagen: "assets/red_luchas_abya_yala.png"
+        imagen: "assets/gran_pantanal_humedal.jpg"
     },
     {
         num: 81,
@@ -990,7 +990,7 @@ const LUCHAS_94_DATA_RAW = [
         amenaza: "Drenaje ácido de cientos de minas activas y abandonadas sobre el río",
         comunidades: "Coordinadora en Defensa del Río Desaguadero y Lagos Uru Uru y Poopó (CORIDUP)",
         texto: "Comunidades campesinas originarias que han marchado cientos de kilómetros exigiendo que las cooperativas y multinacionales mineras no viertan arsénico y sulfatos a los humedales altiplánicos.",
-        imagen: "assets/red_luchas_abya_yala.png"
+        imagen: "assets/gran_pantanal_humedal.jpg"
     },
     {
         num: 82,
@@ -1002,7 +1002,7 @@ const LUCHAS_94_DATA_RAW = [
         amenaza: "Desaparición total del segundo lago más grande de Bolivia en 2015",
         comunidades: "Pueblo Indígena Uru-Chipaya ('Hombres del Agua')",
         texto: "Tragedia ecológica mundial: el lago Poopó (sitio Ramsar de 3.000 km²) se evaporó y convirtió en un desierto de salitre por el desvío del río Desaguadero para riego y minería.",
-        imagen: "assets/red_luchas_abya_yala.png"
+        imagen: "assets/gran_pantanal_humedal.jpg"
     },
     {
         num: 83,
@@ -1014,7 +1014,7 @@ const LUCHAS_94_DATA_RAW = [
         amenaza: "Conflictos mineros históricos de estaño y oro con contaminación de bofedales",
         comunidades: "Ayllus guerreros del Norte de Potosí",
         texto: "Territorio de comunidades originarias que exigen que la extracción de estaño y oro respete los bofedales de alta montaña de donde pastan sus llamas y alpacas.",
-        imagen: "assets/red_luchas_abya_yala.png"
+        imagen: "assets/patagonia_glaciar_perito_moreno.jpg"
     },
     {
         num: 84,
@@ -1026,7 +1026,7 @@ const LUCHAS_94_DATA_RAW = [
         amenaza: "Rotura de diques de colas mineras en Potosí (Agua Dulce 2022)",
         comunidades: "Pueblos Weenhayek y Guaraní de la cuenca baja",
         texto: "Las colas de sulfuros del Cerro Rico de Potosí se rompen periódicamente y bajan miles de toneladas de plomo y lodos tóxicos por todo el río hasta el Chaco argentino y paraguayo.",
-        imagen: "assets/red_luchas_abya_yala.png"
+        imagen: "assets/patagonia_glaciar_perito_moreno.jpg"
     },
     {
         num: 85,
@@ -1038,7 +1038,7 @@ const LUCHAS_94_DATA_RAW = [
         amenaza: "Evaporación de millones de litros de salmuera para la fiebre del litio",
         comunidades: "Comunidades campesinas quechuas y aymaras de Lípez",
         texto: "La mayor reserva de litio del mundo. La técnica de evaporación en piscinas gigantes amenaza con quebrar el equilibrio hídrico subterráneo de los humedales altoandinos.",
-        imagen: "assets/red_luchas_abya_yala.png"
+        imagen: "assets/patagonia_glaciar_perito_moreno.jpg"
     },
     {
         num: 86,
@@ -1050,7 +1050,7 @@ const LUCHAS_94_DATA_RAW = [
         amenaza: "Minería de litio que succiona millones de litros de agua dulce fósil al día",
         comunidades: "Pueblo Kolla y Comunidades de Salinas Grandes y Laguna de Guayatayoc",
         texto: "'El agua vale más que el litio'. Más de 30 comunidades originarias han ganado fallos y cortes de ruta exigiendo que no se toquen los salares que son fuentes de vida en la Puna.",
-        imagen: "assets/red_luchas_abya_yala.png"
+        imagen: "assets/patagonia_glaciar_perito_moreno.jpg"
     },
     {
         num: 87,
@@ -1062,7 +1062,7 @@ const LUCHAS_94_DATA_RAW = [
         amenaza: "Fumigaciones masivas con glifosato y desmonte para soja transgénica",
         comunidades: "Pueblos Originarios Qom, Wichí y Moqoit",
         texto: "El avance de la frontera agrícola sojera en el Gran Chaco ha arrasado millones de hectáreas de bosque nativo, secando pozos de agua y envenenando las aguadas con agrotóxicos.",
-        imagen: "assets/red_luchas_abya_yala.png"
+        imagen: "assets/gran_pantanal_humedal.jpg"
     },
     {
         num: 88,
@@ -1074,7 +1074,7 @@ const LUCHAS_94_DATA_RAW = [
         amenaza: "Contaminación por agrotóxicos y bajantes históricas del Río Paraná",
         comunidades: "Poblaciones fumigadas de la Pampa y pescadores artesanales",
         texto: "El río Paraná sufrió entre 2020 y 2022 la bajante histórica más grave en 70 años, exacerbada por los incendios intencionales en el Delta para ganadería en las islas.",
-        imagen: "assets/red_luchas_abya_yala.png"
+        imagen: "assets/delta_del_parana_tigre.jpg"
     },
     {
         num: 89,
@@ -1086,7 +1086,7 @@ const LUCHAS_94_DATA_RAW = [
         amenaza: "Proyectos geotérmicos en territorios sagrados Mapuche",
         comunidades: "Comunidad Mapuche Millaín Currical de Loncopué",
         texto: "Loncopué se convirtió en el primer municipio de Argentina en prohibir la megaminería y proyectos extractivos mediante un referéndum popular vinculante con más del 82% de los votos.",
-        imagen: "assets/red_luchas_abya_yala.png"
+        imagen: "assets/patagonia_rio_santa_cruz.jpg"
     },
     {
         num: 90,
@@ -1098,7 +1098,7 @@ const LUCHAS_94_DATA_RAW = [
         amenaza: "Proyecto de megaminería de plata Navidad (Pan American Silver)",
         comunidades: "Asamblea del Pueblo de Chubut y Comunidad Mapuche-Tehuelche",
         texto: "'Chubutaguazo' histórico: en 2021 la movilización popular masiva forzó la derogación de la ley minera aprobada entre gallos y medianoche, defendiendo el Río Chubut hasta las últimas consecuencias.",
-        imagen: "assets/red_luchas_abya_yala.png"
+        imagen: "assets/patagonia_rio_santa_cruz.jpg"
     },
     {
         num: 91,
@@ -1110,7 +1110,7 @@ const LUCHAS_94_DATA_RAW = [
         amenaza: "Crisis del agua salada de 2023 y proyecto privatizador Neptuno en Arazatí",
         comunidades: "Comisión Nacional en Defensa del Agua y la Vida",
         texto: "En 2023 el área metropolitana de Montevideo se quedó sin agua dulce por sequía y tuvo que beber agua salada del Río de la Plata. La ciudadanía rechaza el proyecto de toma de agua de Arazatí.",
-        imagen: "assets/red_luchas_abya_yala.png"
+        imagen: "assets/stuario_rio_de_la_plata.jpg"
     },
     {
         num: 92,
@@ -1122,7 +1122,7 @@ const LUCHAS_94_DATA_RAW = [
         amenaza: "Presas de relaves mineros de hierro en riesgo inminente de colapso",
         comunidades: "Movimento dos Atingidos por Barragens (MAB)",
         texto: "Zona de altísima densidad de presas de relaves de hierro gigantescas propiedad de Vale S.A., que mantienen a comunidades enteras en zozobra permanente de evacuación.",
-        imagen: "assets/red_luchas_abya_yala.png"
+        imagen: "assets/san_francisco_serra_canastra.jpg"
     },
     {
         num: 93,
@@ -1134,7 +1134,7 @@ const LUCHAS_94_DATA_RAW = [
         amenaza: "Destrucción de sierras de recarga acuífera por minería de hierro",
         comunidades: "Comunidades del Quadrilátero Ferrífero",
         texto: "El corazón del hierro en Brasil. Las montañas que actúan como castillos de agua dulce son rebanadas para exportar mineral bruto a China, dejando los valles sin manantiales.",
-        imagen: "assets/red_luchas_abya_yala.png"
+        imagen: "assets/ocantins_araguaia_cerrado.jpg"
     },
     {
         num: 94,
@@ -1146,7 +1146,7 @@ const LUCHAS_94_DATA_RAW = [
         amenaza: "El mayor desastre ambiental en la historia de Brasil (Ruptura de presa de Fundão)",
         comunidades: "Pueblo Krenak y comunidades ribereñas de todo el Río Doce",
         texto: "En 2015, la presa de relaves de Samarco (Vale y BHP) colapsó arrojando 60 millones de metros cúbicos de lodo tóxico. Mató a 19 personas y aniquiló por completo el sagrado 'Watu' (Río Doce) para el pueblo Krenak.",
-        imagen: "assets/red_luchas_abya_yala.png"
+        imagen: "assets/ocantins_araguaia_cerrado.jpg"
     }
 ];
 
