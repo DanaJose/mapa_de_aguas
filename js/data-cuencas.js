@@ -507,194 +507,252 @@ const CUENCAS_GEO_DATA = [
 ];
 
 // =============================================================
-// CONEXIONES INTERCUENCAS: SISTEMA VASCULAR DE VENAS DE ABYA YALA
+// RED HIDROGRÁFICA CONTINENTAL: TRIBUTARIOS REALES Y CONFLUENCIAS MAYORES
+// (Interconexión vascular biológica real basada en hidrografía genuina de Abya Yala)
 // =============================================================
-const CONEXIONES_INTERCUENCAS = [
+
+// Tributarios y bifurcaciones hidrológicas reales verificables
+const TRIBUTARIOS_CONTINENTALES = [
+    // 1. Canal Natural del Casiquiare (El puente fluvial vivo que une Orinoco y Amazonas)
     {
-        id: "casiquiare_link",
-        nombre: "Vena del Casiquiare (Orinoco ➔ Amazonas)",
-        tipo: "bifurcacion_natural",
-        colorVena: "#D48831",
-        grosor: 4.5,
-        descripcion: "El milagro hidrológico más grande del planeta: el Orinoco se bifurca espontáneamente y alimenta al Río Negro hacia el Amazonas.",
-        puntos: [
-            { lat: 3.14, lng: -65.9 },   // Orinoco
-            { lat: 2.50, lng: -66.2 },
-            { lat: 2.00, lng: -66.5 },
-            { lat: 0.90, lng: -67.1 }    // Río Negro
+        id: "trib_casiquiare",
+        nombre: "Bifurcación Natural del Casiquiare",
+        cuencaMadre: "orinoco",
+        cuencaDestino: "amazonas",
+        tipo: "bifurcacion_transcuenca",
+        puntosGeo: [
+            { lat: 3.14, lng: -65.90, nombre: "Bifurcación del Orinoco" },
+            { lat: 2.75, lng: -66.25, nombre: "Curso Medio del Casiquiare" },
+            { lat: 2.10, lng: -66.80, nombre: "Río Pasimoni" },
+            { lat: 1.98, lng: -67.08, nombre: "Desembocadura en el Río Negro (Amazonas)" }
         ]
     },
+    // 2. Río Marañón (Cuna Andina del Amazonas)
     {
-        id: "maranon_ucayali_nauta",
-        nombre: "Vena Confluencia Madre (Marañón & Ucayali ➔ Amazonas)",
-        tipo: "confluencia_arterial",
-        colorVena: "#48B5C4",
-        grosor: 5.0,
-        descripcion: "Unión de los caudales andinos del Marañón y el Ucayali en Nauta (Iquitos) que da nacimiento al tronco principal del Río Amazonas.",
-        puntos: [
-            { lat: -4.8, lng: -74.2 },
-            { lat: -4.45, lng: -73.48 }, // Confluencia Nauta
-            { lat: -3.75, lng: -73.25 }  // Iquitos
+        id: "trib_maranon",
+        nombre: "Río Marañón (Arteria Andina)",
+        cuencaMadre: "amazonas",
+        tipo: "afluente_origen",
+        puntosGeo: [
+            { lat: -10.30, lng: -76.80, nombre: "Glaciares de Huayhuash / Raura" },
+            { lat: -6.50, lng: -77.90, nombre: "Cañón del Marañón" },
+            { lat: -4.60, lng: -75.50, nombre: "Entrada a la Llanura Amazónica" },
+            { lat: -4.51, lng: -73.58, nombre: "Confluencia de Nauta (Nacimiento del Amazonas)" }
         ]
     },
+    // 3. Río Ucayali (Cuna del Amazonas)
     {
-        id: "encuentro_aguas_manaus",
-        nombre: "Sinapsis del Encuentro de las Aguas (Río Negro & Solimões)",
-        tipo: "confluencia_arterial",
-        colorVena: "#D05C1E",
-        grosor: 5.5,
-        descripcion: "Fusión colosal de las aguas oscuras y ácidas del Río Negro con las aguas arcillosas y lechosas del Solimões en Manaus.",
-        puntos: [
-            { lat: -2.8, lng: -60.5 },
-            { lat: -3.13, lng: -60.02 }, // Manaus
-            { lat: -3.2, lng: -59.0 }
+        id: "trib_ucayali",
+        nombre: "Río Ucayali (Arteria del Sur Andino)",
+        cuencaMadre: "amazonas",
+        tipo: "afluente_origen",
+        puntosGeo: [
+            { lat: -12.50, lng: -73.00, nombre: "Unión Tambo - Urubamba" },
+            { lat: -8.38, lng: -74.53, nombre: "Pucallpa (Meandros Serpenteantes)" },
+            { lat: -5.00, lng: -73.80, nombre: "Reserva Pacaya Samiria" },
+            { lat: -4.51, lng: -73.58, nombre: "Confluencia de Nauta (Nacimiento del Amazonas)" }
         ]
     },
+    // 4. Río Negro (El Coloso de Aguas Negras)
     {
-        id: "arteria_madeira_mamore",
-        nombre: "Vena del Río Madeira & Deshielos Andinos",
+        id: "trib_rio_negro",
+        nombre: "Río Negro / Guainía",
+        cuencaMadre: "amazonas",
         tipo: "afluente_mayor",
-        colorVena: "#48B5C4",
-        grosor: 4.2,
-        descripcion: "La arteria que transporta el 15% de todos los sedimentos andinos hacia el Amazonas central a través del Mamoré, Beni y Guaporé.",
-        puntos: [
-            { lat: -16.5, lng: -68.0 },  // Deshielos de la Cordillera Real
-            { lat: -11.0, lng: -66.0 },  // Confluencia Beni-Mamoré
-            { lat: -8.76, lng: -63.9 },  // Porto Velho
-            { lat: -3.38, lng: -58.75 }  // Desembocadura en el Amazonas
+        puntosGeo: [
+            { lat: 2.00, lng: -67.10, nombre: "Frontera Colombia - Venezuela" },
+            { lat: -0.97, lng: -62.92, nombre: "Barcelos / Archipiélago de Mariuá" },
+            { lat: -3.00, lng: -60.50, nombre: "Archipiélago de Anavilhanas" },
+            { lat: -3.13, lng: -60.02, nombre: "Encuentro de las Aguas (Manaus)" }
         ]
     },
+    // 5. Río Madeira (Mayor Afluente de Sedimentos)
     {
-        id: "pantanal_guapore",
-        nombre: "Vena Humedal Pantanal ➔ Guaporé (Plata ➔ Amazonas)",
-        tipo: "corredor_humedal",
-        colorVena: "#68D2E1",
-        grosor: 3.8,
-        descripcion: "Durante las grandes inundaciones, las aguas del Pantanal (Cuenca del Plata) y las cabeceras del Guaporé (Amazonas) casi se tocan en el planalto de Mato Grosso.",
-        puntos: [
-            { lat: -17.5, lng: -57.2 },  // Pantanal Central
-            { lat: -16.0, lng: -57.7 },
-            { lat: -14.5, lng: -59.5 },
-            { lat: -12.5, lng: -63.0 }   // Río Guaporé
+        id: "trib_madeira",
+        nombre: "Río Madeira & Mamoré",
+        cuencaMadre: "amazonas",
+        tipo: "afluente_mayor",
+        puntosGeo: [
+            { lat: -10.80, lng: -65.35, nombre: "Confluencia Mamoré - Beni (Guajará-Mirim)" },
+            { lat: -8.76, lng: -63.90, nombre: "Porto Velho" },
+            { lat: -5.30, lng: -60.80, nombre: "Humaitá" },
+            { lat: -3.37, lng: -58.74, nombre: "Confluencia en el Río Amazonas" }
         ]
     },
+    // 6. Río Missouri ➔ Mississippi
     {
-        id: "acuifero_guarani_subterraneo",
-        nombre: "Vena Subterránea del Sistema Acuífero Guaraní",
-        tipo: "vena_acuifera",
-        colorVena: "#2A9D8F",
-        grosor: 4.0,
-        descripcion: "Gigantesco océano subterráneo de agua dulce que une las profundidades de Brasil, Paraguay, Uruguay y Argentina a lo largo de 1,2 millones de km².",
-        puntos: [
-            { lat: -20.5, lng: -51.5 },
-            { lat: -23.5, lng: -53.8 },
-            { lat: -27.0, lng: -55.5 },
-            { lat: -31.0, lng: -57.0 }
+        id: "trib_missouri",
+        nombre: "Río Missouri (Gran Rama de las Rocosas)",
+        cuencaMadre: "mississippi",
+        tipo: "afluente_mayor",
+        puntosGeo: [
+            { lat: 45.92, lng: -111.50, nombre: "Three Forks (Montañas Rocosas)" },
+            { lat: 44.36, lng: -100.35, nombre: "Grandes Llanuras (Pierre)" },
+            { lat: 39.11, lng: -94.58, nombre: "Kansas City" },
+            { lat: 38.81, lng: -90.11, nombre: "Confluencia con el Mississippi (St. Louis)" }
         ]
     },
+    // 7. Río Ohio ➔ Mississippi
     {
-        id: "confluencia_parana_paraguay",
-        nombre: "Vena Confluencia Paraná ➔ Paraguay (Paso de la Patria)",
-        tipo: "confluencia_arterial",
-        colorVena: "#D48831",
-        grosor: 4.8,
-        descripcion: "Arteria fluvial donde el río Paraguay descarga las aguas del Pantanal y el Chaco en el río Paraná antes de marchar al Delta del Plata.",
-        puntos: [
-            { lat: -25.3, lng: -57.6 },  // Asunción
-            { lat: -27.3, lng: -58.6 },  // Confluencia Paso de la Patria / Corrientes
-            { lat: -31.7, lng: -60.5 }   // Paraná Medio
+        id: "trib_ohio",
+        nombre: "Río Ohio (Vertiente de los Apalaches)",
+        cuencaMadre: "mississippi",
+        tipo: "afluente_mayor",
+        puntosGeo: [
+            { lat: 40.44, lng: -80.00, nombre: "Pittsburgh (Naciente Allegheny & Monongahela)" },
+            { lat: 38.25, lng: -85.75, nombre: "Louisville (Kentucky)" },
+            { lat: 36.99, lng: -89.14, nombre: "Confluencia con el Mississippi (Cairo)" }
         ]
     },
+    // 8. Río Paraguay ➔ Paraná (Conexión Pantanal)
     {
-        id: "rios_voadores_atmosfericos",
-        nombre: "Ríos Voladores Atmosféricos de la Amazonía",
-        tipo: "rio_atmosferico",
-        colorVena: "rgba(130, 220, 240, 0.75)",
-        grosor: 5.0,
-        descripcion: "Colosales flujos aéreos de vapor generados por la selva que chocan contra los Andes y riegan con lluvia fértil el centro y sur del continente.",
-        puntos: [
-            { lat: 0.0, lng: -50.0 },    // Océano Atlántico Ecuatorial
-            { lat: -3.0, lng: -62.0 },   // Cuenca Central del Amazonas
-            { lat: -12.0, lng: -72.0 },  // Barrera orográfica de los Andes peruanos
-            { lat: -24.0, lng: -60.0 },  // Chaco Sudamericano
-            { lat: -34.5, lng: -58.0 }   // Cuenca del Plata y Pampas
+        id: "trib_paraguay",
+        nombre: "Río Paraguay (Arteria del Pantanal)",
+        cuencaMadre: "plata",
+        tipo: "afluente_mayor",
+        puntosGeo: [
+            { lat: -16.00, lng: -57.65, nombre: "Cáceres (Cabecera del Pantanal)" },
+            { lat: -19.00, lng: -57.65, nombre: "Corumbá (Humedal Gigante)" },
+            { lat: -25.28, lng: -57.64, nombre: "Asunción" },
+            { lat: -27.35, lng: -58.62, nombre: "Confluencia Paso de la Patria (Río Paraná)" }
         ]
     },
+    // 9. Río Iguazú ➔ Paraná
     {
-        id: "capilares_cenotes_yucatan",
-        nombre: "Red Capilar de Cenotes y Ríos Kársticos Subterráneos",
-        tipo: "vena_acuifera",
-        colorVena: "#48B5C4",
-        grosor: 3.2,
-        descripcion: "Laberinto de venas hídricas subterráneas de la Península de Yucatán (Sac Actun, Ox Bel Ha) que conectan la selva maya con los arrecifes del Caribe.",
-        puntos: [
-            { lat: 21.3, lng: -89.6 },   // Mérida / Anillo de Cenotes
-            { lat: 20.6, lng: -88.5 },   // Chichén Itzá
-            { lat: 20.2, lng: -87.4 }    // Tulum / Mar Caribe
+        id: "trib_iguazu",
+        nombre: "Río Iguazú",
+        cuencaMadre: "plata",
+        tipo: "afluente_cataratas",
+        puntosGeo: [
+            { lat: -25.40, lng: -49.20, nombre: "Serra do Mar (Curitiba)" },
+            { lat: -25.69, lng: -54.44, nombre: "Cataratas del Iguazú (Garganta del Diablo)" },
+            { lat: -25.59, lng: -54.59, nombre: "Tres Fronteras (Confluencia Río Paraná)" }
         ]
     },
+    // 10. Río Grijalva ➔ Pantanos de Centla (Usumacinta)
     {
-        id: "corredor_usumacinta_grijalva",
-        nombre: "Sinapsis Usumacinta ➔ Grijalva & Pantanos de Centla",
-        tipo: "corredor_humedal",
-        colorVena: "#48B5C4",
-        grosor: 4.0,
-        descripcion: "El mayor humedal de Mesoamérica donde las aguas de Guatemala y Chiapas confluyen en un laberinto deltaico antes de llegar al Golfo de México.",
-        puntos: [
-            { lat: 17.0, lng: -91.3 },   // Cañón del Usumacinta
-            { lat: 17.9, lng: -92.5 },   // Pantanos de Centla
-            { lat: 18.5, lng: -92.6 }    // Frontera marítima de Tabasco
+        id: "trib_grijalva",
+        nombre: "Río Grijalva & Cañón del Sumidero",
+        cuencaMadre: "mesoamerica",
+        tipo: "afluente_mayor",
+        puntosGeo: [
+            { lat: 15.50, lng: -92.20, nombre: "Sierra de los Cuchumatanes (Guatemala)" },
+            { lat: 16.83, lng: -93.09, nombre: "Cañón del Sumidero (Chiapas)" },
+            { lat: 17.98, lng: -92.93, nombre: "Villahermosa (Tabasco)" },
+            { lat: 18.42, lng: -92.65, nombre: "Confluencia de Pantanos de Centla" }
         ]
     },
+    // 11. Río Liard ➔ Mackenzie
     {
-        id: "centro_abya_yala_platano_san_juan",
-        nombre: "Corredor Fluvial del Centro de Abya Yala (Río Plátano & San Juan)",
-        tipo: "corredor_humedal",
-        colorVena: "#68D2E1",
-        grosor: 3.6,
-        descripcion: "Corredor biológico hídrico que une la Biósfera del Río Plátano, el Río Coco/Wangki y el Río San Juan descargando hacia el Mar Caribe.",
-        puntos: [
-            { lat: 15.8, lng: -84.7 },   // Delta del Río Plátano (Mosquitia)
-            { lat: 14.8, lng: -84.0 },   // Río Coco / Wangki
-            { lat: 11.0, lng: -84.2 },   // Río San Juan
-            { lat: 10.9, lng: -83.7 }    // Desembocadura en San Juan de Nicaragua
-        ]
-    },
-    {
-        id: "divisoria_continental_rocosas_andes",
-        nombre: "La Gran Espina Divisoria Continental de Aguas",
-        tipo: "cordillera_madre",
-        colorVena: "#A84A15",
-        grosor: 3.0,
-        descripcion: "La columna vertebral orográfica de montañas (Rocosas, Sierra Madre, Andes) que reparte las aguas de lluvia entre el Pacífico y el Atlántico.",
-        puntos: [
-            { lat: 68.0, lng: -141.0 },
-            { lat: 53.0, lng: -118.0 },
-            { lat: 39.0, lng: -106.0 },
-            { lat: 25.0, lng: -103.0 },
-            { lat: 14.5, lng: -88.2 },  // Centroamérica
-            { lat: 5.0, lng: -76.0 },   // Andes colombianos
-            { lat: -15.5, lng: -71.7 }, // Andes peruanos
-            { lat: -33.0, lng: -70.0 }, // Andes centrales
-            { lat: -51.0, lng: -73.0 }  // Patagonia Austral
+        id: "trib_liard",
+        nombre: "Río Liard (Taiga Boreal)",
+        cuencaMadre: "mackenzie",
+        tipo: "afluente_boreal",
+        puntosGeo: [
+            { lat: 60.00, lng: -128.50, nombre: "Yukón / Liard Hot Springs" },
+            { lat: 60.50, lng: -123.50, nombre: "Fort Liard" },
+            { lat: 61.85, lng: -121.35, nombre: "Confluencia de Fort Simpson (Río Mackenzie)" }
         ]
     }
 ];
 
-// Nodos de Sinapsis y Confluencia Mayor
-const SINAPSIS_CONFLUENCIAS = [
-    { nombre: "Encuentro de las Aguas (Río Negro & Solimões)", lat: -3.13, lng: -60.02, tipo: "sinapsis_mayor" },
-    { nombre: "Bifurcación Sagrada del Casiquiare", lat: 3.14, lng: -65.9, tipo: "bifurcacion" },
-    { nombre: "Confluencia Marañón & Ucayali (Nauta)", lat: -4.45, lng: -73.48, tipo: "origen_amazonas" },
-    { nombre: "Confluencia Paraná & Paraguay (Paso de la Patria)", lat: -27.3, lng: -58.6, tipo: "sinapsis_plata" },
-    { nombre: "Confluencia Magdalena & Cauca", lat: 9.3, lng: -74.7, tipo: "sinapsis_caribe" },
-    { nombre: "Pantanos de Centla (Usumacinta & Grijalva)", lat: 18.2, lng: -92.5, tipo: "humedal_madre" },
-    { nombre: "Estuario del Delta del Orinoco", lat: 8.6, lng: -61.0, tipo: "delta_atlantico" },
-    { nombre: "Delta del Mackenzie (Tuktoyaktuk)", lat: 69.4, lng: -134.0, tipo: "delta_artico" }
+// Confluencias mayores naturales y georreferenciadas
+const CONFLUENCIAS_HIDROLOGICAS_REALES = [
+    {
+        id: "conf_casiquiare",
+        nombre: "Bifurcación Orinoco - Casiquiare",
+        cuenca: "Orinoco & Amazonas",
+        lat: 3.14, lng: -65.90,
+        subtitulo: "El único canal natural transcontinental del planeta",
+        icono: "🔀"
+    },
+    {
+        id: "conf_manaus",
+        nombre: "Encuentro de las Aguas (Manaus)",
+        cuenca: "Río Negro & Solimões",
+        lat: -3.13, lng: -60.02,
+        subtitulo: "Confluencia donde aguas negras y ocres corren juntas sin mezclarse",
+        icono: "🌊"
+    },
+    {
+        id: "conf_nauta",
+        nombre: "Confluencia de Nauta (Cuna del Amazonas)",
+        cuenca: "Río Marañón & Río Ucayali",
+        lat: -4.51, lng: -73.58,
+        subtitulo: "Encuentro de las dos arterias andinas que forman el Gran Amazonas",
+        icono: "✨"
+    },
+    {
+        id: "conf_corrientes",
+        nombre: "Confluencia Paraná - Paraguay (Paso de la Patria)",
+        cuenca: "Cuenca del Plata",
+        lat: -27.35, lng: -58.62,
+        subtitulo: "Unión de las aguas del Pantanal y las mesetas del sur",
+        icono: "🌊"
+    },
+    {
+        id: "conf_centla",
+        nombre: "Confluencia de Pantanos de Centla",
+        cuenca: "Usumacinta & Grijalva",
+        lat: 18.42, lng: -92.65,
+        subtitulo: "El mayor delta y humedal de Mesoamérica hacia el Golfo",
+        icono: "🌿"
+    },
+    {
+        id: "conf_st_louis",
+        nombre: "Confluencia Missouri & Mississippi (St. Louis)",
+        cuenca: "Llanuras de Norteamérica",
+        lat: 38.81, lng: -90.11,
+        subtitulo: "Unión del río de las Rocosas con la arteria del Norte",
+        icono: "💧"
+    },
+    {
+        id: "conf_cairo",
+        nombre: "Confluencia Ohio & Mississippi (Cairo)",
+        cuenca: "Mississippi / Apalaches",
+        lat: 36.99, lng: -89.14,
+        subtitulo: "Aporte colosal de caudal desde la cordillera este",
+        icono: "💧"
+    },
+    {
+        id: "conf_tres_fronteras",
+        nombre: "Tres Fronteras (Iguazú & Paraná)",
+        cuenca: "Cuenca del Plata",
+        lat: -25.59, lng: -54.59,
+        subtitulo: "Cataratas del Iguazú tributando al Paraná en la frontera tripartita",
+        icono: "💦"
+    },
+    {
+        id: "conf_fort_simpson",
+        nombre: "Confluencia Liard & Dehcho (Fort Simpson)",
+        cuenca: "Gran Norte / Ártico",
+        lat: 61.85, lng: -121.35,
+        subtitulo: "Unión de aguas glaciares en el Gran Río Boreal",
+        icono: "❄️"
+    }
 ];
 
+// Pre-proyección Web Mercator de tributarios y confluencias
+TRIBUTARIOS_CONTINENTALES.forEach(trib => {
+    trib.puntosMercator = trib.puntosGeo.map(pt => {
+        const proj = SatelliteTileEngine.project(pt.lat, pt.lng);
+        return {
+            x: proj.x,
+            y: proj.y,
+            lat: pt.lat,
+            lng: pt.lng,
+            nombre: pt.nombre
+        };
+    });
+});
 
-// Pre-proyectar todos los puntos a coordenadas Web Mercator [0, 1]
+CONFLUENCIAS_HIDROLOGICAS_REALES.forEach(conf => {
+    const proj = SatelliteTileEngine.project(conf.lat, conf.lng);
+    conf.x = proj.x;
+    conf.y = proj.y;
+});
+
+// Pre-proyectar todos los puntos de las cuencas a coordenadas Web Mercator [0, 1]
 CUENCAS_GEO_DATA.forEach(cuenca => {
     cuenca.puntosMercator = cuenca.puntosGeo.map(pt => {
         const proj = SatelliteTileEngine.project(pt.lat, pt.lng);
@@ -703,7 +761,8 @@ CUENCAS_GEO_DATA.forEach(cuenca => {
             y: proj.y,
             lat: pt.lat,
             lng: pt.lng,
-            nombre: pt.nombre
+            nombre: pt.nombre,
+            imagen: pt.imagen || null
         };
     });
 
@@ -717,21 +776,6 @@ CUENCAS_GEO_DATA.forEach(cuenca => {
 
     cuenca.puntosRio = cuenca.puntosMercator;
     cuenca.discoveredMaxT = 0.0;
-});
-
-// Pre-proyectar las conexiones
-CONEXIONES_INTERCUENCAS.forEach(con => {
-    con.puntosMercator = con.puntos.map(pt => {
-        const proj = SatelliteTileEngine.project(pt.lat, pt.lng);
-        return { x: proj.x, y: proj.y, lat: pt.lat, lng: pt.lng };
-    });
-});
-
-// Pre-proyectar sinapsis y confluencias hídricas mayores
-SINAPSIS_CONFLUENCIAS.forEach(sin => {
-    const proj = SatelliteTileEngine.project(sin.lat, sin.lng);
-    sin.x = proj.x;
-    sin.y = proj.y;
 });
 
 // Interpolación Catmull-Rom

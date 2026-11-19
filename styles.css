@@ -5,28 +5,29 @@
  */
 
 :root {
-    --terracotta: #A84A15;
-    --terracotta-bright: #D05C1E;
-    --terracotta-dark: #6E2F0A;
-    --terracotta-soft: rgba(168, 74, 21, 0.22);
+    /* Paleta Cartográfica Orgánica, Serena y Mineral (Suave y no estridente) */
+    --terracotta: #8F4C30;
+    --terracotta-bright: #A65D3F;
+    --terracotta-dark: #582C1A;
+    --terracotta-soft: rgba(143, 76, 48, 0.16);
     
-    --amber-gold: #D48831;
-    --amber-bright: #F0A045;
-    --amber-glow: rgba(212, 136, 49, 0.45);
+    --amber-gold: #B88544;
+    --amber-bright: #CF9D5D;
+    --amber-glow: rgba(184, 133, 68, 0.22);
     
-    --water-mineral: #48B5C4;
-    --water-bright: #68D2E1;
-    --water-glow: rgba(72, 181, 196, 0.45);
+    --water-mineral: #4A919E;
+    --water-bright: #68A8B5;
+    --water-glow: rgba(74, 145, 158, 0.22);
     
-    --bg-dark: #071217;
-    --bg-card: rgba(8, 20, 26, 0.94);
-    --bg-card-hover: rgba(14, 32, 42, 0.96);
-    --border-glass: rgba(168, 74, 21, 0.35);
-    --border-subtle: rgba(255, 255, 255, 0.12);
+    --bg-dark: #081116;
+    --bg-card: rgba(10, 20, 26, 0.90);
+    --bg-card-hover: rgba(14, 26, 34, 0.94);
+    --border-glass: rgba(143, 76, 48, 0.22);
+    --border-subtle: rgba(255, 255, 255, 0.08);
     
-    --text-pure: #F7F4F0;
-    --text-muted: #9BB0BA;
-    --text-dim: #677E88;
+    --text-pure: #F4EFEA;
+    --text-muted: #8FA2AA;
+    --text-dim: #5E727C;
     
     --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     --font-display: 'Cinzel', Georgia, serif;
@@ -147,7 +148,11 @@ body, html {
     background-image: var(--tile-img);
     box-shadow: inset 0 0 40px rgba(0, 0, 0, 0.8);
     filter: brightness(0.65) contrast(1.1) saturate(0.9);
-    transition: filter 0.6s ease, transform 0.6s ease;
+    transition: filter 0.6s ease, transform 0.6s ease, opacity 0.8s ease-in-out;
+}
+
+.collage-tile.fading {
+    opacity: 0.25;
 }
 
 .collage-tile:hover {
@@ -1021,6 +1026,24 @@ body, html {
     background: var(--terracotta-bright);
 }
 
+.btn-add-new-struggle {
+    background: rgba(184, 133, 68, 0.16);
+    border: 1px solid var(--amber-gold);
+    color: var(--amber-gold);
+    padding: 8px 14px;
+    border-radius: 8px;
+    font-size: 11px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-align: center;
+}
+
+.btn-add-new-struggle:hover {
+    background: var(--amber-gold);
+    color: #081116;
+}
+
 .btn-browse-all-struggles {
     background: rgba(12, 28, 36, 0.7);
     border: 1px solid var(--border-glass);
@@ -1086,16 +1109,30 @@ body, html {
 .timeline-track-wrapper {
     position: relative;
     width: 100%;
-    padding: 6px 0;
+    padding: 8px 0;
     cursor: pointer;
 }
 
 .timeline-track {
     position: relative;
     width: 100%;
-    height: 5px;
-    background: rgba(255, 255, 255, 0.12);
-    border-radius: 3px;
+    height: 26px;
+    background: rgba(6, 16, 21, 0.85);
+    border: 1px solid rgba(184, 133, 68, 0.32);
+    border-radius: 13px;
+    box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.7);
+    overflow: visible;
+}
+
+.timeline-river-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 13px;
+    pointer-events: none;
+    z-index: 1;
 }
 
 .timeline-progress-fill {
@@ -1104,48 +1141,129 @@ body, html {
     top: 0;
     height: 100%;
     width: 0%;
-    background: linear-gradient(90deg, var(--terracotta), var(--amber-gold));
-    border-radius: 3px;
+    background: linear-gradient(90deg, rgba(143, 76, 48, 0.25), rgba(184, 102, 65, 0.40));
+    border-radius: 13px 0 0 13px;
+    pointer-events: none;
     transition: width 0.08s ease-out;
+    z-index: 0;
 }
 
 .timeline-handle {
     position: absolute;
     top: 50%;
     left: 0%;
-    width: 14px;
-    height: 14px;
+    width: 18px;
+    height: 18px;
     border-radius: 50%;
-    background: #FFFFFF;
+    background: #FAF6F0;
     border: 2px solid var(--terracotta);
     transform: translate(-50%, -50%);
-    box-shadow: 0 0 8px rgba(0, 0, 0, 0.7);
+    box-shadow: 0 0 12px rgba(184, 102, 65, 0.7), 0 2px 6px rgba(0, 0, 0, 0.9);
     transition: left 0.08s ease-out;
+    z-index: 4;
+    cursor: grab;
+}
+
+.timeline-handle:active {
+    cursor: grabbing;
+    transform: translate(-50%, -50%) scale(1.15);
 }
 
 .timeline-waypoints-layer {
     position: absolute;
     inset: 0;
     pointer-events: none;
+    z-index: 3;
 }
 
 .timeline-waypoint-dot {
     position: absolute;
     top: 50%;
-    width: 7px;
-    height: 7px;
+    width: 8px;
+    height: 8px;
     border-radius: 50%;
-    background: var(--water-mineral);
-    border: 1px solid #FFFFFF;
+    background: var(--amber-gold);
+    border: 1.5px solid #071217;
     transform: translate(-50%, -50%);
     pointer-events: auto;
     cursor: pointer;
-    transition: transform 0.2s ease;
+    transition: all 0.2s ease;
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.7);
 }
 
 .timeline-waypoint-dot:hover {
-    transform: translate(-50%, -50%) scale(1.5);
-    background: var(--amber-gold);
+    transform: translate(-50%, -50%) scale(1.6);
+    background: #FFFFFF;
+    border-color: var(--terracotta);
+}
+
+/* Tooltip interactivo flotante con miniatura del río */
+.timeline-scrub-tooltip {
+    position: absolute;
+    bottom: calc(100% + 12px);
+    left: 0%;
+    transform: translateX(-50%);
+    background: rgba(8, 20, 26, 0.95);
+    border: 1px solid var(--amber-gold);
+    border-radius: 12px;
+    padding: 6px 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.85), 0 0 15px rgba(184, 133, 68, 0.2);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    pointer-events: none;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s ease, transform 0.08s ease-out;
+    z-index: 10;
+    white-space: nowrap;
+    max-width: 280px;
+}
+
+.timeline-scrub-tooltip.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.timeline-scrub-tooltip::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 6px;
+    border-style: solid;
+    border-color: var(--amber-gold) transparent transparent transparent;
+}
+
+.tooltip-img {
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    object-fit: cover;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    flex-shrink: 0;
+}
+
+.tooltip-text-box {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.tooltip-title {
+    font-size: 11px;
+    font-weight: 700;
+    color: #FAF6F0;
+    line-height: 1.2;
+}
+
+.tooltip-sub {
+    font-size: 9px;
+    color: var(--amber-gold);
+    margin-top: 2px;
 }
 
 .timeline-hint-pill {
@@ -1240,21 +1358,50 @@ body, html {
     margin-bottom: 16px;
 }
 
-.struggles-search-box {
+.struggles-search-row {
+    display: flex;
+    gap: 10px;
+    align-items: center;
     width: 100%;
+}
+
+.struggles-search-box {
+    flex: 1;
     background: rgba(12, 28, 36, 0.9);
-    border: 1px solid var(--terracotta);
+    border: 1px solid var(--border-glass);
     border-radius: 24px;
     padding: 9px 18px;
     color: var(--text-pure);
     font-size: 12px;
     outline: none;
     font-family: var(--font-sans);
+    transition: all 0.2s ease;
 }
 
 .struggles-search-box:focus {
     border-color: var(--amber-gold);
-    box-shadow: 0 0 12px var(--amber-glow);
+    box-shadow: 0 0 10px var(--amber-glow);
+}
+
+.btn-add-node-catalog {
+    background: var(--terracotta);
+    border: 1px solid var(--terracotta-bright);
+    color: #FFFFFF;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 700;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.btn-add-node-catalog:hover {
+    background: var(--terracotta-bright);
+    transform: translateY(-1px);
 }
 
 .filter-pills-row {
@@ -1358,6 +1505,24 @@ body, html {
     line-height: 1.35;
 }
 
+.community-item-card {
+    border-color: rgba(184, 133, 68, 0.45);
+    background: rgba(184, 133, 68, 0.08);
+}
+
+.community-pill-tag {
+    font-size: 8px;
+    font-weight: 700;
+    text-transform: uppercase;
+    background: rgba(184, 133, 68, 0.22);
+    border: 1px solid var(--amber-gold);
+    color: var(--amber-gold);
+    padding: 1px 6px;
+    border-radius: 8px;
+    margin-left: 5px;
+    vertical-align: middle;
+}
+
 /* ============================================================
    7. MODAL: EDITOR DE MEMORIA TERRITORIAL & COMUNITARIA
    ============================================================ */
@@ -1441,6 +1606,40 @@ body, html {
 .form-input:focus, .form-textarea:focus {
     border-color: var(--amber-gold);
     box-shadow: 0 0 8px var(--amber-glow);
+}
+
+.coords-helper-box {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(184, 133, 68, 0.08);
+    border: 1px dashed rgba(184, 133, 68, 0.35);
+    padding: 8px 12px;
+    border-radius: 8px;
+}
+
+.btn-coords-helper {
+    background: rgba(12, 28, 36, 0.9);
+    border: 1px solid var(--amber-gold);
+    color: var(--amber-gold);
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 10px;
+    font-weight: 700;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.2s ease;
+}
+
+.btn-coords-helper:hover {
+    background: var(--amber-gold);
+    color: #081116;
+}
+
+.coords-note {
+    font-size: 10px;
+    color: var(--text-muted);
+    line-height: 1.35;
 }
 
 .form-textarea {

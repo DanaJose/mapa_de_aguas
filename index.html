@@ -17,8 +17,8 @@
              1. PORTAL DE ENTRADA: COLLAGE SATELITAL INMERSIVO (LAND LINES)
              ============================================================== -->
         <section class="portal-screen" id="portal-screen">
-            <!-- Fondo de Mosaico / Collage Satelital Dinámico -->
-            <div class="portal-collage-backdrop" aria-hidden="true">
+            <!-- Fondo de Mosaico / Collage Satelital Dinámico (Alimentado en Tiempo Real) -->
+            <div class="portal-collage-backdrop" id="portal-collage-backdrop" aria-hidden="true">
                 <div class="collage-tile tile-1" style="--tile-img: url('assets/rio_bravo_canon.jpg');">
                     <span class="collage-caption">Cañón del Río Bravo • Altiplano</span>
                 </div>
@@ -150,11 +150,8 @@
 
                 <!-- Capas temáticas -->
                 <div class="layer-tools">
-                    <button class="tool-btn" id="btn-toggle-struggles" title="Activar/Desactivar marcadores de las 94 Luchas Territoriales">
-                        <span>✊</span> <span class="btn-label">Luchas 94</span>
-                    </button>
-                    <button class="tool-btn" id="btn-toggle-connections" title="Ver bifurcaciones intercuencas (Casiquiare, Divisoria Continental)">
-                        <span>🔗</span> <span class="btn-label">Conexiones</span>
+                    <button class="tool-btn" id="btn-toggle-struggles" title="Activar/Desactivar marcadores de las Luchas Territoriales">
+                        <span>✊</span> <span class="btn-label">Luchas</span>
                     </button>
                 </div>
 
@@ -325,8 +322,11 @@
                         <button class="btn-edit-memory" id="btn-edit-current-struggle" title="Completar datos o añadir imagen a este nodo">
                             ✏️ Editar / Aportar Memoria
                         </button>
-                        <button class="btn-browse-all-struggles" id="btn-open-catalog-from-dossier" title="Explorar el índice de los 94 nodos">
-                            🔍 Catálogo de 94 Nodos
+                        <button class="btn-add-new-struggle" id="btn-add-new-struggle" title="Añadir una nueva lucha territorial o nudo de agua al mapa">
+                            ➕ Añadir Nuevo Nodo
+                        </button>
+                        <button class="btn-browse-all-struggles" id="btn-open-catalog-from-dossier" title="Explorar el índice de los nodos">
+                            🔍 Catálogo de Nodos
                         </button>
                     </div>
                 </div>
@@ -345,7 +345,18 @@
                 </div>
 
                 <div class="timeline-track-wrapper" id="timeline-track-wrapper">
+                    <!-- Tooltip flotante interactivo con vista previa fotográfica -->
+                    <div class="timeline-scrub-tooltip" id="timeline-scrub-tooltip">
+                        <img class="tooltip-img" id="tooltip-img" src="assets/abya_yala_red_hidrica.png" alt="Hito">
+                        <div class="tooltip-text-box">
+                            <span class="tooltip-title" id="tooltip-title">Naciente</span>
+                            <span class="tooltip-sub" id="tooltip-sub">Hito fluvial (0%)</span>
+                        </div>
+                    </div>
+
                     <div class="timeline-track" id="timeline-track">
+                        <!-- Silueta real de meandros del río en tiempo real -->
+                        <canvas id="timeline-river-canvas" class="timeline-river-canvas"></canvas>
                         <div class="timeline-progress-fill" id="timeline-progress-fill"></div>
                         <div class="timeline-handle" id="timeline-handle"></div>
                         <!-- Waypoints markers sobre la barra -->
@@ -360,31 +371,37 @@
         </footer>
 
         <!-- ==============================================================
-             6. MODAL: CATÁLOGO COMPLETO DE LAS 94 LUCHAS DEL AGUA
+             6. MODAL: CATÁLOGO COMPLETO DE LUCHAS DEL AGUA
              ============================================================== -->
         <div class="struggles-index-modal interactive" id="struggles-index-modal">
             <div class="struggles-index-card">
                 <header class="struggles-modal-header">
                     <div>
                         <span class="modal-kicker">CARTOGRAFÍA CONTINENTAL DE RESISTENCIA</span>
-                        <h2 class="modal-title">Red de 94 Defensas del Agua de Abya Yala</h2>
+                        <h2 class="modal-title">Red de Defensas del Agua de Abya Yala</h2>
                     </div>
                     <button class="modal-close-btn" id="btn-close-struggles-modal" title="Cerrar">✕</button>
                 </header>
 
                 <div class="struggles-modal-toolbar">
-                    <input type="text" class="struggles-search-box" id="struggles-search-input" placeholder="🔍 Buscar por nombre, amenaza (litio, minería, arsénico) o número (1-94)...">
+                    <div class="struggles-search-row">
+                        <input type="text" class="struggles-search-box" id="struggles-search-input" placeholder="🔍 Buscar por nombre, amenaza (litio, minería, arsénico) o número...">
+                        <button class="btn-add-node-catalog" id="btn-add-node-catalog" title="Registrar un nuevo nodo de defensa o vertiente">
+                            ➕ Añadir Nueva Lucha
+                        </button>
+                    </div>
                     <div class="filter-pills-row" id="struggles-filter-pills">
-                        <button class="filter-pill active" data-filter="all">Todos (94)</button>
-                        <button class="filter-pill" data-filter="México">México (1-35)</button>
-                        <button class="filter-pill" data-filter="Centroamérica">Centroamérica (36-54)</button>
-                        <button class="filter-pill" data-filter="Andes">Andes (55-79)</button>
-                        <button class="filter-pill" data-filter="Cono Sur">Cono Sur & Brasil (80-94)</button>
+                        <button class="filter-pill active" data-filter="all">Todos</button>
+                        <button class="filter-pill" data-filter="México">México</button>
+                        <button class="filter-pill" data-filter="Centroamérica">Centroamérica</button>
+                        <button class="filter-pill" data-filter="Andes">Andes</button>
+                        <button class="filter-pill" data-filter="Cono Sur">Cono Sur & Brasil</button>
+                        <button class="filter-pill" data-filter="Comunitarios">Añadidos Comunitarios</button>
                     </div>
                 </div>
 
                 <div class="struggles-grid-container" id="struggles-grid-container">
-                    <!-- Se puebla dinámicamente con las 94 tarjetas -->
+                    <!-- Se puebla dinámicamente con las tarjetas -->
                 </div>
             </div>
         </div>
@@ -425,6 +442,25 @@
                             <label class="form-label" for="edit-node-threat">Tipo de Amenaza / Conflicto Ecológico</label>
                             <input type="text" id="edit-node-threat" class="form-input" placeholder="Ej: Megaminería, Fracking, Litio, Represa" required>
                         </div>
+                    </div>
+
+                    <!-- Coordenadas Geográficas -->
+                    <div class="form-row two-cols">
+                        <div class="form-group">
+                            <label class="form-label" for="edit-node-lat">Latitud (°)</label>
+                            <input type="number" step="any" id="edit-node-lat" class="form-input" placeholder="Ej: 14.50" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="edit-node-lng">Longitud (°)</label>
+                            <input type="number" step="any" id="edit-node-lng" class="form-input" placeholder="Ej: -88.22" required>
+                        </div>
+                    </div>
+
+                    <div class="coords-helper-box">
+                        <button type="button" class="btn-coords-helper" id="btn-capture-camera-coords" title="Toma las coordenadas del centro visible del mapa">
+                            📍 Tomar coordenadas del centro actual del mapa
+                        </button>
+                        <span class="coords-note">Ubica el nuevo nodo en el lugar exacto que estés encuadrando.</span>
                     </div>
 
                     <div class="form-group">

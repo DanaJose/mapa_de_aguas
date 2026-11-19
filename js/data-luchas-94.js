@@ -1150,23 +1150,34 @@ const LUCHAS_94_DATA_RAW = [
     }
 ];
 
-// Clase gestora con persistencia en localStorage para permitir ediciones comunitarias
+// Clase gestora con persistencia en localStorage para permitir aportes y creación de nuevos nodos
 class Luchas94Store {
     constructor() {
         this.storageKey = "abya_yala_luchas_user_db_v1";
+        this.customNodesKey = "abya_yala_custom_nodes_v1";
         this.nodes = this.loadData();
     }
 
     loadData() {
         let userEdits = {};
+        let customNodes = [];
+
         try {
-            const raw = localStorage.getItem(this.storageKey);
-            if (raw) userEdits = JSON.parse(raw);
+            const rawEdits = localStorage.getItem(this.storageKey);
+            if (rawEdits) userEdits = JSON.parse(rawEdits);
         } catch (e) {
-            console.warn("No se pudo leer localStorage:", e);
+            console.warn("No se pudo leer ediciones de localStorage:", e);
         }
 
-        return LUCHAS_94_DATA_RAW.map(item => {
+        try {
+            const rawCustom = localStorage.getItem(this.customNodesKey);
+            if (rawCustom) customNodes = JSON.parse(rawCustom);
+        } catch (e) {
+            console.warn("No se pudo leer nodos personalizados de localStorage:", e);
+        }
+
+        // 1. Nodos base de Abya Yala con posibles ediciones comunitarias
+        const baseNodes = LUCHAS_94_DATA_RAW.map(item => {
             const override = userEdits[item.num] || {};
             const merged = { ...item, ...override };
 
@@ -1174,8 +1185,23 @@ class Luchas94Store {
             const proj = SatelliteTileEngine.project(merged.lat, merged.lng);
             merged.x = proj.x;
             merged.y = proj.y;
+            merged.isCustom = false;
             return merged;
         });
+
+        // 2. Nodos nuevos agregados por la comunidad
+        const projectedCustom = customNodes.map(item => {
+            const override = userEdits[item.num] || {};
+            const merged = { ...item, ...override };
+
+            const proj = SatelliteTileEngine.project(merged.lat, merged.lng);
+            merged.x = proj.x;
+            merged.y = proj.y;
+            merged.isCustom = true;
+            return merged;
+        });
+
+        return [...baseNodes, ...projectedCustom];
     }
 
     getNodeByNum(num) {
@@ -1201,16 +1227,67 @@ class Luchas94Store {
             console.error("Error guardando en localStorage:", e);
         }
 
+        // Si es un nodo comunitario, también actualizamos su definición base si cambiaron coordenadas
+        if (updatedFields.lat !== undefined && updatedFields.lng !== undefined) {
+            try {
+                let customNodes = JSON.parse(localStorage.getItem(this.customNodesKey) || "[]");
+                const cIdx = customNodes.findIndex(c => c.num === parseInt(num));
+                if (cIdx !== -1) {
+                    customNodes[cIdx] = { ...customNodes[cIdx], ...updatedFields };
+                    localStorage.setItem(this.customNodesKey, JSON.stringify(customNodes));
+                }
+            } catch (e) {}
+        }
+
         // Recargar nodos en memoria
         this.nodes = this.loadData();
         return this.getNodeByNum(num);
+    }
+
+    addNewNode(nodeData) {
+        let customNodes = [];
+        try {
+            const rawCustom = localStorage.getItem(this.customNodesKey);
+            if (rawCustom) customNodes = JSON.parse(rawCustom);
+        } catch (e) {}
+
+        // Calcular siguiente número consecutivo
+        const allNums = this.nodes.map(n => parseInt(n.num) || 0);
+        const nextNum = (allNums.length > 0 ? Math.max(...allNums) : 94) + 1;
+
+        const newNode = {
+            num: nextNum,
+            nombre: nodeData.nombre || `Territorio #${nextNum}`,
+            cuenca: nodeData.cuenca || "Cuenca Local",
+            pais: nodeData.pais || "Abya Yala",
+            estado: nodeData.estado || "",
+            lat: parseFloat(nodeData.lat) || 0,
+            lng: parseFloat(nodeData.lng) || 0,
+            amenaza: nodeData.amenaza || "Defensa ambiental del agua y territorio",
+            comunidades: nodeData.comunidades || "Asamblea / Comunidad Local",
+            texto: nodeData.texto || "",
+            imagen: nodeData.imagen || "assets/abya_yala_red_hidrica.png",
+            isCustom: true,
+            createdAt: new Date().toISOString()
+        };
+
+        customNodes.push(newNode);
+
+        try {
+            localStorage.setItem(this.customNodesKey, JSON.stringify(customNodes));
+        } catch (e) {
+            console.error("Error guardando nuevo nodo comunitario:", e);
+        }
+
+        this.nodes = this.loadData();
+        return this.getNodeByNum(nextNum);
     }
 
     exportJSON() {
         const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(this.nodes, null, 2));
         const downloadAnchor = document.createElement("a");
         downloadAnchor.setAttribute("href", dataStr);
-        downloadAnchor.setAttribute("download", "abya_yala_luchas_agua_94.json");
+        downloadAnchor.setAttribute("download", "abya_yala_red_luchas_completo.json");
         document.body.appendChild(downloadAnchor);
         downloadAnchor.click();
         downloadAnchor.remove();
