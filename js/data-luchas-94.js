@@ -42,7 +42,7 @@ const LUCHAS_94_DATA_RAW = [
         amenaza: "Minería de fosforita submarina y terrestre / Desalación industrial",
         comunidades: "Comunidades costeras de San Juan de la Costa y Punta Coyote",
         texto: "Histórica defensa pesquera y comunitaria frente a proyectos de dragado y minería de fosfato en aguas del Golfo de California que pondrían en riesgo los ecosistemas marinos y costeros.",
-        imagen: "assets/rio_colorado_horseshoe_bend.jpg"
+        imagen: "assets/io_bravo_santa_elena.jpg"
     },
     {
         num: 4,
@@ -54,7 +54,7 @@ const LUCHAS_94_DATA_RAW = [
         amenaza: "Megaproyectos de minería de oro a cielo abierto (Los Cardones / Paredones Amarillos)",
         comunidades: "Frente Ciudadano en Defensa del Agua de Baja California Sur",
         texto: "La Sierra de la Laguna es la única reserva de agua dulce para La Paz y Los Cabos. La ciudadanía ha frenado exitosamente intentos de minería con cianuro que contaminarían el agua subterránea.",
-        imagen: "assets/rio_colorado_horseshoe_bend.jpg"
+        imagen: "assets/io_bravo_santa_elena.jpg"
     },
     {
         num: 5,
@@ -102,7 +102,7 @@ const LUCHAS_94_DATA_RAW = [
         amenaza: "Monopolio agroindustrial del agua y salinización de mantos freáticos",
         comunidades: "Pueblo Indígena Yoreme-Mayo",
         texto: "Comunidades Yoreme que defienden sus derechos al agua del río Mayo frente a la concentración hídrica de los grandes terratenientes agrícolas y el desabasto doméstico.",
-        imagen: "assets/rio_colorado_gran_canon.jpg"
+        imagen: "assets/rio_bravo_canon.jpg"
     },
     {
         num: 9,
@@ -114,7 +114,7 @@ const LUCHAS_94_DATA_RAW = [
         amenaza: "Desecación total del delta por represamiento y absorción aguas arriba en EE.UU.",
         comunidades: "Pueblo Indígena Cucapá y pescadores ribereños",
         texto: "El otrora vergel del delta del Colorado fue convertido en un desierto de salitre. Los Cucapá ('gente del río') luchan por su derecho a la pesca ancestral y a que el río vuelva a tocar el mar.",
-        imagen: "assets/rio_colorado_gran_canon.jpg"
+        imagen: "assets/rio_colorado_horseshoe_bend.jpg"
     },
     {
         num: 10,
@@ -138,7 +138,7 @@ const LUCHAS_94_DATA_RAW = [
         amenaza: "Conflicto por el Tratado de Aguas de 1944 y extracción desmedida para nogaleras",
         comunidades: "Agricultores locales y pueblos ribereños del Conchos (La Boquilla)",
         texto: "Escenario de la 'Guerra del Agua de Chihuahua' en 2020: agricultores y defensores tomaron la presa La Boquilla para evitar el vaciado del agua en plena sequía extrema.",
-        imagen: "assets/rio_bravo_canon.jpg"
+        imagen: "assets/io_bravo_santa_elena.jpg"
     },
     {
         num: 12,
@@ -186,7 +186,7 @@ const LUCHAS_94_DATA_RAW = [
         amenaza: "Contaminación con flúor y metales pesados en el agua potable",
         comunidades: "Habitantes del Valle de Durango",
         texto: "Sobreexplotación del acuífero que ha incrementado la presencia de flúor en el agua de consumo, afectando la salud dental y ósea de la infancia en las comunidades periféricas.",
-        imagen: "assets/io_bravo_santa_elena.jpg"
+        imagen: "assets/rio_bravo_canon.jpg"
     },
     {
         num: 16,
@@ -222,7 +222,7 @@ const LUCHAS_94_DATA_RAW = [
         amenaza: "Presión turística y proyectos de trasvase hacia zonas industriales",
         comunidades: "Ejidatarios de El Jabalí y pueblos de la Zona Media",
         texto: "El manantial termal de la Media Luna es un ecosistema cárstico único. Las comunidades defienden el caudal frente a proyectos de trasvase hacia la zona fabril.",
-        imagen: "assets/io_bravo_santa_elena.jpg"
+        imagen: "assets/pantanos_de_centla.jpg"
     },
     {
         num: 19,
@@ -234,7 +234,7 @@ const LUCHAS_94_DATA_RAW = [
         amenaza: "Basurero tóxico de confinamiento y aguas subterráneas con arsénico natural y minero",
         comunidades: "Pobladores otomíes y campesinos de Zimapán",
         texto: "Fuerte movilización social que expulsó a la empresa española Befesa que pretendía instalar un confinamiento de residuos peligrosos sobre las cuencas que alimentan manantiales.",
-        imagen: "assets/io_bravo_santa_elena.jpg"
+        imagen: "assets/pantanos_de_centla.jpg"
     },
     {
         num: 20,
@@ -330,7 +330,7 @@ const LUCHAS_94_DATA_RAW = [
         amenaza: "Presencia crítica de arsénico y fluoruro en pozos de agua potable",
         comunidades: "Coalición de Comunidades de la Cuenca de la Independencia (CODECIN)",
         texto: "Más de 2.500 pozos que abastecen a la agroexportación de hortalizas han abatido el acuífero, provocando que el agua de más de 400 comunidades tenga niveles letales de arsénico.",
-        imagen: "assets/rio_cangrejal_pico_bonito.jpg"
+        imagen: "assets/rio_bravo_canon.jpg"
     },
     {
         num: 28,
@@ -342,7 +342,7 @@ const LUCHAS_94_DATA_RAW = [
         amenaza: "Pasivos ambientales mineros de metales pesados en las grutas y ríos",
         comunidades: "Pobladores de Taxco el Viejo y Cañón de Chontalcoatlán",
         texto: "Las presas de jales de siglos de minería de plata sin remediar lixivian plomo y cadmio a los ríos subterráneos que alimentan el Parque Nacional Grutas de Cacahuamilpa.",
-        imagen: "assets/rio_gualcarque_sagrado.jpg"
+        imagen: "assets/rio_bravo_canon.jpg"
     },
     {
         num: 29,
@@ -354,7 +354,7 @@ const LUCHAS_94_DATA_RAW = [
         amenaza: "Contaminación con plomo, arsénico y manganeso en el agua de pozos y ollas",
         comunidades: "Pueblo indígena Nahua de Tlamacazapa",
         texto: "Comunidad nahua célebre por su artesanía de palma donde el agua presenta concentraciones de metales pesados causantes de retrasos en el neurodesarrollo infantil.",
-        imagen: "assets/rio_gualcarque_sagrado.jpg"
+        imagen: "assets/io_bravo_santa_elena.jpg"
     },
     {
         num: 30,
@@ -366,7 +366,7 @@ const LUCHAS_94_DATA_RAW = [
         amenaza: "Mina de plata y oro San José (Fortuna Silver Mines)",
         comunidades: "Frente de Pueblos Unidos del Valle de Ocotlán (Zapotecos)",
         texto: "Comunidades zapotecas organizadas en defensa de sus pozos de siembra frente a los derrames de jales tóxicos de la empresa canadiense y la represión a sus defensores comunitarios.",
-        imagen: "assets/rio_gualcarque_sagrado.jpg"
+        imagen: "assets/usumacinta_yaxchilan.jpg"
     },
     {
         num: 31,
@@ -390,7 +390,7 @@ const LUCHAS_94_DATA_RAW = [
         amenaza: "Ductos petroleros submarinos y costeros con fugas crónicas",
         comunidades: "Pescadores costeros de Frontera y Paraíso",
         texto: "Zonas de humedales costeros y manglares impactados por la infraestructura de extracción de hidrocarburos de PEMEX.",
-        imagen: "assets/pantanos_de_centla.jpg"
+        imagen: "assets/usumacinta_yaxchilan.jpg"
     },
     {
         num: 33,
@@ -414,7 +414,7 @@ const LUCHAS_94_DATA_RAW = [
         amenaza: "Plataformas marinas de extracción y derrames en altamar",
         comunidades: "Cooperativas pesqueras del Golfo de México",
         texto: "Complejo marino de plataformas petroleras en la Sonda de Campeche que ha desplazado a las flotas de pesca tradicional y generado derrames de crudo en aguas someras.",
-        imagen: "assets/pantanos_de_centla.jpg"
+        imagen: "assets/mississippi_delta_pie_pajaro.jpg"
     },
     {
         num: 35,
@@ -426,7 +426,7 @@ const LUCHAS_94_DATA_RAW = [
         amenaza: "Grandes explosiones en plataformas y fuga constante de hidrocarburos",
         comunidades: "Pueblos pesqueros de Ciudad del Carmen",
         texto: "Centro neurálgico de producción petrolera marina donde los incendios y emanaciones de crudo impactan directamente los corredores marinos y lagunas costeras protegidas.",
-        imagen: "assets/pantanos_de_centla.jpg"
+        imagen: "assets/mississippi_delta_pie_pajaro.jpg"
     },
 
     // =============================================================
@@ -442,7 +442,7 @@ const LUCHAS_94_DATA_RAW = [
         amenaza: "Areneras ilegales que destruyen los cerros y desvían el río hacia cloacas industriales",
         comunidades: "Pueblo Indígena Maya Poqomam de Santa Cruz Chinautla",
         texto: "El pueblo Poqomam mantiene una resistencia histórica y pacífica en defensa del río y su barro alfarero sagrado frente a las areneras que destruyen su comunidad.",
-        imagen: "assets/rio_platano_meandros_selva.jpg"
+        imagen: "assets/usumacinta_yaxchilan.jpg"
     },
     {
         num: 37,
@@ -466,7 +466,7 @@ const LUCHAS_94_DATA_RAW = [
         amenaza: "Sobreexplotación del acuífero para la capital y presencia natural de boro y arsénico",
         comunidades: "Comunidades de pescadores artesanales y pueblos lencas/pipiles históricos",
         texto: "Lago cratérico donde convergen desafíos de presión hídrica urbana extrema con fuentes termales hidrotermales subterráneas.",
-        imagen: "assets/rio_gualcarque_canon.jpg"
+        imagen: "assets/rio_cangrejal_rapidos.jpg"
     },
     {
         num: 39,
@@ -478,7 +478,7 @@ const LUCHAS_94_DATA_RAW = [
         amenaza: "Sedimentación, deforestación y pérdida del espejo de agua dulce",
         comunidades: "Poblaciones pesqueras y campesinas del oriente salvadoreño",
         texto: "El mayor cuerpo de agua dulce del oriente de El Salvador (sitio Ramsar). Las comunidades luchan por reforestar sus cuencas altas para evitar que se colmate por completo.",
-        imagen: "assets/rio_gualcarque_canon.jpg"
+        imagen: "assets/rio_cangrejal_pico_bonito.jpg"
     },
     {
         num: 40,
@@ -490,7 +490,7 @@ const LUCHAS_94_DATA_RAW = [
         amenaza: "Contaminación con metales pesados por la mina San Martín (Goldcorp)",
         comunidades: "Comité Ambientalista del Valle de Siria",
         texto: "Lucha histórica y dolorosa en Centroamérica: la mina a cielo abierto secó 19 fuentes de agua y dejó a cientos de pobladores con plomo, arsénico y mercurio en la sangre, alopecia y malformaciones.",
-        imagen: "assets/rio_gualcarque_sagrado.jpg"
+        imagen: "assets/rio_platano_biosfera.jpg"
     },
     {
         num: 41,
@@ -562,7 +562,7 @@ const LUCHAS_94_DATA_RAW = [
         amenaza: "Afectación de fuentes hídricas por actividades extractivas y ganaderas",
         comunidades: "Comunidades rurales de Juigalpa",
         texto: "Defensa del río Mayales como única fuente de abastecimiento para Juigalpa y zonas rurales circunvecinas.",
-        imagen: "assets/rio_coco_wangki_miskitu.jpg"
+        imagen: "assets/rio_platano_meandros_selva.jpg"
     },
     {
         num: 47,
@@ -610,7 +610,7 @@ const LUCHAS_94_DATA_RAW = [
         amenaza: "Presión hidroeléctrica de pasada y defensa de ríos vivos",
         comunidades: "Comunidades de San Carlos y San Ramón",
         texto: "Comunidades que han defendido que sus ríos no sean entubados completamente para plantas hidroeléctricas privadas de filo de agua.",
-        imagen: "assets/rio_cangrejal_rapidos.jpg"
+        imagen: "assets/rio_platano_biosfera.jpg"
     },
     {
         num: 51,
@@ -722,7 +722,7 @@ const LUCHAS_94_DATA_RAW = [
         amenaza: "Deforestación de páramos y contaminación de cuencas abastecedoras",
         comunidades: "Pobladores de Manizales y municipios cafeteros",
         texto: "Protección ciudadana del páramo que abastece de agua a la ciudad de Manizales frente a la expansión agrícola intensiva y la minería.",
-        imagen: "assets/magdalena_estrecho_san_agustin.jpg"
+        imagen: "assets/magdalena_macizo_colombiano.jpg"
     },
     {
         num: 60,
@@ -758,7 +758,7 @@ const LUCHAS_94_DATA_RAW = [
         amenaza: "Dragado indiscriminado de oro con retroexcavadoras y vertimiento de cianuro",
         comunidades: "Consejos Comunitarios del Pueblo Afro de Barbacoas y Pueblo Awá",
         texto: "Territorio de asombrosa pluviosidad donde la minería con dragas y mercurio ha destruido el lecho del río Telembí, vital para la pesca y supervivencia de las familias afrodescendientes e indígenas.",
-        imagen: "assets/magdalena_macizo_colombiano.jpg"
+        imagen: "assets/orinoco_casiquiare_bifurcacion.jpg"
     },
     {
         num: 63,
@@ -782,7 +782,7 @@ const LUCHAS_94_DATA_RAW = [
         amenaza: "Oleoducto OCP sobre zonas de páramo y derrames crónicos de petróleo",
         comunidades: "Comunidades Kichwa de Papallacta y Quijos",
         texto: "La laguna de Papallacta y sus ríos abastecen más del 60% del agua potable de Quito. Los repetidos derrames del Oleoducto de Crudos Pesados han contaminado gravemente estas fuentes puras.",
-        imagen: "assets/amazonas_encuentro_aguas_manaus.jpg"
+        imagen: "assets/orinoco_casiquiare_bifurcacion.jpg"
     },
     {
         num: 65,
@@ -866,7 +866,7 @@ const LUCHAS_94_DATA_RAW = [
         amenaza: "Contaminación con metales pesados por minería en Juliaca y Coata",
         comunidades: "Pueblos Originarios Quechua y Aymara de la Cuenca del Coata",
         texto: "El lago navegable más alto del mundo, cuna sagrada de los fundadores del imperio inca. Las aguas del río Coata bajan con arsénico y mercurio, llevando a huelgas y movilizaciones aymaras.",
-        imagen: "assets/amazonas_nevado_mismi.jpg"
+        imagen: "assets/gran_pantanal_humedal.jpg"
     },
     {
         num: 72,
@@ -878,7 +878,7 @@ const LUCHAS_94_DATA_RAW = [
         amenaza: "Efluentes de la megaminería de cobre de Southern Copper (Toquepala)",
         comunidades: "Agricultores de Locumba y población de Ilo",
         texto: "Histórica disputa por el agua en el desierto costero: durante décadas los relaves mineros de Toquepala fueron arrojados al mar y contaminaron las aguas agrícolas del valle.",
-        imagen: "assets/rio_colorado_horseshoe_bend.jpg"
+        imagen: "assets/patagonia_rio_santa_cruz.jpg"
     },
     {
         num: 73,
@@ -890,7 +890,7 @@ const LUCHAS_94_DATA_RAW = [
         amenaza: "Salinización crítica del acuífero e intrusión marina por sobreexplotación",
         comunidades: "Agricultores de olivos de La Yarada-Los Palos",
         texto: "La zona olivarera más grande de Perú bombea agua del acuífero más allá de su capacidad de recarga, lo que ha provocado que el mar penetre en los pozos de riego.",
-        imagen: "assets/rio_colorado_horseshoe_bend.jpg"
+        imagen: "assets/yukon_cause.jpg"
     },
 
     // =============================================================
@@ -906,7 +906,7 @@ const LUCHAS_94_DATA_RAW = [
         amenaza: "Presencia extrema de boro y arsénico natural más contaminación de agroquímicos",
         comunidades: "Pueblo tribal afrodescendiente chileno y comunidades aymaras",
         texto: "Oasis agrícolas en el desierto hiperárido de Atacama. El río Lluta nace en el volcán Tacora y transporta niveles récord de boro que solo el maíz ancestral lluteño tolera.",
-        imagen: "assets/rio_colorado_horseshoe_bend.jpg"
+        imagen: "assets/yukon_cause.jpg"
     },
     {
         num: 75,
@@ -918,7 +918,7 @@ const LUCHAS_94_DATA_RAW = [
         amenaza: "Escasez hídrica aguda y proyectos mineros en la precordillera",
         comunidades: "Comunidades de la Cultura Chinchorro milenaria",
         texto: "Cuna de las momias más antiguas de la humanidad (Cultura Chinchorro, 7.000 años de antigüedad). Sus habitantes prehistóricos ya presentaban arsenicismo por beber de este río.",
-        imagen: "assets/rio_colorado_horseshoe_bend.jpg"
+        imagen: "assets/patagonia_rio_santa_cruz.jpg"
     },
     {
         num: 76,
@@ -930,7 +930,7 @@ const LUCHAS_94_DATA_RAW = [
         amenaza: "Saqueo hídrico por la megaminería de cobre (Chuquicamata) y extracción de litio",
         comunidades: "Pueblos Lickanantay (Atacameños) y Quechua de Ollagüe y Chiu Chiu",
         texto: "El único río que cruza el desierto más seco de la Tierra fue secado en sus afluentes como el río San Salvador para enfriar las fundiciones de cobre de Codelco.",
-        imagen: "assets/rio_colorado_horseshoe_bend.jpg"
+        imagen: "assets/ukon_delta_bering.jpg"
     },
     {
         num: 77,
@@ -942,7 +942,7 @@ const LUCHAS_94_DATA_RAW = [
         amenaza: "El desastre geotérmico de 2009 por perforación de Geotérmica del Norte",
         comunidades: "Pueblo Atacameño de Caspana y Toconce",
         texto: "En 2009 una perforación exploratoria descontrolada reventó una fumarola artificial de 60 metros que dañó el campo de géiseres sagrado más alto del planeta (4.300 msnm).",
-        imagen: "assets/rio_colorado_horseshoe_bend.jpg"
+        imagen: "assets/ukon_delta_bering.jpg"
     },
     {
         num: 78,
@@ -990,7 +990,7 @@ const LUCHAS_94_DATA_RAW = [
         amenaza: "Drenaje ácido de cientos de minas activas y abandonadas sobre el río",
         comunidades: "Coordinadora en Defensa del Río Desaguadero y Lagos Uru Uru y Poopó (CORIDUP)",
         texto: "Comunidades campesinas originarias que han marchado cientos de kilómetros exigiendo que las cooperativas y multinacionales mineras no viertan arsénico y sulfatos a los humedales altiplánicos.",
-        imagen: "assets/gran_pantanal_humedal.jpg"
+        imagen: "assets/mackenzie_meandros.jpg"
     },
     {
         num: 82,
@@ -1002,7 +1002,7 @@ const LUCHAS_94_DATA_RAW = [
         amenaza: "Desaparición total del segundo lago más grande de Bolivia en 2015",
         comunidades: "Pueblo Indígena Uru-Chipaya ('Hombres del Agua')",
         texto: "Tragedia ecológica mundial: el lago Poopó (sitio Ramsar de 3.000 km²) se evaporó y convirtió en un desierto de salitre por el desvío del río Desaguadero para riego y minería.",
-        imagen: "assets/gran_pantanal_humedal.jpg"
+        imagen: "assets/mackenzie_meandros.jpg"
     },
     {
         num: 83,
@@ -1062,7 +1062,7 @@ const LUCHAS_94_DATA_RAW = [
         amenaza: "Fumigaciones masivas con glifosato y desmonte para soja transgénica",
         comunidades: "Pueblos Originarios Qom, Wichí y Moqoit",
         texto: "El avance de la frontera agrícola sojera en el Gran Chaco ha arrasado millones de hectáreas de bosque nativo, secando pozos de agua y envenenando las aguadas con agrotóxicos.",
-        imagen: "assets/gran_pantanal_humedal.jpg"
+        imagen: "assets/ataratas_del_iguazu.jpg"
     },
     {
         num: 88,
@@ -1134,7 +1134,7 @@ const LUCHAS_94_DATA_RAW = [
         amenaza: "Destrucción de sierras de recarga acuífera por minería de hierro",
         comunidades: "Comunidades del Quadrilátero Ferrífero",
         texto: "El corazón del hierro en Brasil. Las montañas que actúan como castillos de agua dulce son rebanadas para exportar mineral bruto a China, dejando los valles sin manantiales.",
-        imagen: "assets/ocantins_araguaia_cerrado.jpg"
+        imagen: "assets/san_francisco_canon_paulo_afonso.jpg"
     },
     {
         num: 94,
@@ -1146,7 +1146,7 @@ const LUCHAS_94_DATA_RAW = [
         amenaza: "El mayor desastre ambiental en la historia de Brasil (Ruptura de presa de Fundão)",
         comunidades: "Pueblo Krenak y comunidades ribereñas de todo el Río Doce",
         texto: "En 2015, la presa de relaves de Samarco (Vale y BHP) colapsó arrojando 60 millones de metros cúbicos de lodo tóxico. Mató a 19 personas y aniquiló por completo el sagrado 'Watu' (Río Doce) para el pueblo Krenak.",
-        imagen: "assets/ocantins_araguaia_cerrado.jpg"
+        imagen: "assets/amazonas_delta_marajo.jpg"
     }
 ];
 
